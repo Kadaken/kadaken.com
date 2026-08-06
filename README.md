@@ -5,7 +5,7 @@ Static developer page for beta apps and games.
 ## Local preview
 
 ```bash
-cd "/home/user/Projects/Open Projects/kadaken.com"
+cd /path/to/kadaken.com
 python3 -m http.server 4177
 ```
 
