@@ -1,6 +1,28 @@
 {
-  "version": "4.3.2",
-  "download_url": "https://github.com/Kadaken/agent-workbench/releases",
-  "notes": "Public beta. The AppImage now updates itself: it downloads, checks the published checksum, and swaps in the new build. Plus a plain-words 'Your data' panel in Options.",
-  "published_at": "2026-07-25"
+  "version": "4.7.0",
+  "download_url": "https://github.com/Kadaken/agent-workbench/releases/tag/v4.7.0",
+  "notes": "Linux x86-64 public beta with first-run client discovery, persistent drafts and workspace resume, conflict-safe edits, hardened local data and worker lifecycle protections, and attested checksummed packages. Keep projects in Git and maintain backups.",
+  "published_at": "2026-08-06",
+  "assets": {
+    "appimage": {
+      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.0/Agent_Workbench_Native-4.7.0-x86_64.AppImage",
+      "sha256": "875bf86c766853dca1c59d13c70e4af159fd45a8a73e594ae8f40d1bb436dc23",
+      "size": 13247680
+    },
+    "tarball": {
+      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.0/agent-workbench-native-4.7.0-linux-x64.tar.gz",
+      "sha256": "fc037249e3cedf71870d1cc848001303b680540da312be6bf282ee7650b08faf",
+      "size": 13078027
+    },
+    "deb": {
+      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.0/agent-workbench-native_4.7.0_amd64.deb",
+      "sha256": "93fa0c39461f8d7600b5d0ba80da13863ade07bfbbc1e9471d236d34774fdd1f",
+      "size": 10655438
+    },
+    "checksums": {
+      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.0/SHA256SUMS",
+      "sha256": "ed8d501840f3698ccf319518952d0c41a79b6bc28e0cd67328cd8b06dc4ca891",
+      "size": 328
+    }
+  }
 }
