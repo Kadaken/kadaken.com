@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kadaken | Project Directory</title>
+    <meta
+      name="description"
+      content="Kadaken is a compact directory for desktop programs and web apps."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Kadaken home">
+        <span class="brand-mark">LOZ</span>
+        <span>Kadaken</span>
+      </a>
+      <a class="header-link" href="https://github.com/Kadaken">GitHub</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Project directory</span>
+          <h1>Kadaken</h1>
+          <p>
+            A compact home base for desktop programs and web apps. Some run on
+            Windows, macOS, or Linux. Some web apps can also be used from a phone.
+          </p>
+          <nav class="section-tabs" aria-label="Project sections">
+            <a href="#desktop">Desktop Programs</a>
+            <a href="#web-apps">Web Apps</a>
+          </nav>
+        </div>
+      </section>
+
+      <section id="desktop" class="section">
+        <div class="section-heading">
+          <span class="eyebrow">Desktop Programs</span>
+          <h2>Installable apps</h2>
+        </div>
+
+        <div class="project-list">
+          <article id="codeop" class="project-row featured-row">
+            <div class="project-icon logo-icon">
+              <img src="./assets/codeop-mark.svg" alt="CodeOp logo" />
+            </div>
+            <div class="project-copy">
+              <div class="row-top">
+                <h3>CodeOp</h3>
+                <span class="status active">Active beta</span>
+              </div>
+              <p>Private social room for vibe game testing with friends: chat, file drops, voice, screen share, and remote help.</p>
+              <div class="meta-list">
+                <span>Windows</span>
+                <span>macOS</span>
+                <span>Linux</span>
+              </div>
+            </div>
+            <img class="project-shot" src="./assets/screenshot-codeop-anonymized.png" alt="Anonymized CodeOp game testing room screenshot" />
+            <div class="project-actions codeop-actions">
+              <a href="./projects/codeop.html">View</a>
+              <a data-codeop-download="windows-x86_64" aria-disabled="true">Fresh install for Windows</a>
+              <a data-codeop-download="macos" aria-disabled="true">Fresh install for macOS</a>
+              <a data-codeop-download="linux-x86_64" aria-disabled="true">Fresh install for Linux</a>
+            </div>
+          </article>
+
+          <article id="agent-workbench" class="project-row">
+            <div class="project-icon small-icon">
+              <img src="./assets/agent-workbench.png" alt="Agent Workbench icon" />
+            </div>
+            <div class="project-copy">
+              <div class="row-top">
+                <h3>Agent Workbench Native</h3>
+                <span class="status">Public beta</span>
+              </div>
+              <p>One desk for Claude, Codex, Gemini and local models. Watch agents edit your files live, keep every project's chats in one place, and see what each turn costs as it runs.</p>
+              <div class="meta-list">
+                <span>Linux desktop</span>
+                <span>AppImage &middot; deb &middot; tarball</span>
+                <span>Free &amp; open source</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="./projects/agent-workbench.html">View</a>
+            </div>
+          </article>
+
+          <article class="project-row">
+            <div class="project-icon logo-icon">
+              <img src="./assets/wayfinder-mark.svg" alt="Wayfinder folder logo" />
+            </div>
+            <div class="project-copy">
+              <div class="row-top">
+                <h3>Wayfinder</h3>
+                <span class="status">Desktop utility</span>
+              </div>
+              <p>Native file manager experiment for faster folders, previews, locations, and local navigation.</p>
+              <div class="meta-list">
+                <span>Native Linux</span>
+                <span>Desktop helper</span>
+              </div>
+            </div>
+            <img class="project-shot" src="./assets/screenshot-wayfinder.png" alt="Wayfinder app screenshot" />
+            <div class="project-actions">
+              <a href="./projects/wayfinder.html">View</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="web-apps" class="section">
+        <div class="section-heading">
+          <span class="eyebrow">Web Apps</span>
+          <h2>Browser tools and sites</h2>
+        </div>
+
+        <div class="card-grid">
+          <article id="naked-pulse" class="project-card text-card separate-card">
+            <img src="./assets/screenshot-naked-pulse.png" alt="Naked Pulse website screenshot" />
+            <div>
+              <div class="row-top">
+                <h3>Naked Pulse</h3>
+                <span class="status separate">Separate domain</span>
+              </div>
+              <p>Separate web app and domain for the Naked Pulse experience. Listed here, owned separately.</p>
+              <a class="text-link" href="./projects/naked-pulse.html">View</a>
+            </div>
+          </article>
+
+          <article class="project-card text-card">
+            <img src="./assets/screenshot-dark-reader-lite.png" alt="Dark Reader Lite popup screenshot" />
+            <div>
+              <div class="row-top">
+                <h3>Dark Reader Lite</h3>
+                <span class="status">Browser tool</span>
+              </div>
+              <p>Small browser utility for reducing glare, darkening pages, and making text easier to read.</p>
+              <a class="text-link" href="./projects/dark-reader-lite.html">View</a>
+            </div>
+          </article>
+
+          <article class="project-card text-card">
+            <img src="./assets/screenshot-subagent-viewer.png" alt="Claude Code Subagent Viewer screenshot" />
+            <div>
+              <div class="row-top">
+                <h3>Claude Code Subagent Viewer</h3>
+                <span class="status">Dev tool</span>
+              </div>
+              <p>Developer viewer for inspecting subagent output, tool activity, and session traces.</p>
+              <a class="text-link" href="./projects/claude-code-subagent-viewer.html">View</a>
+            </div>
+          </article>
+
+          <article id="pig-farm" class="project-card text-card quiet-card">
+            <img src="./assets/screenshot-pig-farm.png" alt="The Pig Farm app screenshot" />
+            <div>
+              <div class="row-top">
+                <h3>The Pig Farm</h3>
+                <span class="status private">Private</span>
+              </div>
+              <p>Private financial research workspace for market notes, paper testing, and AI-assisted review.</p>
+              <a class="text-link" href="./projects/the-pig-farm.html">View</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Kadaken</strong>
+      </div>
+      <div class="footer-actions">
+        <a class="coffee-button" href="https://github.com/sponsors/Kadaken" target="_blank" rel="noopener">&#9749; Buy me a coffee</a>
+        <a href="https://github.com/Kadaken">GitHub</a>
+        <a href="#top">Top</a>
+      </div>
+    </footer>
+
+    <script>
+      (() => {
+        fetch("https://codeop-update.kadaken-updates.workers.dev/codeop-manifest.json?invite=S0by_g4FXl4eXk8fHSiKXspi4QdJyteK", { cache: "no-store" })
+          .then((response) => response.ok ? response.json() : null)
+          .then((manifest) => {
+            for (const button of document.querySelectorAll("[data-codeop-download]")) {
+              const installer = manifest?.packages?.[button.dataset.codeopDownload]?.url;
+              if (!installer) continue;
+              button.href = installer;
+              button.removeAttribute("aria-disabled");
+            }
+          })
+          .catch(() => {});
+      })();
+    </script>
+  </body>
+</html>

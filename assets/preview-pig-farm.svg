@@ -1,0 +1,14 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="18" fill="#0D0F0D"/>
+  <rect x="24" y="24" width="592" height="312" rx="16" fill="#151915" stroke="#2C332C"/>
+  <text x="52" y="72" fill="#F4F1E8" font-family="Inter, Arial" font-size="24" font-weight="850">The Pig Farm</text>
+  <text x="52" y="101" fill="#A4AA9E" font-family="Inter, Arial" font-size="14">Private financial research workspace</text>
+  <rect x="52" y="132" width="270" height="148" rx="12" fill="#101310" stroke="#2C332C"/>
+  <path d="M82 230C120 172 154 242 192 194C228 150 258 186 292 154" stroke="#E6BB63" stroke-width="8" stroke-linecap="round"/>
+  <rect x="348" y="132" width="218" height="148" rx="12" fill="#101310" stroke="#2C332C"/>
+  <rect x="374" y="162" width="70" height="10" rx="5" fill="#747D70"/>
+  <rect x="374" y="194" width="142" height="10" rx="5" fill="#747D70"/>
+  <rect x="374" y="226" width="104" height="10" rx="5" fill="#747D70"/>
+  <rect x="52" y="300" width="198" height="18" rx="9" fill="#1B201B"/>
+  <text x="68" y="313" fill="#E6BB63" font-family="Inter, Arial" font-size="11" font-weight="800">PRIVATE / NOT FINANCIAL ADVICE</text>
+</svg>

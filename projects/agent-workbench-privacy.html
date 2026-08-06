@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agent Workbench Privacy | Kadaken</title>
+    <meta name="description" content="Privacy details for the Agent Workbench Native public beta." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header"><a class="brand" href="../index.html"><span class="brand-mark">LOZ</span><span>Kadaken</span></a><a class="header-link" href="./agent-workbench.html">Agent Workbench</a></header>
+    <main class="detail-page">
+      <a class="back-link" href="./agent-workbench.html">Back to Agent Workbench</a>
+      <section class="detail-hero"><span class="eyebrow">Public beta</span><div class="detail-title"><h1>Privacy</h1></div><p>Agent Workbench Native has no AWBN account, advertising, cloud sync, or built-in telemetry.</p></section>
+      <section class="detail-grid">
+        <div class="detail-panel"><h2>Stored locally</h2><p>Chats, attachments, settings, registered project paths, optional saved keys, and artifacts are stored under <code>~/.config/agent-workbench-native/</code>. Registered projects may also contain a gitignored <code>.agent-workbench/</code> folder. AWBN does not encrypt these files; use full-disk encryption where needed.</p></div>
+        <div class="detail-panel"><h2>What can leave your machine</h2><p>Prompts and attached context sent through cloud-backed CLIs go to that provider under your account and terms. Custom clients, model tools, MCP servers, connectors, and update checks can make their own network requests. Ollama inference is local, but enabled tools may not be.</p></div>
+        <div class="detail-panel"><h2>Deletion</h2><p>Deleting a chat removes AWBN-owned session data and artifacts. Provider-native history is controlled separately. To erase everything, close AWBN and its bridge, remove <code>~/.config/agent-workbench-native/</code>, and remove <code>.agent-workbench/</code> folders from registered projects.</p></div>
+        <div class="detail-panel"><h2>Share carefully</h2><p>Do not paste credentials into chat or custom commands. Raw Inspect output, logs, diffs, and screenshots can contain source code, prompts, paths, remotes, or secrets. Review and redact before sharing.</p></div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "version": "4.3.2",
+  "download_url": "https://github.com/Kadaken/agent-workbench/releases",
+  "notes": "Public beta. The AppImage now updates itself: it downloads, checks the published checksum, and swaps in the new build. Plus a plain-words 'Your data' panel in Options.",
+  "published_at": "2026-07-25"
+}

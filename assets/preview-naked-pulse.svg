@@ -1,0 +1,13 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="18" fill="#0D0F0D"/>
+  <rect x="26" y="26" width="588" height="308" rx="16" fill="#151915" stroke="#2C332C"/>
+  <text x="54" y="76" fill="#F4F1E8" font-family="Inter, Arial" font-size="28" font-weight="850">Naked Pulse</text>
+  <text x="54" y="108" fill="#A4AA9E" font-family="Inter, Arial" font-size="15">Separate domain, separate app, separate identity.</text>
+  <rect x="54" y="144" width="142" height="134" rx="16" fill="#101310" stroke="#2C332C"/>
+  <rect x="226" y="144" width="142" height="134" rx="16" fill="#101310" stroke="#2C332C"/>
+  <rect x="398" y="144" width="142" height="134" rx="16" fill="#101310" stroke="#2C332C"/>
+  <circle cx="125" cy="192" r="28" stroke="#54D3C4" stroke-width="8"/>
+  <path d="M100 236H150" stroke="#8FD35E" stroke-width="8" stroke-linecap="round"/>
+  <path d="M270 208C284 178 308 178 324 208" stroke="#54D3C4" stroke-width="8" stroke-linecap="round"/>
+  <path d="M442 222C470 190 494 226 518 188" stroke="#8FD35E" stroke-width="8" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CodeOp mark</title>
+  <desc id="desc">A compact operator-mask logo made from code brackets and a linked center node.</desc>
+  <rect width="256" height="256" rx="56" fill="#101310"/>
+  <path d="M93 74L49 128L93 182" stroke="#8FD35E" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M163 74L207 128L163 182" stroke="#54D3C4" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="128" cy="128" r="31" stroke="#F4F1E8" stroke-width="14"/>
+  <circle cx="100" cy="120" r="8" fill="#F4F1E8"/>
+  <circle cx="156" cy="120" r="8" fill="#F4F1E8"/>
+  <path d="M111 157C121 164 135 164 145 157" stroke="#F4F1E8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M128 82V55" stroke="#8FD35E" stroke-width="12" stroke-linecap="round"/>
+  <path d="M128 201V174" stroke="#54D3C4" stroke-width="12" stroke-linecap="round"/>
+</svg>
