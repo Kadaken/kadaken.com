@@ -1,0 +1,14 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="18" fill="#0D0F0D"/>
+  <rect x="20" y="20" width="600" height="320" rx="14" fill="#151915" stroke="#2C332C"/>
+  <rect x="42" y="44" width="556" height="36" rx="8" fill="#101310"/>
+  <text x="62" y="68" fill="#F4F1E8" font-family="Inter, Arial" font-size="15" font-weight="800">Claude Code Subagent Viewer</text>
+  <rect x="42" y="104" width="160" height="212" rx="10" fill="#101310" stroke="#2C332C"/>
+  <rect x="224" y="104" width="374" height="212" rx="10" fill="#101310" stroke="#2C332C"/>
+  <rect x="62" y="132" width="92" height="18" rx="9" fill="#1B201B"/>
+  <rect x="62" y="170" width="116" height="18" rx="9" fill="#1B201B"/>
+  <rect x="62" y="208" width="78" height="18" rx="9" fill="#1B201B"/>
+  <path d="M250 146H558" stroke="#8FD35E" stroke-width="8" stroke-linecap="round"/>
+  <path d="M250 184H510" stroke="#54D3C4" stroke-width="8" stroke-linecap="round"/>
+  <path d="M250 222H536" stroke="#747D70" stroke-width="8" stroke-linecap="round"/>
+</svg>

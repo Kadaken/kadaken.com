@@ -1,0 +1,20 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="18" fill="#0D0F0D"/>
+  <rect x="18" y="18" width="604" height="324" rx="14" fill="#151915" stroke="#2C332C"/>
+  <rect x="38" y="44" width="128" height="272" rx="10" fill="#101310"/>
+  <text x="58" y="75" fill="#F4F1E8" font-family="Inter, Arial" font-size="17" font-weight="800">Places</text>
+  <rect x="58" y="104" width="78" height="20" rx="6" fill="#1B201B"/>
+  <rect x="58" y="143" width="92" height="20" rx="6" fill="#1B201B"/>
+  <rect x="58" y="182" width="72" height="20" rx="6" fill="#1B201B"/>
+  <rect x="190" y="44" width="412" height="38" rx="9" fill="#101310"/>
+  <text x="211" y="69" fill="#A4AA9E" font-family="Inter, Arial" font-size="14">Home / Projects / Screenshots</text>
+  <rect x="190" y="104" width="260" height="212" rx="10" fill="#101310" stroke="#2C332C"/>
+  <rect x="470" y="104" width="132" height="92" rx="10" fill="#101310" stroke="#2C332C"/>
+  <path d="M222 150H418" stroke="#2C332C" stroke-width="2"/>
+  <path d="M222 190H418" stroke="#2C332C" stroke-width="2"/>
+  <path d="M222 230H418" stroke="#2C332C" stroke-width="2"/>
+  <circle cx="238" cy="130" r="8" fill="#8FD35E"/>
+  <circle cx="238" cy="170" r="8" fill="#8FD35E"/>
+  <circle cx="238" cy="210" r="8" fill="#8FD35E"/>
+  <path d="M494 160C514 134 536 178 558 150" stroke="#54D3C4" stroke-width="8" stroke-linecap="round"/>
+</svg>

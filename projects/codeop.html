@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CodeOp | Kadaken</title>
+    <meta name="description" content="CodeOp is a private vibe game testing room for friends." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Kadaken home">
+        <span class="brand-mark">LOZ</span>
+        <span>Kadaken</span>
+      </a>
+      <a class="header-link" href="../index.html">All projects</a>
+    </header>
+
+    <main class="detail-page">
+      <a class="back-link" href="../index.html">Back to Kadaken</a>
+      <section class="detail-hero">
+        <span class="eyebrow">Desktop Program</span>
+        <img class="detail-logo" src="../assets/codeop-mark.svg" alt="CodeOp logo" />
+        <div class="detail-title">
+          <h1>CodeOp</h1>
+          <span class="status active">Active beta</span>
+        </div>
+        <p>A private vibe game testing room for friends: chat, share builds, jump on voice, screen share, and help each other playtest.</p>
+        <div class="detail-actions">
+          <a class="button-link" data-codeop-download="windows-x86_64" aria-disabled="true">Fresh install for Windows</a>
+          <a class="button-link" data-codeop-download="macos" aria-disabled="true">Fresh install for macOS</a>
+          <a class="button-link" data-codeop-download="linux-x86_64" aria-disabled="true">Fresh install for Linux</a>
+        </div>
+        <p class="download-status" data-codeop-download-status aria-live="polite">Checking the current beta installers…</p>
+      </section>
+
+      <section class="detail-grid">
+        <div class="detail-panel">
+          <h2>What it is</h2>
+          <p>CodeOp is the temporary name for a lightweight social game-testing app. It is meant to replace the parts of Discord needed for small playtest groups: private chat, build/file sharing, voice, screen sharing, and remote help while testing Godot games.</p>
+        </div>
+        <div class="detail-panel">
+          <h2>Platforms</h2>
+          <ul>
+            <li>Windows, macOS, and Linux releases</li>
+            <li>Each button always uses the latest published build</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="screenshot-section">
+        <h2>Screenshot</h2>
+        <div class="screenshot-grid single">
+          <figure class="screenshot-card">
+            <img src="../assets/screenshot-codeop-anonymized.png" alt="Anonymized CodeOp game testing room screenshot" />
+            <figcaption>Anonymized app screenshot showing a private test room with chat and shared text-file notes.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+    </main>
+    <script>
+      (() => {
+        const manifestUrl = "https://codeop-update.kadaken-updates.workers.dev/codeop-manifest.json?invite=S0by_g4FXl4eXk8fHSiKXspi4QdJyteK";
+        const buttons = [...document.querySelectorAll("[data-codeop-download]")];
+        const status = document.querySelector("[data-codeop-download-status]");
+
+        fetch(manifestUrl, { cache: "no-store" })
+          .then((response) => {
+            if (!response.ok) throw new Error("installer manifest unavailable");
+            return response.json();
+          })
+          .then((manifest) => {
+            for (const button of buttons) {
+              const packageInfo = manifest.packages?.[button.dataset.codeopDownload];
+              if (!packageInfo?.url) continue;
+              button.href = packageInfo.url;
+              button.removeAttribute("aria-disabled");
+            }
+
+            const platformNames = {
+              "windows-x86_64": "Windows",
+              macos: "macOS",
+              "linux-x86_64": "Linux",
+            };
+            const ready = Object.entries(platformNames)
+              .filter(([platform]) => Boolean(manifest.packages?.[platform]?.url))
+              .map(([, name]) => name);
+            status.textContent = ready.length
+              ? `CodeOp ${manifest.version} is ready for ${ready.join(", ")}.`
+              : "No CodeOp installers are published yet.";
+          })
+          .catch(() => {
+            status.textContent = "The installer list is temporarily unavailable. Please try again shortly.";
+          });
+      })();
+    </script>
+  </body>
+</html>

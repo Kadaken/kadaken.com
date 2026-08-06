@@ -1,0 +1,9 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Wayfinder mark</title>
+  <desc id="desc">A folder icon with a route line and destination dot.</desc>
+  <rect width="256" height="256" rx="56" fill="#101310"/>
+  <path d="M43 88C43 75.8497 52.8497 66 65 66H104L124 84H191C203.15 84 213 93.8497 213 106V178C213 190.15 203.15 200 191 200H65C52.8497 200 43 190.15 43 178V88Z" fill="#151915" stroke="#8FD35E" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M72 151C91 128 113 178 133 151C153 124 170 120 187 137" stroke="#54D3C4" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="72" cy="151" r="9" fill="#F4F1E8"/>
+  <circle cx="187" cy="137" r="9" fill="#F4F1E8"/>
+</svg>
