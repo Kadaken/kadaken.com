@@ -187,7 +187,68 @@ h1 {
 }
 .intro p { color: var(--muted); max-width: 56ch; margin: 0; font-size: 18px; }
 
-h2 { font-size: 22px; margin: 0 0 10px; letter-spacing: -0.01em; }
+h2 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
+
+/* Beta warning. Loud enough to read, quiet enough not to be the page. */
+.notice {
+  border: 1px solid rgba(255, 138, 42, 0.45);
+  border-left-width: 3px;
+  background: rgba(255, 138, 42, 0.07);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 26px 0 4px;
+  font-size: 15px;
+  color: var(--muted);
+}
+.notice strong { color: #ffb066; display: block; margin-bottom: 4px; }
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.chip {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: var(--mono);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 11px;
+  white-space: nowrap;
+}
+.chip.live {
+  color: var(--green);
+  border-color: rgba(51, 255, 68, 0.4);
+  background: rgba(51, 255, 68, 0.06);
+}
+
+/* Screenshots. Full-bleed inside the card, and they scroll nothing on a
+   phone — the image just shrinks. */
+.shot { margin: 0 0 20px; }
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(38, 55, 71, 0.9);
+  background: #070c12;
+}
+.shot figcaption {
+  margin-top: 9px;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.alt { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+.alt a { color: var(--accent); text-decoration: none; }
+.alt a:hover { text-decoration: underline; }
+
+.support { background: rgba(13, 20, 32, 0.6); }
 
 .thing {
   background: var(--panel);
@@ -237,6 +298,14 @@ a.button {
 a.button:hover {
   box-shadow: 0 0 34px rgba(39, 215, 242, 0.55);
   transform: translateY(-1px);
+}
+a.button .sub {
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  opacity: 0.72;
+  margin-top: 2px;
 }
 a.button.quiet {
   background: transparent;

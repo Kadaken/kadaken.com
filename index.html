@@ -6,7 +6,7 @@
     <title>Kadaken</title>
     <meta
       name="description"
-      content="Kadaken makes desktop tools and games. Premium quality, premium work."
+      content="Kadaken builds desktop tools and games. Premium quality, premium work."
     />
     <link rel="stylesheet" href="/kadaken.css" />
   </head>
@@ -19,7 +19,6 @@
       <div class="wrap">
         <a class="name" href="/">KADAKEN</a>
         <span class="tag">Premium quality, premium work</span>
-        <nav><a href="https://github.com/Kadaken">GitHub</a></nav>
       </div>
     </header>
 
@@ -27,61 +26,123 @@
       <section class="intro">
         <h1>Desktop tools, made properly.</h1>
         <p>
-          Small software built one piece at a time and tested on the machine it
-          runs on. Free to use. Need it to do something it doesn't do? Ask, and
-          it gets built for everyone.
+          Built one piece at a time, and tested on the machine it runs on.
         </p>
       </section>
 
+      <aside class="notice">
+        <strong>Everything here is in beta.</strong>
+        It is free to use while it is, and it will change — features, layout and
+        behaviour can all move between releases, and a build can be pulled or
+        replaced at any time. Treat it as software that is still being made,
+        because it is.
+      </aside>
+
       <section class="thing">
-        <h2>Agent Workbench Native</h2>
+        <div class="head">
+          <h2>Agent Workbench Native</h2>
+          <span class="chip live">Beta · Linux</span>
+        </div>
         <p>
-          One desk for the AI coding tools already installed on your Linux
-          machine. Projects on the left, your code in the middle, the agent on
-          the right — and you can watch it open files and work as it goes.
+          One desk for the AI coding tools already on your machine. Projects on
+          the left, your code in the middle, the agent on the right — and you
+          watch it open files and work as it goes.
         </p>
+
+        <figure class="shot">
+          <img src="/assets/screenshot-awbn-art.jpg" alt="Agent Workbench Native with a project open: the file tree on the left, concept art in the viewer, and the agent's chat on the right." loading="lazy" />
+          <figcaption>Art, code and docs open in the same viewer the agent is working in.</figcaption>
+        </figure>
+
         <p class="meta">
-          Tokens, cost and tool calls tick up while a turn runs, so you can see
-          what you are spending as you spend it.
+          Tokens, cost and tool calls tick up while a turn runs, so you see what
+          you are spending as you spend it.
         </p>
+
+        <figure class="shot">
+          <img src="/assets/screenshot-awbn-code.jpg" alt="Agent Workbench Native showing a Python file open beside the agent's running commentary." loading="lazy" />
+          <figcaption>Every file the agent touches opens where you can read it.</figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="/assets/screenshot-awbn-clients.jpg" alt="The Connections screen listing installed AI coding clients and the models each one offers." loading="lazy" />
+          <figcaption>It finds the clients you already have and shows what each can run.</figcaption>
+        </figure>
+
         <div class="limits">
           <strong>What it does not do yet</strong>
           <ul>
             <li>Linux x86-64 only. No Windows, macOS or ARM build.</li>
-            <li>This is a beta. Keep your projects in Git and keep backups.</li>
-            <li>Unknown command-line tools need setting up by hand.</li>
+            <li>Still in beta. Keep your projects in Git and keep backups.</li>
+            <li>Unrecognised command-line tools need setting up by hand.</li>
           </ul>
         </div>
+
+        <!-- Straight at the file, hosted here. Nobody should have to land on a
+             releases page and work out which of four things to click. -->
         <div class="actions">
-          <!-- /releases, not /releases/latest: the betas are published as
-               GitHub pre-releases, and /releases/latest skips those and serves
-               an old stable build instead. -->
-          <a class="button" href="https://github.com/Kadaken/agent-workbench/releases">Download the beta</a>
-          <a class="button quiet" href="https://github.com/Kadaken/agent-workbench">Source</a>
+          <a class="button" href="/download/Agent_Workbench_Native-4.7.1-x86_64.AppImage" download>
+            Download for Linux
+            <span class="sub">AppImage · 13 MB · v4.7.1</span>
+          </a>
+          <a class="button quiet" href="https://github.com/Kadaken/agent-workbench/issues">Report a problem</a>
         </div>
-      </section>
-
-      <section class="thing">
-        <h2>CodeOp</h2>
-        <p>
-          A private room for testing games with friends: chat, share builds,
-          jump on voice, share a screen, and help each other playtest.
+        <p class="alt">
+          Prefer a package?
+          <a href="/download/agent-workbench-native_4.7.1_amd64.deb" download>.deb</a> ·
+          <a href="/download/agent-workbench-native-4.7.1-linux-x64.tar.gz" download>.tar.gz</a> ·
+          <a href="/download/SHA256SUMS">checksums</a>
         </p>
-        <p class="meta"><span class="soon">Not released yet</span></p>
+        <p class="alt">
+          The AppImage needs no install. Save it, right-click → Properties →
+          allow it to run as a program, then open it.
+        </p>
       </section>
 
       <section class="thing">
-        <h2>Open Frontier</h2>
-        <p>A game, in progress.</p>
-        <p class="meta"><span class="soon">Not released yet</span></p>
+        <div class="head">
+          <h2>CodeOp</h2>
+          <span class="chip">In development</span>
+        </div>
+        <p>
+          A private room for playtesting with friends. Chat, share builds, jump
+          on a call, share a screen, and break each other's games before anyone
+          else does.
+        </p>
+        <figure class="shot">
+          <img src="/assets/screenshot-codeop.jpg" alt="CodeOp: a friends list on the left and a chat thread with shared build files on the right." loading="lazy" />
+        </figure>
+      </section>
+
+      <section class="thing">
+        <div class="head">
+          <h2>Open Frontier</h2>
+          <span class="chip">In development</span>
+        </div>
+        <p>A space shooter.</p>
+        <figure class="shot">
+          <img src="/assets/screenshot-open-frontier.jpg" alt="Open Frontier title screen: a blue and white starfighter above a planet." loading="lazy" />
+        </figure>
+      </section>
+
+      <section class="thing support">
+        <h2>Chipping in</h2>
+        <p>
+          The beta costs nothing and there is no trial to run out. If it saves
+          you an afternoon and you want to put something behind it, you can —
+          it changes nothing about the software either way.
+        </p>
+        <div class="actions">
+          <!-- GitHub Sponsors: no cut taken, and GitHub covers the payment
+               fees on personal accounts. -->
+          <a class="button quiet" href="https://github.com/sponsors/Kadaken">Support the work</a>
+        </div>
       </section>
     </main>
 
     <footer>
       <div class="wrap">
-        Kadaken. Free to use, not open source — install it and run it
-        anywhere, at no charge. Need it to do something different?
-        <a href="https://github.com/Kadaken/agent-workbench/issues">Write in and ask.</a>
+        © 2026 Kadaken. All rights reserved.
       </div>
     </footer>
   </body>
