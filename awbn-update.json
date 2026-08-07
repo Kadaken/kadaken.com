@@ -1,27 +1,27 @@
 {
-  "version": "4.7.2",
+  "version": "4.7.3",
   "download_url": "https://kadaken.com/",
-  "notes": "Closed licence in the packages, Kadaken as maintainer, and downloads served straight from kadaken.com.",
+  "notes": "Licence wording corrected: each release keeps its own terms, so later versions can be offered on paid terms without touching a build you already have.",
   "published_at": "2026-08-06",
   "assets": {
     "appimage": {
-      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.2/Agent_Workbench_Native-4.7.2-x86_64.AppImage",
-      "sha256": "47a78f57d40d66c9299cfe2f6214d441923f5db5713d19c28da6034b59991a90",
+      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.3/Agent_Workbench_Native-4.7.3-x86_64.AppImage",
+      "sha256": "560c6ad1d177329df4344aa9e98817facea6ad3f280cb577276b8810a1a53149",
       "size": 13259968
     },
     "tarball": {
-      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.2/agent-workbench-native-4.7.2-linux-x64.tar.gz",
-      "sha256": "ea00e088cdd55ab35117c91f877e5345d068551eacdfbc511175dc00f96fa3a6",
-      "size": 13087615
+      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.3/agent-workbench-native-4.7.3-linux-x64.tar.gz",
+      "sha256": "7ec0b4277900e30e8a522b0b6c3521cde1814e6f36582e17703b69e70e2cfbe4",
+      "size": 13088619
     },
     "deb": {
-      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.2/agent-workbench-native_4.7.2_amd64.deb",
-      "sha256": "e79d64dae5b243c0d05e8da6c0bb12b9a3d360ba985e6b7527cd0f8c4c8af02d",
-      "size": 10670794
+      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.3/agent-workbench-native_4.7.3_amd64.deb",
+      "sha256": "95fd7d473e24ec3f9ca3a269d312a89fab000ac2825a86eedee9cc5e665796f8",
+      "size": 10671118
     },
     "checksums": {
-      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.2/SHA256SUMS",
-      "sha256": "e69c3a423beb5370f485c538e836fd347e562ec0432b6f5572366177d37ceb5e",
+      "url": "https://github.com/Kadaken/agent-workbench/releases/download/v4.7.3/SHA256SUMS",
+      "sha256": "d25847c6f1a6f996f4742fb4d61fcc477e2939d3b601d3bab88ad5443d9b8183",
       "size": 328
     }
   }
