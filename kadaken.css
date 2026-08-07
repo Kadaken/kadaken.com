@@ -27,7 +27,14 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  max-width: 100%;
+}
+/* The sticky header is ~70px; without this an anchor lands under it. */
+html { scroll-padding-top: 84px; }
+img, figure, video { max-width: 100%; }
 
 body.kadaken {
   margin: 0;
@@ -91,14 +98,15 @@ body.kadaken {
     repeating-linear-gradient(
       to bottom, rgba(51, 255, 68, 0.34) 0 2px, transparent 2px 90px
     );
+  will-change: transform;
   animation: run 5.5s linear infinite;
 }
 
 /* Only the lines running away from you move. One cell is 90px, so the loop
    is seamless. */
 @keyframes run {
-  from { background-position: 0 0, 0 0; }
-  to   { background-position: 0 0, 0 90px; }
+  from { transform: rotateX(76deg) translate3d(0, 0, 0); }
+  to   { transform: rotateX(76deg) translate3d(0, 90px, 0); }
 }
 
 /* The glow where the floor meets the sky. */
@@ -168,14 +176,55 @@ header .wrap {
   text-transform: uppercase;
   font-family: var(--mono);
 }
-header nav { margin-left: auto; }
+header nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
 header nav a {
   color: var(--muted);
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 header nav a:hover { color: var(--accent); }
+header nav a.cta {
+  color: var(--accent);
+  border: 1px solid rgba(39, 215, 242, 0.45);
+  border-radius: 8px;
+  padding: 6px 13px;
+  font-weight: 600;
+}
+header nav a.cta:hover {
+  background: rgba(39, 215, 242, 0.1);
+}
+
+/* On a phone the tagline is decoration and the nav is not. Drop the tagline,
+   let the links take the full width, and keep them thumb-sized. */
+@media (max-width: 700px) {
+  header .wrap { padding-top: 14px; padding-bottom: 14px; gap: 10px; }
+  .tag { display: none; }
+  header nav {
+    margin-left: 0;
+    width: 100%;
+    gap: 14px;
+    font-size: 15px;
+  }
+  header nav a { font-size: 15px; padding: 2px 0; }
+  header nav a.cta { padding: 6px 12px; margin-left: auto; }
+  .intro { padding: 46px 0 20px; }
+  .wrap { padding: 0 18px; }
+  .thing { padding: 20px; }
+}
+
+/* A phone does not need a 3D horizon repainting behind everything. */
+@media (max-width: 700px) {
+  .floor { height: 42vh; }
+  .floor::before { animation: none; }
+}
 
 .intro { padding: 86px 0 26px; }
 h1 {
@@ -231,7 +280,7 @@ h2 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
    UI shot always is — and stack to a single readable column on a phone. */
 .shots {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 14px;
   margin: 0 0 22px;
 }
