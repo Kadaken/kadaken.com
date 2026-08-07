@@ -1,6 +1,6 @@
-# The Kadaken beta page
+# Kadaken — site
 
-Static developer page for beta apps and games.
+Static site for Kadaken's apps and games. Licensed AGPL-3.0.
 
 ## Local preview
 
