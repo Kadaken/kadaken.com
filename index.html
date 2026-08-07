@@ -8,7 +8,7 @@
       name="description"
       content="Kadaken builds desktop tools and games. Premium quality, premium work."
     />
-    <link rel="stylesheet" href="/kadaken.css?v=1078fbd1f9" />
+    <link rel="stylesheet" href="/kadaken.css?v=e9756b6094" />
   </head>
   <body class="kadaken">
     <div class="sky"></div>
@@ -62,15 +62,15 @@
 
         <div class="shots">
           <figure class="shot">
-            <img src="/assets/screenshot-awbn-art.jpg" alt="Agent Workbench Native with a project open: file tree on the left, concept art in the viewer, the agent's chat on the right." loading="lazy" />
+            <a class="zoom" href="#view-awbn-art" id="thumb-awbn-art" aria-label="Enlarge this picture"><img src="/assets/screenshot-awbn-art.jpg" alt="Agent Workbench Native with a project open: file tree on the left, concept art in the viewer, the agent's chat on the right." loading="lazy" /></a>
             <figcaption>Art, code and docs in the viewer the agent works in.</figcaption>
           </figure>
           <figure class="shot">
-            <img src="/assets/screenshot-awbn-code.jpg" alt="Agent Workbench Native showing a Python file open in the code viewer." loading="lazy" />
+            <a class="zoom" href="#view-awbn-code" id="thumb-awbn-code" aria-label="Enlarge this picture"><img src="/assets/screenshot-awbn-code.jpg" alt="Agent Workbench Native showing a Python file open in the code viewer." loading="lazy" /></a>
             <figcaption>Every file it touches opens where you can read it.</figcaption>
           </figure>
           <figure class="shot">
-            <img src="/assets/screenshot-awbn-clients.jpg" alt="The Connections screen listing installed AI coding clients and their models." loading="lazy" />
+            <a class="zoom" href="#view-awbn-clients" id="thumb-awbn-clients" aria-label="Enlarge this picture"><img src="/assets/screenshot-awbn-clients.jpg" alt="The Connections screen listing installed AI coding clients and their models." loading="lazy" /></a>
             <figcaption>Finds the clients you already have.</figcaption>
           </figure>
         </div>
@@ -116,7 +116,7 @@
           else does.
         </p>
         <figure class="shot solo">
-          <img src="/assets/screenshot-codeop.jpg" alt="CodeOp: a friends list on the left and a chat thread with shared build files on the right." loading="lazy" />
+          <a class="zoom" href="#view-codeop" id="thumb-codeop" aria-label="Enlarge this picture"><img src="/assets/screenshot-codeop.jpg" alt="CodeOp: a friends list on the left and a chat thread with shared build files on the right." loading="lazy" /></a>
         </figure>
       </section>
 
@@ -127,7 +127,7 @@
         </div>
         <p>A space shooter.</p>
         <figure class="shot solo">
-          <img src="/assets/screenshot-open-frontier.jpg" alt="Open Frontier title screen: a blue and white starfighter above a planet." loading="lazy" />
+          <a class="zoom" href="#view-frontier" id="thumb-frontier" aria-label="Enlarge this picture"><img src="/assets/screenshot-open-frontier.jpg" alt="Open Frontier title screen: a blue and white starfighter above a planet." loading="lazy" /></a>
         </figure>
       </section>
 
@@ -139,5 +139,30 @@
         © 2026 Kadaken. All rights reserved.
       </div>
     </footer>
+    <div class="lightbox" id="view-awbn-art" role="dialog" aria-label="Agent Workbench Native with a project open: file tree on the left, concept art in the viewer, the agent's chat on the right.">
+      <a class="sheet" href="#thumb-awbn-art" aria-label="Close"></a>
+      <a class="shut" href="#thumb-awbn-art">Close</a>
+      <img src="/assets/screenshot-awbn-art.jpg" alt="Agent Workbench Native with a project open: file tree on the left, concept art in the viewer, the agent's chat on the right." loading="lazy" />
+    </div>
+    <div class="lightbox" id="view-awbn-code" role="dialog" aria-label="Agent Workbench Native showing a Python file open in the code viewer.">
+      <a class="sheet" href="#thumb-awbn-code" aria-label="Close"></a>
+      <a class="shut" href="#thumb-awbn-code">Close</a>
+      <img src="/assets/screenshot-awbn-code.jpg" alt="Agent Workbench Native showing a Python file open in the code viewer." loading="lazy" />
+    </div>
+    <div class="lightbox" id="view-awbn-clients" role="dialog" aria-label="The Connections screen listing installed AI coding clients and their models.">
+      <a class="sheet" href="#thumb-awbn-clients" aria-label="Close"></a>
+      <a class="shut" href="#thumb-awbn-clients">Close</a>
+      <img src="/assets/screenshot-awbn-clients.jpg" alt="The Connections screen listing installed AI coding clients and their models." loading="lazy" />
+    </div>
+    <div class="lightbox" id="view-codeop" role="dialog" aria-label="CodeOp: a friends list on the left and a chat thread with shared build files on the right.">
+      <a class="sheet" href="#thumb-codeop" aria-label="Close"></a>
+      <a class="shut" href="#thumb-codeop">Close</a>
+      <img src="/assets/screenshot-codeop.jpg" alt="CodeOp: a friends list on the left and a chat thread with shared build files on the right." loading="lazy" />
+    </div>
+    <div class="lightbox" id="view-frontier" role="dialog" aria-label="Open Frontier title screen: a blue and white starfighter above a planet.">
+      <a class="sheet" href="#thumb-frontier" aria-label="Close"></a>
+      <a class="shut" href="#thumb-frontier">Close</a>
+      <img src="/assets/screenshot-open-frontier.jpg" alt="Open Frontier title screen: a blue and white starfighter above a planet." loading="lazy" />
+    </div>
   </body>
 </html>
