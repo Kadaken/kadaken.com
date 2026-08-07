@@ -2,6 +2,12 @@
 # could hold new markup and an old stylesheet at the same time — which is
 # exactly how the screenshots ended up 1600px wide and hanging off the right
 # on 2026-08-07. Match the HTML: always revalidate. Cheap; the file is 8 KB.
+# The hashed stylesheet is safe to cache hard and forever: its name changes
+# whenever its contents do, so a cached copy can never be the wrong one.
+/kadaken.*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# The unhashed copy is only a fallback, so it must stay fresh.
 /kadaken.css
   Cache-Control: public, max-age=0, must-revalidate
 
