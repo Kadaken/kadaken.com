@@ -1,3 +1,10 @@
+# The download filenames are stable across releases, so the same URL has new
+# bytes behind it after every publish. Without this the edge keeps serving the
+# previous build under the current name — verified happening on 4.7.3. Short
+# TTL plus revalidate means the edge checks the ETag instead of guessing.
+/download/*
+  Cache-Control: public, max-age=60, must-revalidate
+
 # The update file must not be served stale — apps ask for it at most hourly.
 /awbn-update.json
   Cache-Control: public, max-age=300
