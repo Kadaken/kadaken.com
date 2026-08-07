@@ -265,6 +265,20 @@ h2 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
   .shot.solo img { max-width: 100%; }
 }
 
+/* Numbered-feeling rule lists on the terms page. */
+.rules { margin: 0; padding-left: 20px; color: #c8d4e2; }
+.rules li { margin: 9px 0; }
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: rgba(39, 215, 242, 0.09);
+  border: 1px solid rgba(39, 215, 242, 0.18);
+  border-radius: 5px;
+  padding: 1px 5px;
+  word-break: break-word;
+}
+
 .alt { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
 .alt a { color: var(--accent); text-decoration: none; }
 .alt a:hover { text-decoration: underline; }
