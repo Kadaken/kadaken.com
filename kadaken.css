@@ -226,22 +226,43 @@ h2 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
   background: rgba(51, 255, 68, 0.06);
 }
 
-/* Screenshots. Full-bleed inside the card, and they scroll nothing on a
-   phone — the image just shrinks. */
+/* Screenshots are evidence, not the page. Three sit side by side as small
+   tiles cropped to their top-left corner — where the interesting part of a
+   UI shot always is — and stack to a single readable column on a phone. */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 0 0 22px;
+}
 .shot { margin: 0 0 20px; }
+.shots .shot { margin: 0; }
 .shot img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 9px;
   border: 1px solid rgba(38, 55, 71, 0.9);
   background: #070c12;
 }
+.shots .shot img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: left top;
+}
+/* One-off shots (a game's key art, a whole product view) keep their shape but
+   never dominate. */
+.shot.solo img { max-width: 480px; }
 .shot figcaption {
-  margin-top: 9px;
-  font-size: 13.5px;
+  margin-top: 8px;
+  font-size: 12.5px;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.45;
+}
+@media (max-width: 640px) {
+  .shots { grid-template-columns: 1fr; gap: 18px; }
+  .shots .shot img { aspect-ratio: 16 / 10; }
+  .shot.solo img { max-width: 100%; }
 }
 
 .alt { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
