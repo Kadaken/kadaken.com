@@ -45,7 +45,7 @@ body.kadaken {
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ---- backdrop ---- */
@@ -458,3 +458,66 @@ body.notfound {
   text-shadow: 0 0 14px rgba(51, 255, 68, 0.35);
 }
 .notfound a:hover { text-decoration: underline; }
+
+/* Click to enlarge, with no JavaScript — the site sends script-src 'none' and
+   that stays. Each thumbnail is a link to a fixed-position panel that is
+   display:none until the URL points at it (:target). Closing links back to the
+   thumbnail's own id, so the page does not jump to the top. */
+.shot a.zoom {
+  display: block;
+  cursor: zoom-in;
+  border-radius: 9px;
+  outline-offset: 3px;
+}
+.shot a.zoom img { transition: filter 0.18s ease, transform 0.18s ease; }
+.shot a.zoom:hover img { filter: brightness(1.08); }
+.shot a.zoom:focus-visible { outline: 2px solid var(--accent); }
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  padding: 4vmin;
+  background: rgba(4, 8, 12, 0.92);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.lightbox:target { display: grid; place-items: center; }
+
+/* The backdrop is one big close button sitting behind the picture. */
+.lightbox .sheet {
+  position: absolute;
+  inset: 0;
+  cursor: zoom-out;
+}
+.lightbox img {
+  position: relative;
+  max-width: min(1600px, 96vw);
+  max-height: 92vh;
+  width: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(38, 55, 71, 0.9);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+.lightbox .shut {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 2;
+  font: 600 15px/1 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(7, 12, 18, 0.85);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.lightbox .shut:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 700px) {
+  .lightbox { padding: 2vmin; }
+  .lightbox .shut { top: 10px; right: 10px; padding: 9px 12px; font-size: 13px; }
+}
