@@ -1,3 +1,10 @@
+# The stylesheet was cached for four hours while the HTML was not, so a phone
+# could hold new markup and an old stylesheet at the same time — which is
+# exactly how the screenshots ended up 1600px wide and hanging off the right
+# on 2026-08-07. Match the HTML: always revalidate. Cheap; the file is 8 KB.
+/kadaken.css
+  Cache-Control: public, max-age=0, must-revalidate
+
 # The download filenames are stable across releases, so the same URL has new
 # bytes behind it after every publish. Without this the edge keeps serving the
 # previous build under the current name — verified happening on 4.7.3. Short
