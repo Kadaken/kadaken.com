@@ -521,3 +521,13 @@ body.notfound {
   .lightbox { padding: 2vmin; }
   .lightbox .shut { top: 10px; right: 10px; padding: 9px 12px; font-size: 13px; }
 }
+
+/* The download tally. */
+.tally { width: 100%; border-collapse: collapse; font-size: 15px; }
+.tally td { padding: 9px 0; border-bottom: 1px solid rgba(38, 55, 71, 0.7); }
+.tally tr:last-child td { border-bottom: 0; }
+.tally td:last-child {
+  text-align: right;
+  font-family: var(--mono);
+  color: var(--accent);
+}
