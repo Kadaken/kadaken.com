@@ -160,3 +160,54 @@ nav .cta{color:var(--cyan); border:1px solid rgba(39,215,242,.45); border-radius
          display:flex; flex-direction:column; gap:8px;}
 .closing p{margin:0; color:var(--muted); font-size:14px; max-width:72ch;}
 .closing strong{color:var(--text);}
+
+/* ---------- D. FORGED + CUT ----------
+   The obvious thing neither A nor C is on its own: take the cut, which is what
+   made C memorable, and put it on Archivo Black, which is what made A survive
+   being small. Heavy letters keep the diagonal readable at sizes where Bebas
+   loses it. */
+.w-forgecut{position:relative; display:inline-block; line-height:1; white-space:nowrap;}
+.w-forgecut .layer{
+  font-family:"Archivo Black",var(--sans); font-size:27px; letter-spacing:.02em;
+  display:block;
+}
+.w-forgecut .cold{
+  background:linear-gradient(178deg,#9aa6b6 0%,#6c7788 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.w-forgecut .hot{
+  position:absolute; inset:0;
+  background:linear-gradient(178deg,var(--heat-white) 0%,var(--heat-hi) 26%,
+              var(--heat-mid) 58%,var(--heat-low) 88%,var(--heat-deep) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  clip-path:polygon(0 52%, 100% 30%, 100% 100%, 0 100%);
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.8)) drop-shadow(0 0 20px rgba(255,110,0,.32));
+}
+.w-forgecut .seam{
+  position:absolute; left:-2%; right:-2%; top:41%; height:2px;
+  background:linear-gradient(90deg,transparent 2%,var(--heat-white) 30%,
+             var(--heat-white) 70%,transparent 98%);
+  transform:rotate(-2.9deg); opacity:.92;
+  filter:drop-shadow(0 0 6px rgba(255,180,80,.75));
+}
+.tiny.w-forgecut .layer{font-size:12px;}
+.tiny.w-forgecut .seam{height:1px; top:43%;}
+
+/* head to head: bigger, so the treatment is judged and not squinted at */
+.big{display:flex; align-items:center; justify-content:center; min-height:132px;
+     padding:26px 20px; background:#05080d; border:1px solid var(--line);
+     border-radius:12px; overflow-x:auto;}
+.big .w-cut .layer{font-size:64px;}
+.big .w-cut .seam{top:47%; height:3px;}
+.big .w-forged{font-size:54px;}
+.big .w-forgecut .layer{font-size:54px;}
+.big .w-forgecut .seam{height:3.5px;}
+
+/* on white, because a mark that only works on black is half a mark */
+.onwhite{display:flex; align-items:center; justify-content:center; gap:26px;
+         flex-wrap:wrap; padding:22px; background:#f2f4f7; border-radius:12px;}
+.onwhite .w-forged{filter:drop-shadow(0 1px 0 rgba(255,255,255,.6));}
+.onwhite .w-cut .cold{color:#3d4653;}
+.onwhite .w-forgecut .cold{background:linear-gradient(178deg,#4a5361,#2b323c);
+        -webkit-background-clip:text; background-clip:text; color:transparent;}
+.onwhite .cap{color:#5c6472;}

@@ -1,3 +1,8 @@
+@font-face{
+  font-family:"Bebas Neue"; font-style:normal; font-weight:400;
+  src:url("/fonts/BebasNeue.ttf") format("truetype"); font-display:swap;
+}
+
 /* Kadaken.
 
    This lives in its own file rather than a <style> block on purpose: the
@@ -175,14 +180,43 @@ header .wrap {
   margin: 0 4px;
   background: rgba(38, 55, 71, 0.9);
 }
+/* The wordmark: one diagonal through the word. Above the cut the metal has
+   cooled to grey, below it is still hot, and a bright seam runs along the cut.
+   Three stacked copies of the same word, so it stays selectable text and still
+   reads correctly to a screen reader through the aria-label. */
 .name {
-  font-size: 23px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
   text-decoration: none;
-  color: var(--green);
-  font-family: var(--mono);
-  text-shadow: 0 0 18px rgba(51, 255, 68, 0.45);
+  white-space: nowrap;
+}
+.name .layer {
+  display: block;
+  font-family: "Bebas Neue", var(--mono);
+  font-size: 31px;
+  letter-spacing: 0.10em;
+}
+.name .cold { color: #7d8899; }
+.name .hot {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #ffb347, #e35f05);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  clip-path: polygon(0 58%, 100% 34%, 100% 100%, 0 100%);
+  filter: drop-shadow(0 0 16px rgba(255, 120, 10, 0.42));
+}
+.name .seam {
+  position: absolute;
+  left: -3%;
+  right: -3%;
+  top: 46%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #ffe6c2, transparent);
+  transform: rotate(-3.1deg);
+  opacity: 0.85;
 }
 .tag {
   color: var(--accent);
