@@ -1,0 +1,95 @@
+/* Deliberately single-theme. This page's whole job is showing a dark header
+     as it really appears, so it commits to that ground and paints every colour
+     explicitly rather than borrowing the viewer's. */
+  :root{
+    --ground:#04070b;        /* one step darker than the site, so the bar reads as a bar */
+    --site-bg:#070c12;       /* the site's own background */
+    --panel:#0b1017;
+    --line:#1b2532;
+    --site-line:#263747;
+    --cyan:#27d7f2;          /* his accent, unchanged */
+    --green:#33ff44;         /* what the word is today */
+    --amber:#ff8a1f;         /* the candidate */
+    --coffee:#f0b866;
+    --text:#eaf1f7;
+    --muted:#8190a5;
+    --faint:#5c6472;
+    --mono:"DejaVu Sans Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+    --sans:"DejaVu Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0;
+    background:var(--ground); color:var(--text);
+    font-family:var(--sans); font-size:15px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:1180px; margin:0 auto; padding:34px 22px 80px;
+        display:flex; flex-direction:column; gap:30px;}
+
+  .intro{display:flex; flex-direction:column; gap:9px; max-width:66ch;}
+  .kicker{font-family:var(--mono); font-size:11px; letter-spacing:.24em;
+          text-transform:uppercase; color:var(--amber); font-weight:700;}
+  h1{margin:0; font-size:clamp(24px,3.4vw,34px); line-height:1.15; font-weight:800;
+     letter-spacing:-.01em; text-wrap:balance;}
+  .intro p{margin:0; color:var(--muted); font-size:14.5px;}
+
+  .option{display:flex; flex-direction:column; gap:11px;}
+  .optlabel{display:flex; align-items:baseline; gap:11px; flex-wrap:wrap;}
+  .num{font-family:var(--mono); font-size:12px; font-weight:800; letter-spacing:.14em;
+       text-transform:uppercase; color:var(--amber);}
+  .num.control{color:var(--faint);}
+  .optname{font-size:16px; font-weight:700;}
+  .note{margin:0; color:var(--muted); font-size:13.5px; max-width:74ch;}
+
+  /* ---- his real header, copied from kadaken.css ---- */
+  .bar{background:var(--site-bg); border:1px solid rgba(38,55,71,.8);
+       border-radius:11px; overflow-x:auto;}
+  .bar-inner{min-width:720px; display:flex; align-items:center; gap:14px;
+             padding:11px 22px;}
+  .tag{color:var(--cyan); font-family:var(--mono); font-size:11px;
+       letter-spacing:.22em; text-transform:uppercase; white-space:nowrap;}
+  nav{margin-left:auto; display:flex; align-items:center; gap:18px;}
+  nav span{color:var(--muted); font-size:14px; letter-spacing:.04em; white-space:nowrap;}
+  nav .coffee{color:var(--coffee); opacity:.85;}
+  nav .cta{color:var(--cyan); border:1px solid rgba(39,215,242,.45);
+           border-radius:8px; padding:6px 13px; font-weight:600; font-size:14px;}
+  .divider{width:1px; align-self:stretch; min-height:20px; margin:0 4px;
+           background:rgba(38,55,71,.9);}
+
+  .name{font-family:var(--mono); font-size:23px; font-weight:800;
+        letter-spacing:.08em; white-space:nowrap;}
+
+  .w-today{color:var(--green); text-shadow:0 0 18px rgba(51,255,68,.45);}
+  .w-ember{color:var(--amber); text-shadow:0 0 18px rgba(255,138,31,.5),
+                                           0 0 42px rgba(255,90,0,.25);}
+  .w-split .cool{color:var(--faint);}
+  .w-split .hot{color:var(--amber); text-shadow:0 0 20px rgba(255,138,31,.55);}
+  .w-plate{background:linear-gradient(180deg,#ff9a2e,#f4720a); color:#0a0a0c;
+           padding:5px 13px 6px; border-radius:8px; font-size:20px;
+           box-shadow:0 0 24px rgba(255,138,31,.32);}
+  .w-mark{display:inline-flex; align-items:center; gap:10px; color:var(--text);}
+  .w-mark .k{display:grid; place-items:center; width:33px; height:33px;
+             border-radius:9px; background:linear-gradient(150deg,#ff9a2e,#e35f05);
+             color:#0a0a0c; font-size:20px; box-shadow:0 0 22px rgba(255,138,31,.38);}
+  .w-outline{color:transparent; -webkit-text-stroke:1.2px var(--amber);
+             padding-bottom:5px; border-bottom:2px solid rgba(255,138,31,.7);}
+
+  /* ---- how each survives being tiny ---- */
+  .shrink{display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+          padding:11px 14px; background:var(--panel);
+          border:1px solid var(--line); border-radius:9px;}
+  .shrink .cap{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+               text-transform:uppercase; color:var(--faint);}
+  .tiny{font-family:var(--mono); font-weight:800; letter-spacing:.06em; font-size:11px;}
+  .tiny.w-plate{font-size:10px; padding:3px 7px; border-radius:5px; box-shadow:none;}
+  .tiny.w-mark .k{width:18px; height:18px; font-size:11px; border-radius:5px; box-shadow:none;}
+  .tiny.w-outline{-webkit-text-stroke:.7px var(--amber); border-bottom-width:1px;
+                  padding-bottom:2px;}
+  .verdict{font-size:12.5px; color:var(--muted);}
+  .verdict b{color:var(--text); font-weight:700;}
+
+  .closing{border-top:1px solid var(--line); padding-top:22px;
+           display:flex; flex-direction:column; gap:7px;}
+  .closing p{margin:0; color:var(--muted); font-size:14px; max-width:70ch;}
+  .closing strong{color:var(--text);}
