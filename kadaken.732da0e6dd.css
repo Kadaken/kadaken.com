@@ -458,6 +458,42 @@ nav a.coffee-link {
 }
 nav a.coffee-link:hover { opacity: 1; }
 
+/* App drawer list. Denser than a product section on purpose: these are small
+   tools and this is the list most likely to keep growing. */
+.drawer {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.drawer li {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 15px 17px 16px;
+  background: rgba(13, 20, 32, 0.45);
+}
+.drawer .dhead {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+.drawer h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+.drawer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.chip.soon { color: var(--muted); border-color: rgba(129, 144, 165, 0.4); }
+
 /* The claims list. Roomy on purpose: this is the part people actually read
    before deciding, so it must not look like a spec sheet. */
 .wins {
