@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kadaken">
+  <!-- Drawn as shapes, not type. The wordmark's diagonal cut is beautiful large
+       and mush at 16px, so the tab gets the mark instead. -->
+  <defs>
+    <linearGradient id="h" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#ffb347"/>
+      <stop offset="0.55" stop-color="#ff8a1f"/>
+      <stop offset="1" stop-color="#c94a02"/>
+    </linearGradient>
+  </defs>
+  <path d="M10 0 H64 V54 L54 64 H0 V10 Z" fill="url(#h)"/>
+  <path d="M20 14 H29 V29 L42 14 H53 L38 31 L54 50 H43 L29 34 V50 H20 Z" fill="#08090c"/>
+</svg>
