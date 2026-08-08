@@ -1,23 +1,23 @@
 {
-  "version": "4.7.3",
+  "version": "4.8.0",
   "download_url": "https://kadaken.com/",
-  "notes": "Licence wording corrected: each release keeps its own terms, so later versions can be offered on paid terms without touching a build you already have.",
-  "published_at": "2026-08-06",
+  "notes": "Answers now type out as they are written instead of appearing all at once. Idle processor use is down from about half a core to under three percent. Seven reading fonts to choose from, the file viewer zooms with Ctrl and the wheel, and a whole reply can be selected and copied in one drag. Pasted screenshots are no longer stored as message text, which was making chat files enormous. Handoffs no longer fail on a name already in use and say so instead of opening blank.",
+  "published_at": "2026-08-08",
   "assets": {
     "appimage": {
       "url": "https://kadaken.com/download/Agent_Workbench_Native-x86_64.AppImage",
-      "sha256": "560c6ad1d177329df4344aa9e98817facea6ad3f280cb577276b8810a1a53149",
-      "size": 13259968
+      "sha256": "d6b2653cceff6c20fb346d2e1c55f2c31dafb9dc2ab3858365ff79ae78e1ea11",
+      "size": 14042304
     },
     "tarball": {
       "url": "https://kadaken.com/download/agent-workbench-native-linux-x64.tar.gz",
-      "sha256": "7ec0b4277900e30e8a522b0b6c3521cde1814e6f36582e17703b69e70e2cfbe4",
-      "size": 13088619
+      "sha256": "62004de3ac73e3c9fef11cd520007de22bfb0d56aabc6a47027edc8b442327b5",
+      "size": 13872870
     },
     "deb": {
       "url": "https://kadaken.com/download/agent-workbench-native-amd64.deb",
-      "sha256": "95fd7d473e24ec3f9ca3a269d312a89fab000ac2825a86eedee9cc5e665796f8",
-      "size": 10671118
+      "sha256": "f9f7e653796d1dca841f0df1d92637722a6448c1485ede156ffa0a90ddb6cac9",
+      "size": 10286204
     },
     "checksums": {
       "url": "https://kadaken.com/download/SHA256SUMS",
