@@ -152,13 +152,28 @@ header {
   top: 0;
   z-index: 5;
 }
+/* The bar was eating a tenth of the screen. Cause: .wrap caps at 820px, which
+   is right for READING body text but too narrow for the brand and five nav
+   items, so the nav wrapped onto a second line and doubled the height. The bar
+   gets its own wider cap and keeps everything on one line; the article below
+   still reads at 820px. Padding trimmed to match. */
 header .wrap {
+  max-width: 1140px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 14px;
   flex-wrap: wrap;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+/* Separates who we are from where you can go. */
+.nav-divider {
+  width: 1px;
+  align-self: stretch;
+  min-height: 20px;
+  margin: 0 4px;
+  background: rgba(38, 55, 71, 0.9);
 }
 .name {
   font-size: 23px;
@@ -171,6 +186,7 @@ header .wrap {
 }
 .tag {
   color: var(--accent);
+  align-self: center;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -399,19 +415,6 @@ a.button.quiet {
 }
 a.button.quiet:hover { border-color: var(--accent); box-shadow: none; }
 
-/* Tip jar. Deliberately warmer than the cyan download button and quieter than
-   it: this must never look like the thing you came here to click. */
-a.button.coffee {
-  background: transparent;
-  color: #f0b866;
-  border: 1px solid rgba(240, 184, 102, 0.42);
-  box-shadow: none;
-}
-a.button.coffee:hover {
-  border-color: #f0b866;
-  box-shadow: 0 0 24px rgba(240, 184, 102, 0.28);
-}
-a.button.coffee .cup { margin-right: 6px; }
 
 /* Nav tip link. Same warm amber as the button below, but plain text weight so
    the Download call to action stays the loudest thing in the bar. */
