@@ -413,6 +413,14 @@ a.button.coffee:hover {
 }
 a.button.coffee .cup { margin-right: 6px; }
 
+/* Nav tip link. Same warm amber as the button below, but plain text weight so
+   the Download call to action stays the loudest thing in the bar. */
+nav a.coffee-link {
+  color: #f0b866;
+  opacity: 0.85;
+}
+nav a.coffee-link:hover { opacity: 1; }
+
 .soon {
   display: inline-block;
   font-size: 11px;
