@@ -424,6 +424,35 @@ nav a.coffee-link {
 }
 nav a.coffee-link:hover { opacity: 1; }
 
+/* The claims list. Roomy on purpose: this is the part people actually read
+   before deciding, so it must not look like a spec sheet. */
+.wins {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.wins li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.wins li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(39, 215, 242, 0.6);
+}
+.wins strong { color: var(--text); }
+
 .soon {
   display: inline-block;
   font-size: 11px;
