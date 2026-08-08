@@ -5,7 +5,7 @@
    'unsafe-inline', so an inline stylesheet is dropped by the browser and the
    page renders naked. A real file is served from 'self' and is allowed.
 
-   Not styles.css — that one is the retired Kadaken sheet and nine pages
+   Not styles.css - that one is the retired Kadaken sheet and nine pages
    under /projects still load it.
 
    The backdrop is Agent Workbench's own _ConversationGridPainter ported to
@@ -71,7 +71,7 @@ body.kadaken {
 }
 
 /* The horizon: a flat grid laid down and tipped away from the viewer so the
-   lines converge — the arcade-cabinet trick. */
+   lines converge - the arcade-cabinet trick. */
 .floor {
   top: auto;
   height: 62vh;
@@ -292,8 +292,8 @@ h2 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
 }
 
 /* Screenshots are evidence, not the page. Three sit side by side as small
-   tiles cropped to their top-left corner — where the interesting part of a
-   UI shot always is — and stack to a single readable column on a phone. */
+   tiles cropped to their top-left corner - where the interesting part of a
+   UI shot always is - and stack to a single readable column on a phone. */
 .shots {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -484,7 +484,7 @@ body.notfound {
 }
 .notfound a:hover { text-decoration: underline; }
 
-/* Click to enlarge, with no JavaScript — the site sends script-src 'none' and
+/* Click to enlarge, with no JavaScript - the site sends script-src 'none' and
    that stays. Each thumbnail is a link to a fixed-position panel that is
    display:none until the URL points at it (:target). Closing links back to the
    thumbnail's own id, so the page does not jump to the top. */
