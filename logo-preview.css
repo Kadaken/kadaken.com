@@ -1,95 +1,162 @@
-/* Deliberately single-theme. This page's whole job is showing a dark header
-     as it really appears, so it commits to that ground and paints every colour
-     explicitly rather than borrowing the viewer's. */
-  :root{
-    --ground:#04070b;        /* one step darker than the site, so the bar reads as a bar */
-    --site-bg:#070c12;       /* the site's own background */
-    --panel:#0b1017;
-    --line:#1b2532;
-    --site-line:#263747;
-    --cyan:#27d7f2;          /* his accent, unchanged */
-    --green:#33ff44;         /* what the word is today */
-    --amber:#ff8a1f;         /* the candidate */
-    --coffee:#f0b866;
-    --text:#eaf1f7;
-    --muted:#8190a5;
-    --faint:#5c6472;
-    --mono:"DejaVu Sans Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
-    --sans:"DejaVu Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0; padding:0;
-    background:var(--ground); color:var(--text);
-    font-family:var(--sans); font-size:15px; line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  .page{max-width:1180px; margin:0 auto; padding:34px 22px 80px;
-        display:flex; flex-direction:column; gap:30px;}
+/* Wordmark studies for KADAKEN.
+   One idea underneath all three: the name sounds forged, the site is already a
+   dark workshop, and orange on black is what hot metal looks like. So these are
+   metal treatments, not colour swaps. Everything is same-origin so the site's
+   CSP (default-src 'self') serves it without being weakened. */
 
-  .intro{display:flex; flex-direction:column; gap:9px; max-width:66ch;}
-  .kicker{font-family:var(--mono); font-size:11px; letter-spacing:.24em;
-          text-transform:uppercase; color:var(--amber); font-weight:700;}
-  h1{margin:0; font-size:clamp(24px,3.4vw,34px); line-height:1.15; font-weight:800;
-     letter-spacing:-.01em; text-wrap:balance;}
-  .intro p{margin:0; color:var(--muted); font-size:14.5px;}
+@font-face{
+  font-family:"Archivo Black"; font-style:normal; font-weight:400;
+  src:url("/fonts/ArchivoBlack.ttf") format("truetype"); font-display:swap;
+}
+@font-face{
+  font-family:"Chakra Petch"; font-style:normal; font-weight:700;
+  src:url("/fonts/ChakraPetch-Bold.ttf") format("truetype"); font-display:swap;
+}
+@font-face{
+  font-family:"Bebas Neue"; font-style:normal; font-weight:400;
+  src:url("/fonts/BebasNeue.ttf") format("truetype"); font-display:swap;
+}
 
-  .option{display:flex; flex-direction:column; gap:11px;}
-  .optlabel{display:flex; align-items:baseline; gap:11px; flex-wrap:wrap;}
-  .num{font-family:var(--mono); font-size:12px; font-weight:800; letter-spacing:.14em;
-       text-transform:uppercase; color:var(--amber);}
-  .num.control{color:var(--faint);}
-  .optname{font-size:16px; font-weight:700;}
-  .note{margin:0; color:var(--muted); font-size:13.5px; max-width:74ch;}
+:root{
+  --ground:#04070b;
+  --site-bg:#070c12;
+  --panel:#0a0f16;
+  --line:#1b2532;
+  --cyan:#27d7f2;
+  --green:#33ff44;
+  --text:#eaf1f7;
+  --muted:#8190a5;
+  --faint:#5c6472;
+  --coffee:#f0b866;
 
-  /* ---- his real header, copied from kadaken.css ---- */
-  .bar{background:var(--site-bg); border:1px solid rgba(38,55,71,.8);
-       border-radius:11px; overflow-x:auto;}
-  .bar-inner{min-width:720px; display:flex; align-items:center; gap:14px;
-             padding:11px 22px;}
-  .tag{color:var(--cyan); font-family:var(--mono); font-size:11px;
-       letter-spacing:.22em; text-transform:uppercase; white-space:nowrap;}
-  nav{margin-left:auto; display:flex; align-items:center; gap:18px;}
-  nav span{color:var(--muted); font-size:14px; letter-spacing:.04em; white-space:nowrap;}
-  nav .coffee{color:var(--coffee); opacity:.85;}
-  nav .cta{color:var(--cyan); border:1px solid rgba(39,215,242,.45);
-           border-radius:8px; padding:6px 13px; font-weight:600; font-size:14px;}
-  .divider{width:1px; align-self:stretch; min-height:20px; margin:0 4px;
-           background:rgba(38,55,71,.9);}
+  /* The forge palette. Not one orange: a heat range, dull at the bottom edge
+     and near-white where the light catches. That range is what stops it
+     reading as flat colour. */
+  --heat-white:#ffe6c2;
+  --heat-hi:#ffb347;
+  --heat-mid:#ff8a1f;
+  --heat-low:#e35f05;
+  --heat-deep:#a83c00;
 
-  .name{font-family:var(--mono); font-size:23px; font-weight:800;
-        letter-spacing:.08em; white-space:nowrap;}
+  --mono:"DejaVu Sans Mono",ui-monospace,monospace;
+  --sans:"DejaVu Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
 
-  .w-today{color:var(--green); text-shadow:0 0 18px rgba(51,255,68,.45);}
-  .w-ember{color:var(--amber); text-shadow:0 0 18px rgba(255,138,31,.5),
-                                           0 0 42px rgba(255,90,0,.25);}
-  .w-split .cool{color:var(--faint);}
-  .w-split .hot{color:var(--amber); text-shadow:0 0 20px rgba(255,138,31,.55);}
-  .w-plate{background:linear-gradient(180deg,#ff9a2e,#f4720a); color:#0a0a0c;
-           padding:5px 13px 6px; border-radius:8px; font-size:20px;
-           box-shadow:0 0 24px rgba(255,138,31,.32);}
-  .w-mark{display:inline-flex; align-items:center; gap:10px; color:var(--text);}
-  .w-mark .k{display:grid; place-items:center; width:33px; height:33px;
-             border-radius:9px; background:linear-gradient(150deg,#ff9a2e,#e35f05);
-             color:#0a0a0c; font-size:20px; box-shadow:0 0 22px rgba(255,138,31,.38);}
-  .w-outline{color:transparent; -webkit-text-stroke:1.2px var(--amber);
-             padding-bottom:5px; border-bottom:2px solid rgba(255,138,31,.7);}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0; background:var(--ground); color:var(--text);
+  font-family:var(--sans); font-size:15px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:1180px; margin:0 auto; padding:36px 22px 90px;
+      display:flex; flex-direction:column; gap:38px;}
 
-  /* ---- how each survives being tiny ---- */
-  .shrink{display:flex; align-items:center; gap:14px; flex-wrap:wrap;
-          padding:11px 14px; background:var(--panel);
-          border:1px solid var(--line); border-radius:9px;}
-  .shrink .cap{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
-               text-transform:uppercase; color:var(--faint);}
-  .tiny{font-family:var(--mono); font-weight:800; letter-spacing:.06em; font-size:11px;}
-  .tiny.w-plate{font-size:10px; padding:3px 7px; border-radius:5px; box-shadow:none;}
-  .tiny.w-mark .k{width:18px; height:18px; font-size:11px; border-radius:5px; box-shadow:none;}
-  .tiny.w-outline{-webkit-text-stroke:.7px var(--amber); border-bottom-width:1px;
-                  padding-bottom:2px;}
-  .verdict{font-size:12.5px; color:var(--muted);}
-  .verdict b{color:var(--text); font-weight:700;}
+.intro{display:flex; flex-direction:column; gap:9px; max-width:66ch;}
+.kicker{font-family:var(--mono); font-size:11px; letter-spacing:.24em;
+        text-transform:uppercase; color:var(--heat-mid); font-weight:700;}
+h1{margin:0; font-size:clamp(24px,3.4vw,34px); line-height:1.15; font-weight:800;
+   letter-spacing:-.01em; text-wrap:balance;}
+.intro p{margin:0; color:var(--muted); font-size:14.5px;}
+.intro strong{color:var(--text);}
 
-  .closing{border-top:1px solid var(--line); padding-top:22px;
-           display:flex; flex-direction:column; gap:7px;}
-  .closing p{margin:0; color:var(--muted); font-size:14px; max-width:70ch;}
-  .closing strong{color:var(--text);}
+.option{display:flex; flex-direction:column; gap:13px;}
+.optlabel{display:flex; align-items:baseline; gap:11px; flex-wrap:wrap;}
+.num{font-family:var(--mono); font-size:12px; font-weight:800; letter-spacing:.14em;
+     text-transform:uppercase; color:var(--heat-mid);}
+.num.control{color:var(--faint);}
+.optname{font-size:17px; font-weight:700;}
+.note{margin:0; color:var(--muted); font-size:13.5px; max-width:76ch;}
+.note b{color:var(--text); font-weight:700;}
+
+/* ---------- the real site header ---------- */
+.bar{background:var(--site-bg); border:1px solid rgba(38,55,71,.8);
+     border-radius:11px; overflow-x:auto;}
+.bar-inner{min-width:760px; display:flex; align-items:center; gap:14px; padding:13px 22px;}
+.tag{color:var(--cyan); font-family:var(--mono); font-size:11px; letter-spacing:.22em;
+     text-transform:uppercase; white-space:nowrap;}
+nav{margin-left:auto; display:flex; align-items:center; gap:18px;}
+nav span{color:var(--muted); font-size:14px; letter-spacing:.04em; white-space:nowrap;}
+nav .coffee{color:var(--coffee); opacity:.85;}
+nav .cta{color:var(--cyan); border:1px solid rgba(39,215,242,.45); border-radius:8px;
+         padding:6px 13px; font-weight:600; font-size:14px;}
+.divider{width:1px; align-self:stretch; min-height:20px; margin:0 4px;
+         background:rgba(38,55,71,.9);}
+
+/* today, for comparison */
+.w-today{font-family:var(--mono); font-size:23px; font-weight:800; letter-spacing:.08em;
+         color:var(--green); text-shadow:0 0 18px rgba(51,255,68,.45); white-space:nowrap;}
+
+/* ---------- A. FORGED ----------
+   Heat runs down the letterform: near-white along the top where light catches,
+   deep ember at the foot. A hairline light edge above and a dark seat below is
+   what makes it read as a solid object rather than coloured text. */
+.w-forged{
+  font-family:"Archivo Black",var(--sans); font-size:27px; letter-spacing:.02em;
+  white-space:nowrap; line-height:1;
+  background:linear-gradient(178deg,
+    var(--heat-white) 0%, var(--heat-hi) 22%, var(--heat-mid) 52%,
+    var(--heat-low) 82%, var(--heat-deep) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.85)) drop-shadow(0 0 22px rgba(255,110,0,.30));
+}
+
+/* ---------- B. STAMPED ----------
+   Letters knocked out of a steel plate, with the top-left corner chamfered the
+   way a cut plate is. The plate carries the heat; the letters stay cold. */
+.w-stamped{
+  font-family:"Chakra Petch",var(--sans); font-weight:700; font-size:21px;
+  letter-spacing:.10em; white-space:nowrap; color:#0a0a0c; line-height:1;
+  padding:8px 16px 8px 15px;
+  background:linear-gradient(163deg,var(--heat-hi) 0%,var(--heat-mid) 46%,var(--heat-low) 100%);
+  clip-path:polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
+  box-shadow:0 0 26px rgba(255,120,10,.28);
+}
+
+/* ---------- C. CUT ----------
+   One diagonal through the word. Above the cut the metal has cooled to grey,
+   below it is still hot, and a bright seam runs along the cut itself. */
+.w-cut{position:relative; display:inline-block; line-height:1; white-space:nowrap;}
+.w-cut .layer{
+  font-family:"Bebas Neue",var(--sans); font-size:31px; letter-spacing:.10em;
+  display:block;
+}
+.w-cut .cold{color:#7d8899;}
+.w-cut .hot{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg,var(--heat-hi),var(--heat-low));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  clip-path:polygon(0 58%, 100% 34%, 100% 100%, 0 100%);
+  filter:drop-shadow(0 0 16px rgba(255,120,10,.42));
+}
+.w-cut .seam{
+  position:absolute; left:-3%; right:-3%; top:46%; height:1.5px;
+  background:linear-gradient(90deg,transparent,var(--heat-white),transparent);
+  transform:rotate(-3.1deg); opacity:.85;
+}
+
+/* ---------- the mark, for icons ---------- */
+.markrow{display:flex; align-items:center; gap:22px; flex-wrap:wrap;
+         padding:16px 18px; background:var(--panel); border:1px solid var(--line);
+         border-radius:10px;}
+.markrow .cap{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+              text-transform:uppercase; color:var(--faint);}
+.markrow svg{display:block;}
+
+/* ---------- shrink test ---------- */
+.shrink{display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+        padding:12px 15px; background:var(--panel); border:1px solid var(--line);
+        border-radius:9px;}
+.shrink .cap{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+             text-transform:uppercase; color:var(--faint);}
+.tiny.w-forged{font-size:12px; filter:drop-shadow(0 1px 0 rgba(0,0,0,.85));}
+.tiny.w-stamped{font-size:10px; padding:3px 7px; box-shadow:none;
+                clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);}
+.tiny.w-cut .layer{font-size:14px;}
+.tiny.w-cut .seam{height:1px;}
+.verdict{font-size:12.5px; color:var(--muted);}
+.verdict b{color:var(--text); font-weight:700;}
+
+.closing{border-top:1px solid var(--line); padding-top:24px;
+         display:flex; flex-direction:column; gap:8px;}
+.closing p{margin:0; color:var(--muted); font-size:14px; max-width:72ch;}
+.closing strong{color:var(--text);}
