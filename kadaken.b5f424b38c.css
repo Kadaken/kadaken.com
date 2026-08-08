@@ -399,6 +399,20 @@ a.button.quiet {
 }
 a.button.quiet:hover { border-color: var(--accent); box-shadow: none; }
 
+/* Tip jar. Deliberately warmer than the cyan download button and quieter than
+   it: this must never look like the thing you came here to click. */
+a.button.coffee {
+  background: transparent;
+  color: #f0b866;
+  border: 1px solid rgba(240, 184, 102, 0.42);
+  box-shadow: none;
+}
+a.button.coffee:hover {
+  border-color: #f0b866;
+  box-shadow: 0 0 24px rgba(240, 184, 102, 0.28);
+}
+a.button.coffee .cup { margin-right: 6px; }
+
 .soon {
   display: inline-block;
   font-size: 11px;
