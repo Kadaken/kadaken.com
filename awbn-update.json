@@ -1,28 +1,28 @@
 {
-  "version": "4.8.0",
+  "version": "4.9.0",
   "download_url": "https://kadaken.com/",
-  "notes": "Answers now type out as they are written instead of appearing all at once. Idle processor use is down from about half a core to under three percent. Seven reading fonts to choose from, the file viewer zooms with Ctrl and the wheel, and a whole reply can be selected and copied in one drag. Pasted screenshots are no longer stored as message text, which was making chat files enormous. Handoffs no longer fail on a name already in use and say so instead of opening blank.",
-  "published_at": "2026-08-08",
+  "notes": "Automatic routing to cheaper models is off, so a reply comes from the model you picked. Every reply now says which model wrote it. Codex token figures were showing the whole thread's running total instead of the turn's; fixed, and past turns repaired. Click anywhere in the message box to type. New icon, and a button that writes CLAUDE.md, AGENTS.md and GEMINI.md into a project so each client reads its own rules.",
+  "published_at": "2026-08-13",
   "assets": {
     "appimage": {
       "url": "https://kadaken.com/download/Agent_Workbench_Native-x86_64.AppImage",
-      "sha256": "d6b2653cceff6c20fb346d2e1c55f2c31dafb9dc2ab3858365ff79ae78e1ea11",
-      "size": 14042304
+      "sha256": "fb29b73498e22b632b38cc4623bb1debde2b6ff060d70f62ca92f3a2de40f92a",
+      "size": 13980864
     },
     "tarball": {
       "url": "https://kadaken.com/download/agent-workbench-native-linux-x64.tar.gz",
-      "sha256": "62004de3ac73e3c9fef11cd520007de22bfb0d56aabc6a47027edc8b442327b5",
-      "size": 13872870
+      "sha256": "47823a93ec3c694f15bf6be8c1dfc8555131ae969ffe31af2fb9de937a1ff38f",
+      "size": 13747213
     },
     "deb": {
       "url": "https://kadaken.com/download/agent-workbench-native-amd64.deb",
-      "sha256": "f9f7e653796d1dca841f0df1d92637722a6448c1485ede156ffa0a90ddb6cac9",
-      "size": 10286204
+      "sha256": "cec26a3bb5870e39acea8eaa8d7fd57d672f6867e9b55d2b81c7552c51f43de7",
+      "size": 10160512
     },
     "checksums": {
       "url": "https://kadaken.com/download/SHA256SUMS",
-      "sha256": "d25847c6f1a6f996f4742fb4d61fcc477e2939d3b601d3bab88ad5443d9b8183",
-      "size": 328
+      "sha256": "2ebec199220918657b74e104b7bff33b781c8c5a2517d9871178d03bdb503fe9",
+      "size": 310
     }
   }
 }
