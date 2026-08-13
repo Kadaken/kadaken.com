@@ -12,7 +12,7 @@ const FILES = {
   appimage: "Agent_Workbench_Native-x86_64.AppImage",
   deb: "agent-workbench-native-amd64.deb",
   tarball: "agent-workbench-native-linux-x64.tar.gz",
-  "codeop-windows": "codeop-4.0.0-beta-windows-x64.zip",
+  "codeop-windows": "codeop-4.0.0-beta2-windows-x64.zip",
   "codeop-linux": "codeop_4.0.0-beta_amd64.deb",
   "codeop-appimage": "codeop-4.0.0-beta-x86_64.AppImage",
 };
