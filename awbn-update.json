@@ -1,27 +1,27 @@
 {
-  "version": "4.9.0",
+  "version": "4.9.1",
   "download_url": "https://kadaken.com/",
-  "notes": "Automatic routing to cheaper models is off, so a reply comes from the model you picked. Every reply now says which model wrote it. Codex token figures were showing the whole thread's running total instead of the turn's; fixed, and past turns repaired. Click anywhere in the message box to type. New icon, and a button that writes CLAUDE.md, AGENTS.md and GEMINI.md into a project so each client reads its own rules.",
-  "published_at": "2026-08-13",
+  "notes": "New text never moves the page while you are reading. Whatever you are looking at stays put, and the down arrow takes you to the newest reply when YOU decide. The app now carries its own type, so text looks the same on every machine instead of borrowing whatever the computer had. Agent Workbench also runs on Windows now.",
+  "published_at": "2026-08-19",
   "assets": {
     "appimage": {
       "url": "https://kadaken.com/download/Agent_Workbench_Native-x86_64.AppImage",
-      "sha256": "fb29b73498e22b632b38cc4623bb1debde2b6ff060d70f62ca92f3a2de40f92a",
-      "size": 13980864
+      "sha256": "cac495d74ae6d86398ebd7ce8e9b8cdcc058f142f25534f7ad5d3a876cfd075e",
+      "size": 15279296
     },
     "tarball": {
       "url": "https://kadaken.com/download/agent-workbench-native-linux-x64.tar.gz",
-      "sha256": "47823a93ec3c694f15bf6be8c1dfc8555131ae969ffe31af2fb9de937a1ff38f",
-      "size": 13747213
+      "sha256": "d05d6958a1c9525fd57c5f0eacc5b30e18115d9ac5122c455e657011c0d850e2",
+      "size": 15038097
     },
     "deb": {
       "url": "https://kadaken.com/download/agent-workbench-native-amd64.deb",
-      "sha256": "cec26a3bb5870e39acea8eaa8d7fd57d672f6867e9b55d2b81c7552c51f43de7",
-      "size": 10160512
+      "sha256": "7bfd5aa52ebe5c63f5a54fe2dceb04b8c16a86dfd3f3ef0135b090ae20b87d16",
+      "size": 10875460
     },
     "checksums": {
       "url": "https://kadaken.com/download/SHA256SUMS",
-      "sha256": "2ebec199220918657b74e104b7bff33b781c8c5a2517d9871178d03bdb503fe9",
+      "sha256": "a15cb53b2438434742fbb05ada927c14312c2aca4f93cbbf373efc5ed0c2050f",
       "size": 310
     }
   }
