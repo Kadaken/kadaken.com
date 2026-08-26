@@ -12,18 +12,39 @@ const FILES = {
   appimage: "Agent_Workbench_Native-x86_64.AppImage",
   deb: "agent-workbench-native-amd64.deb",
   tarball: "agent-workbench-native-linux-x64.tar.gz",
-  "codeop-windows": "codeop-4.0.0-beta9-windows-x64.zip",
   "codeop-linux": "codeop_4.0.0-beta_amd64.deb",
-  "codeop-appimage": "codeop-4.0.0-beta-x86_64.AppImage",
+};
+
+// CodeOp's app packages are NOT hosted here. Cloudflare Pages refuses any file
+// over 25 MiB, and the Windows zip passed that when the video libraries were
+// bundled into it (27 MiB) — which failed the WHOLE deploy, so the site quietly
+// kept serving months-old files and none of the /get/ links worked at all. That
+// is how a new friend ended up downloading a build too old for the current
+// invite and being locked out (2026-08-25).
+//
+// They live in the same R2 bucket the in-app updater already downloads from, so
+// there is one copy of each release rather than two that can disagree. The
+// invite in the URL is the same one baked into every installer: it proves "this
+// is CodeOp", not "this is you".
+const CODEOP_BASE =
+  "https://codeop-update.kadaken-updates.workers.dev/downloads";
+const CODEOP_INVITE = "7bL1SWnM39YIji2AlIbSaw-qtP5T3Q0d";
+const REMOTE = {
+  "codeop-windows": "CodeOp-windows-4.0.0-beta+9-befec8e4.zip",
+  "codeop-appimage": "CodeOp-linux-4.0.0-beta+9-4c9c6a62.AppImage",
 };
 
 export async function onRequestGet({ params, env, request, waitUntil }) {
-  const target = FILES[String(params.file || "").toLowerCase()];
-  if (!target) {
+  const key = String(params.file || "").toLowerCase();
+  const remote = REMOTE[key];
+  const target = FILES[key];
+  if (!remote && !target) {
     return new Response("Not found", { status: 404 });
   }
 
-  const to = new URL(`/download/${target}`, request.url);
+  const to = remote
+    ? new URL(`${CODEOP_BASE}/${encodeURIComponent(remote)}?invite=${CODEOP_INVITE}`)
+    : new URL(`/download/${target}`, request.url);
 
   // The count must never be able to stop a download, so it runs after the
   // response is already on its way and any failure is swallowed.
