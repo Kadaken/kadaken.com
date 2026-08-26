@@ -157,11 +157,11 @@
         <div class="actions" id="codeop-download">
           <a class="button" href="https://codeop-update.kadaken-updates.workers.dev/downloads/CodeOp-windows-4.0.0-beta+9-befec8e4.zip?invite=7bL1SWnM39YIji2AlIbSaw-qtP5T3Q0d">
             Download for Windows
-            <!-- CODEOP-VERSION --><span class="sub">Zip · 20 MB · v4.0.0-beta</span>
+            <!-- CODEOP-VERSION --><span class="sub">Zip · 28 MB · v4.0.0-beta+9</span>
           </a>
           <a class="button" href="/download/codeop_4.0.0-beta_amd64.deb">
             Download for Linux
-            <!-- CODEOP-VERSION-LINUX --><span class="sub">Installer · 15 MB · v4.0.0-beta</span>
+            <!-- CODEOP-VERSION-LINUX --><span class="sub">Installer · 16 MB · v4.0.0-beta</span>
           </a>
           <a class="button quiet" href="mailto:support@kadaken.com?subject=CodeOp">Report a problem</a>
         </div>
@@ -169,6 +169,25 @@
           Windows: unzip, run codeop.exe. Linux: open it and it installs
           (Ubuntu, Debian, Mint, Pop!_OS).
         </p>
+        <p class="alt">
+          <strong>If Windows blocks it:</strong> CodeOp is not code-signed yet,
+          so Windows treats it as an unknown app.
+        </p>
+        <ul class="alt">
+          <li>
+            <em>"Windows protected your PC"</em> - click <strong>More info</strong>,
+            then <strong>Run anyway</strong>.
+          </li>
+          <li>
+            <em>"Smart App Control blocked a file that may be unsafe"</em>, or a
+            <em>Bad Image</em> error naming a .dll - that is Smart App Control,
+            and it only runs apps signed by an authority it recognises. Marking
+            the file as trusted does not help. The only ways past it are to turn
+            Smart App Control off in Windows Security (App &amp; browser control),
+            which Windows will not let you undo without resetting the PC, or to
+            wait for a signed build. Signing is being sorted out.
+          </li>
+        </ul>
         <p class="alt">
           Something else?
           <a href="https://codeop-update.kadaken-updates.workers.dev/downloads/CodeOp-linux-4.0.0-beta+9-4c9c6a62.AppImage?invite=7bL1SWnM39YIji2AlIbSaw-qtP5T3Q0d">portable file</a> ·
