@@ -87,21 +87,58 @@ export async function onRequestGet({ params, env, request, waitUntil }) {
   return Response.redirect(to.toString(), 302);
 }
 
+// Who this is, without ever storing who this is.
+//
+// Asked for: "make sure the download counter registered NEW downloads, from
+// NEW ip address or whatever you can, so I can see if someone other than
+// myself or you or test participant has downloaded something." A raw total cannot answer
+// that -- three people testing a link looks the same as three strangers.
+//
+// The address is hashed with a random salt that is generated once and never
+// leaves this worker, and only the first sixteen characters are kept. That is
+// enough to tell "seen before" from "never seen", and it is not enough to work
+// backwards to a person or to match them against any other list.
+async function visitorId(kv, request) {
+  const address = request.headers.get("cf-connecting-ip") || "";
+  if (!address) return "";
+  let salt = await kv.get("salt");
+  if (!salt) {
+    salt = crypto.randomUUID();
+    await kv.put("salt", salt);
+  }
+  const bytes = new TextEncoder().encode(`${salt}:${address}`);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return [...new Uint8Array(digest)]
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("")
+    .slice(0, 16);
+}
+
 async function bump(kv, key, request) {
   // KV has no atomic increment. At this volume a lost count now and then is
   // fine; a wrong number is better than a broken download.
   const day = new Date().toISOString().slice(0, 10);
   const country = request.headers.get("cf-ipcountry") || "??";
 
-  for (const k of [`file:${key}`, "total", `day:${day}`, `country:${country}`]) {
+  // Is this somebody the site has never served before?
+  const who = await visitorId(kv, request);
+  const firstTime = who ? (await kv.get(`who:${who}`)) === null : false;
+
+  const keys = [`file:${key}`, "total", `day:${day}`, `country:${country}`];
+  if (firstTime) keys.push("people", `newpeople:${day}`);
+  for (const k of keys) {
     const now = parseInt((await kv.get(k)) || "0", 10) + 1;
     await kv.put(k, String(now));
   }
+  if (who) {
+    await kv.put(`who:${who}`, day);
+  }
+
   // The newest download, and a short log of them, so a person can be told what
   // happened rather than only how many times.
   const stamp = new Date().toISOString();
   await kv.put("last", stamp);
   const recent = JSON.parse((await kv.get("recent")) || "[]");
-  recent.unshift({ at: stamp, file: key, country });
+  recent.unshift({ at: stamp, file: key, country, first: firstTime });
   await kv.put("recent", JSON.stringify(recent.slice(0, 50)));
 }

@@ -11,10 +11,14 @@ export async function onRequestGet({ env }) {
   }
 
   const read = async (k) => parseInt((await kv.get(k)) || "0", 10);
-  const [appimage, deb, tarball, total, last] = await Promise.all([
+  const [appimage, deb, tarball, total, people, last] = await Promise.all([
     read("file:appimage"), read("file:deb"), read("file:tarball"),
-    read("total"), kv.get("last"),
+    read("total"), read("people"), kv.get("last"),
   ]);
+  const codeop = (await read("file:codeop-windows"))
+    + (await read("file:codeop-linux"))
+    + (await read("file:codeop-appimage"));
+  const feed = JSON.parse((await kv.get("recent")) || "[]");
 
   const days = (await kv.list({ prefix: "day:" })).keys.map((k) => k.name).sort().reverse();
   const recent = [];
@@ -36,11 +40,31 @@ export async function onRequestGet({ env }) {
       <section class="thing">
         <div class="head"><h2>Downloads</h2><span class="chip live">${total} total</span></div>
         <table class="tally">
-          <tr><td>AppImage</td><td>${appimage}</td></tr>
-          <tr><td>.deb</td><td>${deb}</td></tr>
-          <tr><td>.tar.gz</td><td>${tarball}</td></tr>
+          <tr><td><b>Different people</b></td><td><b>${people}</b></td></tr>
+          <tr><td>Agent Workbench &middot; AppImage</td><td>${appimage}</td></tr>
+          <tr><td>Agent Workbench &middot; .deb</td><td>${deb}</td></tr>
+          <tr><td>Agent Workbench &middot; .tar.gz</td><td>${tarball}</td></tr>
+          <tr><td>CodeOp</td><td>${codeop}</td></tr>
         </table>
         <p class="alt">Last one: ${last ? esc(last.replace("T", " ").slice(0, 16)) + " UTC" : "none yet"}</p>
+      </section>
+
+      <section class="thing">
+        <h2>The last few</h2>
+        <table class="tally">${
+          feed.length
+            ? feed.slice(0, 15).map((e) =>
+                `<tr><td>${esc(String(e.at || "").replace("T", " ").slice(0, 16))}` +
+                ` &middot; ${esc(e.file || "?")} &middot; ${esc(e.country || "??")}</td>` +
+                `<td>${e.first ? "<b>new person</b>" : "seen before"}</td></tr>`
+              ).join("")
+            : '<tr><td colspan="2">Nothing yet.</td></tr>'
+        }</table>
+        <p class="alt">
+          "New person" means an address this site has never served before. The
+          address itself is never stored &mdash; only a one-way fingerprint of
+          it, which is enough to say "seen before" and not enough to say who.
+        </p>
       </section>
 
       <section class="thing">
