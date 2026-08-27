@@ -1,28 +1,28 @@
 {
-  "version": "4.9.1",
+  "version": "4.9.2",
   "download_url": "https://kadaken.com/",
-  "notes": "New text never moves the page while you are reading. Whatever you are looking at stays put, and the down arrow takes you to the newest reply when YOU decide. The app now carries its own type, so text looks the same on every machine instead of borrowing whatever the computer had. Agent Workbench also runs on Windows now.",
-  "published_at": "2026-08-19",
+  "notes": "Nothing the agent says disappears any more. Anything it said before running another command used to be deleted from the chat, so a question it asked and then kept working past erased itself. A question now gets clickable answers that stay, and that carry the question with them. Creating a project no longer offers to build it inside the project you are in, and new projects go in the folder you chose rather than a hidden one. The wall between the chat and the viewer can actually be grabbed.",
+  "published_at": "2026-08-26",
   "assets": {
     "appimage": {
       "url": "https://kadaken.com/download/Agent_Workbench_Native-x86_64.AppImage",
-      "sha256": "cac495d74ae6d86398ebd7ce8e9b8cdcc058f142f25534f7ad5d3a876cfd075e",
-      "size": 15279296
+      "sha256": "77dfc72ca5ef95f4e85a0c68ff2f40f2ad5ad25a641945376e3381f4e8d21aaa",
+      "size": 15303872
     },
     "tarball": {
       "url": "https://kadaken.com/download/agent-workbench-native-linux-x64.tar.gz",
-      "sha256": "d05d6958a1c9525fd57c5f0eacc5b30e18115d9ac5122c455e657011c0d850e2",
-      "size": 15038097
+      "sha256": "5c61bb62d39d1506eaf0b0482630a85ed6cb8c45e64ad6a78bb741d799124492",
+      "size": 15064954
     },
     "deb": {
       "url": "https://kadaken.com/download/agent-workbench-native-amd64.deb",
-      "sha256": "7bfd5aa52ebe5c63f5a54fe2dceb04b8c16a86dfd3f3ef0135b090ae20b87d16",
-      "size": 10875460
+      "sha256": "86058e6ae49fbf0019c0201712b4bc089be1493b255142f4355172d3ddccf772",
+      "size": 10877064
     },
     "checksums": {
       "url": "https://kadaken.com/download/SHA256SUMS",
-      "sha256": "a15cb53b2438434742fbb05ada927c14312c2aca4f93cbbf373efc5ed0c2050f",
-      "size": 310
+      "sha256": "5be09497e1d350cfc622dd3fea41dd73430087bc7a4b2fe9c851b0d8de524107",
+      "size": 404
     }
   }
 }

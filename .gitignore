@@ -1,1 +1,16 @@
 .wrangler/
+
+# Installers are DEPLOYED, not stored in history.
+#
+# Cloudflare uploads whatever is in this folder at deploy time, so the files do
+# not need to be committed to be published. Committing them was making the
+# repository grow by 15-30 MB per release and never shrink: 448 MB of history
+# to serve 55 MB of current downloads, and no way to get it back.
+#
+# They stay on disk, they still deploy, the repository stops growing.
+download/*.AppImage
+download/*.deb
+download/*.tar.gz
+download/*.zip
+download/*.exe
+download/SHA256SUMS
