@@ -28,9 +28,19 @@ export async function onRequestGet({ env }) {
     countries[entry.name.slice(8)] = await read(entry.name);
   }
 
+  const newPeople = {};
+  for (const entry of (await kv.list({ prefix: "newpeople:" })).keys) {
+    newPeople[entry.name.slice(10)] = await read(entry.name);
+  }
+
   return json({
     ok: true,
     total: await read("total"),
+    // How many DIFFERENT people, not how many downloads. Three of you testing
+    // a link and three strangers finding it produce the same total; only this
+    // tells them apart.
+    people: await read("people"),
+    newPeopleByDay: newPeople,
     last: await kv.get("last"),
     files,
     days,
