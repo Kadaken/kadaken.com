@@ -17,7 +17,7 @@ const CODEOP_MANIFEST =
 
 const KIND = { portable: "Portable", zip: "Zip", deb: "Installer" };
 
-export async function onRequestGet({ request }) {
+export async function onRequestGet({ request, env }) {
   const out = {};
 
   try {
@@ -45,6 +45,20 @@ export async function onRequestGet({ request }) {
   } catch (_) {
     // Same again.
   }
+
+  // The two small tools are NOT listed here, deliberately.
+  //
+  // They are plain archives with no manifest to read, and two attempts to get
+  // their size from inside this Function both came back empty: a plain fetch
+  // of our own site is a subrequest back into ourselves, and env.ASSETS
+  // answered neither a HEAD content-length nor a ranged content-range. Rather
+  // than leave code here that quietly does nothing, it is gone.
+  //
+  // Their labels stay in the HTML, written from the real files when the
+  // archives are built. That is accurate but it is hand-kept, which is the
+  // fault this file exists to remove. The fix when it matters: have the
+  // packaging step write the sizes into a small JSON next to the archives and
+  // read that here.
 
   return new Response(JSON.stringify(out), {
     headers: {

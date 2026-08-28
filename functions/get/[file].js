@@ -12,6 +12,10 @@ const FILES = {
   appimage: "Agent_Workbench_Native-x86_64.AppImage",
   deb: "agent-workbench-native-amd64.deb",
   tarball: "agent-workbench-native-linux-x64.tar.gz",
+  // Small Python tools. No build step and no dependencies beyond what Fedora
+  // already ships, so they are plain archives rather than packages.
+  "subagent-viewer": "claude-code-subagent-viewer-linux.tar.gz",
+  "auto-clicker": "fedora-auto-clicker-linux.tar.gz",
 };
 
 // CodeOp's app packages are NOT hosted here. Cloudflare Pages refuses any file
