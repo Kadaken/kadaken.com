@@ -40,12 +40,31 @@
             <p>Watch an AI assistant's helpers work in real time: what they are reading,
               what they are running, what they are spending. Read-only, so it can never
               get in their way.</p>
+            <div class="actions">
+              <a class="button" href="/get/subagent-viewer">
+                Download for Linux
+                <span class="sub" data-fill="subagent-viewer">Archive &middot; 435 KB</span>
+              </a>
+              <a class="button quiet" href="mailto:support@kadaken.com?subject=Subagent%20Viewer">Report a problem</a>
+            </div>
+            <p class="alt">Unpack it and run <code>./install.sh</code>. Python and Tk only,
+              both already on Fedora, so there is nothing else to fetch.</p>
           </li>
           <li>
             <div class="dhead"><h3>Auto Clicker</h3><span class="chip">Alpha</span></div>
             <p>A clicker for Fedora with nothing to install alongside it. Clicks where your
               pointer is, or around up to ten spots you mark. Hold right to start, tap
               right to stop.</p>
+            <div class="actions">
+              <a class="button" href="/get/auto-clicker">
+                Download for Linux
+                <span class="sub" data-fill="auto-clicker">Archive &middot; 114 KB</span>
+              </a>
+              <a class="button quiet" href="mailto:support@kadaken.com?subject=Auto%20Clicker">Report a problem</a>
+            </div>
+            <p class="alt">Unpack it and run <code>./install.sh</code>. On Wayland it also
+              runs <code>./setup-wayland.sh</code> once, which asks for your password
+              because moving the pointer needs a system permission.</p>
           </li>
           <li>
             <div class="dhead"><h3>AdCap Meter</h3><span class="chip">Alpha</span></div>
@@ -59,9 +78,19 @@
 
     <footer>
       <div class="wrap">
-        <a href="/">Back to Kadaken</a> · <a href="/terms">Terms</a><br />
+        <a href="/">Back to Kadaken</a> · <a href="/terms">Terms</a> &middot; <a href="https://nakedpulse.ai" rel="noopener" target="_blank">Naked Pulse</a><br />
         © 2026 Kadaken. All rights reserved.
       </div>
     </footer>
+    <script>
+// Same as the front page: the size beside each button is read from the file
+// that will actually be handed over, so a label cannot drift from its download.
+fetch("/versions").then(function (r) { return r.json(); }).then(function (v) {
+  document.querySelectorAll("[data-fill]").forEach(function (el) {
+    var text = v[el.getAttribute("data-fill")];
+    if (text) el.textContent = text;
+  });
+}).catch(function () {});
+    </script>
   </body>
 </html>
