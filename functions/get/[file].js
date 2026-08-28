@@ -53,29 +53,55 @@ async function currentCodeopUrl(platform) {
   return entry && entry.url ? String(entry.url) : "";
 }
 
-export async function onRequestGet({ params, env, request, waitUntil }) {
-  const key = String(params.file || "").toLowerCase();
+// A HEAD request used to 404 on every one of these, because only GET was
+// exported. Browsers use GET so ordinary downloads worked and the fault was
+// invisible — but download managers, link checkers and some corporate proxies
+// send HEAD first and report the link as dead. Measured 2026-08-27: HEAD on
+// /get/appimage returned 404 while GET returned a correct 302.
+// Where a name points, without counting anything. Shared by GET and HEAD so
+// the two can never disagree about which file a link means.
+async function resolve(key, request) {
   const platform = CODEOP_PLATFORM[key];
   const target = FILES[key];
-  if (!platform && !target) {
-    return new Response("Not found", { status: 404 });
-  }
-
-  let to;
+  if (!platform && !target) return { status: 404 };
   if (platform) {
     const url = await currentCodeopUrl(platform);
-    if (!url) {
-      // Deliberately NOT a fallback to a known older build. Handing someone a
-      // stale CodeOp is what locked a new person out of their account; saying
-      // "try again shortly" costs a minute, and the other one cost a day.
-      return new Response(
-        "CodeOp's download is briefly unavailable — try again in a minute.",
-        { status: 503, headers: { "Cache-Control": "no-store" } },
-      );
-    }
-    to = new URL(url);
-  } else {
-    to = new URL(`/download/${target}`, request.url);
+    if (!url) return { status: 503 };
+    return { status: 302, to: url };
+  }
+  return { status: 302, to: new URL(`/download/${target}`, request.url).toString() };
+}
+
+// A HEAD request used to 404 on every one of these, because only GET was
+// exported. Browsers use GET so ordinary downloads worked and the fault was
+// invisible — but download managers, link checkers and some corporate proxies
+// send HEAD first and report the link as dead. Measured 2026-08-27: HEAD on
+// /get/appimage returned 404 while GET returned a correct 302.
+//
+// It deliberately does NOT count. A HEAD is somebody checking the link exists,
+// not somebody taking the file, and a link checker sweeping the site would
+// otherwise invent downloads that never happened.
+export async function onRequestHead({ params, request }) {
+  const key = String(params.file || "").toLowerCase();
+  const { status, to } = await resolve(key, request);
+  const headers = to ? { Location: to } : {};
+  return new Response(null, { status, headers });
+}
+
+export async function onRequestGet({ params, env, request, waitUntil }) {
+  const key = String(params.file || "").toLowerCase();
+  const { status, to } = await resolve(key, request);
+  if (status === 404) {
+    return new Response("Not found", { status: 404 });
+  }
+  if (status === 503) {
+    // Deliberately NOT a fallback to a known older build. Handing someone a
+    // stale CodeOp is what locked a new person out of their account; saying
+    // "try again shortly" costs a minute, and the other one cost a day.
+    return new Response(
+      "CodeOp's download is briefly unavailable — try again in a minute.",
+      { status: 503, headers: { "Cache-Control": "no-store" } },
+    );
   }
 
   // The count must never be able to stop a download, so it runs after the
@@ -84,7 +110,7 @@ export async function onRequestGet({ params, env, request, waitUntil }) {
     waitUntil(bump(env.KADAKEN_STATS, key, request).catch(() => {}));
   }
 
-  return Response.redirect(to.toString(), 302);
+  return Response.redirect(to, 302);
 }
 
 // Who this is, without ever storing who this is.

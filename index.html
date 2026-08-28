@@ -111,7 +111,7 @@
         <div class="actions" id="download">
           <a class="button" href="/get/deb">
             Download for Linux
-            <!-- AWBN-VERSION --><span class="sub">Installer · 10 MB · v4.9.2</span>
+            <!-- AWBN-VERSION --><span class="sub" data-fill="awbn">Installer · 10 MB · v4.9.2</span>
           </a>
           <a class="button quiet" href="mailto:support@kadaken.com?subject=Agent%20Workbench%20Native">Report a problem</a>
         </div>
@@ -156,11 +156,11 @@
         <div class="actions" id="codeop-download">
           <a class="button" href="/get/codeop-windows">
             Download for Windows
-            <!-- CODEOP-VERSION --><span class="sub">Zip · 28 MB · v4.0.0-beta+13</span>
+            <!-- CODEOP-VERSION --><span class="sub" data-fill="codeop-windows">Zip · 28 MB · v4.0.0-beta+13</span>
           </a>
           <a class="button" href="/get/codeop-linux">
             Download for Linux
-            <!-- CODEOP-VERSION-LINUX --><span class="sub">Installer · 16 MB · v4.0.0-beta+13</span>
+            <!-- CODEOP-VERSION-LINUX --><span class="sub" data-fill="codeop-linux">Portable · 22 MB · v4.0.0-beta+13</span>
           </a>
           <a class="button quiet" href="mailto:support@kadaken.com?subject=CodeOp">Report a problem</a>
         </div>
@@ -261,5 +261,17 @@
       <a class="shut" href="#thumb-frontier">Close</a>
       <img src="/assets/screenshot-open-frontier.jpg" alt="Open Frontier title screen: a blue and white starfighter above a planet." loading="lazy" />
     </div>
+    <script>
+// Fill the version and size beside each download button from what actually
+// serves the file. The words in the HTML are the fallback, so the page still
+// reads correctly with scripting off or if /versions cannot be reached — it
+// just risks being out of date, which is what this exists to prevent.
+fetch("/versions").then(function (r) { return r.json(); }).then(function (v) {
+  document.querySelectorAll("[data-fill]").forEach(function (el) {
+    var text = v[el.getAttribute("data-fill")];
+    if (text) el.textContent = text;
+  });
+}).catch(function () {});
+</script>
   </body>
 </html>
