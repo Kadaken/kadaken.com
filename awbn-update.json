@@ -1,28 +1,28 @@
 {
-  "version": "4.9.2",
+  "version": "4.9.3",
   "download_url": "https://kadaken.com/",
-  "notes": "Nothing the agent says disappears any more. Anything it said before running another command used to be deleted from the chat, so a question it asked and then kept working past erased itself. A question now gets clickable answers that stay, and that carry the question with them. Creating a project no longer offers to build it inside the project you are in, and new projects go in the folder you chose rather than a hidden one. The wall between the chat and the viewer can actually be grabbed.",
-  "published_at": "2026-08-26",
+  "notes": "The release that can be replied to. The app had no contact address anywhere in it, and the security document told you to use a page that returns 404 to everyone. There is now a Found something? card in Options with one mail button. A stopped turn says who stopped it, your account's own limit no longer looks like the agent's answer, and you are told when somebody downloads.",
+  "published_at": "2026-08-27",
   "assets": {
     "appimage": {
       "url": "https://kadaken.com/download/Agent_Workbench_Native-x86_64.AppImage",
-      "sha256": "77dfc72ca5ef95f4e85a0c68ff2f40f2ad5ad25a641945376e3381f4e8d21aaa",
-      "size": 15303872
+      "sha256": "cd1d20b8474734c8ee24c3f04b7579ec270055f8d1b153a8018f98658de7df72",
+      "size": 15307968
     },
     "tarball": {
       "url": "https://kadaken.com/download/agent-workbench-native-linux-x64.tar.gz",
-      "sha256": "5c61bb62d39d1506eaf0b0482630a85ed6cb8c45e64ad6a78bb741d799124492",
-      "size": 15064954
+      "sha256": "9613283b016bf5eef6da366e881a907c1a2cd45035a509ecfc5ae5761a2cb0d0",
+      "size": 15068091
     },
     "deb": {
       "url": "https://kadaken.com/download/agent-workbench-native-amd64.deb",
-      "sha256": "86058e6ae49fbf0019c0201712b4bc089be1493b255142f4355172d3ddccf772",
-      "size": 10877064
+      "sha256": "ef30e39efc8903164614af74acc6d9d66d8943656f2133b7655e7e38cbf5337e",
+      "size": 10883928
     },
     "checksums": {
       "url": "https://kadaken.com/download/SHA256SUMS",
-      "sha256": "5be09497e1d350cfc622dd3fea41dd73430087bc7a4b2fe9c851b0d8de524107",
-      "size": 404
+      "sha256": "ddeef7ecc339582c425113bed6f2c2a26f569f1d406f7704374cfc773bbfa793",
+      "size": 516
     }
   }
 }
