@@ -1,27 +1,27 @@
 {
-  "version": "4.10.0",
+  "version": "4.11.0",
   "download_url": "https://kadaken.com/",
-  "notes": "Agents are now told how to ANSWER, not only how to work: the answer first, what failed in three lines at most, and one question at the end. Both instruction blocks are visible and switchable in Options. A running turn shows the agent's own plan -- 'Step 2 of 3: build the package' -- instead of 'Ran a command', with a bar showing whether it is taking longer than turns usually do here.",
-  "published_at": "2026-09-01",
+  "notes": "Agents can now ask a question without ending their turn, which is the main reason answers here were worse than the same model in a terminal. A helper-agent ceiling stops a small job spending fifteen of them. The loading bar only appears when something real is behind it. A viewer pane can no longer sit on Loading forever, answer buttons no longer stay live on old messages, and installing no longer crashes the running app.",
+  "published_at": "2026-09-03",
   "assets": {
     "appimage": {
       "url": "https://kadaken.com/download/Agent_Workbench_Native-x86_64.AppImage",
-      "sha256": "71c16b7861949d4fb81294ec3440b5a355e1c2c49400f7a5c309f46e8554e694",
-      "size": 15312064
+      "sha256": "8d5d96ce995cadc48c8e1e385af0c7f1e13d7edbf1b552d5f9f0d67d52b3e1a2",
+      "size": 15328448
     },
     "tarball": {
       "url": "https://kadaken.com/download/agent-workbench-native-linux-x64.tar.gz",
-      "sha256": "c4606b64b3dfac8489d61b7ac7b63a47450e7198b8115dfd2f31d245f300e232",
-      "size": 15074549
+      "sha256": "013878ad8769d0d4a25ba8d31f28a95af9073cd77c750d5b9780a40bbf1c1b98",
+      "size": 15090461
     },
     "deb": {
       "url": "https://kadaken.com/download/agent-workbench-native-amd64.deb",
-      "sha256": "4d8003ac939a7409df6b68c7d5c111a269db7c43c272572217cab3f704d12b18",
-      "size": 10887516
+      "sha256": "92b8e376eeb219881ad8a96b005d4f90fb3cf534eafb10bbb858ceb7ce1ca592",
+      "size": 10898800
     },
     "checksums": {
       "url": "https://kadaken.com/download/SHA256SUMS",
-      "sha256": "3299eaae4d9ae672d3848a9c1df4eb2655501dbbed381ad1c79dab28f0bd1c94",
+      "sha256": "8c20a344ed7d199ed764e13c2a9b965627a94e5bfd0f755d2adb084fa0c802e7",
       "size": 610
     }
   }
