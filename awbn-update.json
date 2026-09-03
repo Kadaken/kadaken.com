@@ -1,28 +1,28 @@
 {
-  "version": "4.11.0",
+  "version": "4.13.1",
   "download_url": "https://kadaken.com/",
-  "notes": "Agents can now ask a question without ending their turn, which is the main reason answers here were worse than the same model in a terminal. A helper-agent ceiling stops a small job spending fifteen of them. The loading bar only appears when something real is behind it. A viewer pane can no longer sit on Loading forever, answer buttons no longer stay live on old messages, and installing no longer crashes the running app.",
+  "notes": "An AWBN session now gets the MCP servers a terminal gets - measured, one against nine before this. Work that outlives its turn shows on a row beside the viewer with how long it has run, says when its own log goes quiet, and says when it ends. The session cost was 4.8x too high and is now the turn's own spend. Every source file opens in the viewer, not just the two dozen extensions on a list. A project chat opens in its project, never in Conversations.",
   "published_at": "2026-09-03",
   "assets": {
     "appimage": {
       "url": "https://kadaken.com/download/Agent_Workbench_Native-x86_64.AppImage",
-      "sha256": "8d5d96ce995cadc48c8e1e385af0c7f1e13d7edbf1b552d5f9f0d67d52b3e1a2",
-      "size": 15328448
+      "sha256": "5d8fb673824bd113b05669c77c5f23caa3bf5514e819a53efd1617e96e433653",
+      "size": 15353024
     },
     "tarball": {
       "url": "https://kadaken.com/download/agent-workbench-native-linux-x64.tar.gz",
-      "sha256": "013878ad8769d0d4a25ba8d31f28a95af9073cd77c750d5b9780a40bbf1c1b98",
-      "size": 15090461
+      "sha256": "9650bf3cf5fad04d34e10bdbe662d7d3f67c12497d2b1dd03ec42b75395fd3af",
+      "size": 15113088
     },
     "deb": {
       "url": "https://kadaken.com/download/agent-workbench-native-amd64.deb",
-      "sha256": "92b8e376eeb219881ad8a96b005d4f90fb3cf534eafb10bbb858ceb7ce1ca592",
-      "size": 10898800
+      "sha256": "1c0123e496787ad217963aca18b2f8de82bb4c5b54e571731a8976667d29dfb6",
+      "size": 10914336
     },
     "checksums": {
       "url": "https://kadaken.com/download/SHA256SUMS",
-      "sha256": "8c20a344ed7d199ed764e13c2a9b965627a94e5bfd0f755d2adb084fa0c802e7",
-      "size": 610
+      "sha256": "8c3e0a7bea84a2868efba37a1430c9c61701314afba72ba697adc36bd45a13ce",
+      "size": 310
     }
   }
 }
