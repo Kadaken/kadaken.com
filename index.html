@@ -9,7 +9,7 @@
       content="Kadaken builds desktop tools and games. Premium quality, premium work."
     />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/kadaken.51a95491e6.css" />
+    <link rel="stylesheet" href="/kadaken.55ffe7807e.css" />
   </head>
   <body class="kadaken">
     <div class="sky"></div>
@@ -22,7 +22,7 @@
         <span class="tag">Premium quality, premium work</span>
         <nav>
           <a href="#workbench">Apps</a>
-          <a href="#ports">Ports</a>
+          <a href="/ports">Ports</a>
           <a href="/games">Games</a>
           <a href="/drawer">App drawer</a>
           <span class="nav-divider" aria-hidden="true"></span>
@@ -35,6 +35,24 @@
         </nav>
       </div>
     </header>
+
+    <aside class="news-strip" aria-label="Latest Kadaken updates">
+      <strong class="news-label">Latest</strong>
+      <div class="news-window">
+        <div class="news-track">
+          <div class="news-set">
+            <a href="/ports#genesis3d">Genesis3D now has a native Linux runtime — read the port and join in</a>
+            <a href="#workbench">Agent Workbench Native 4.17.0 is available</a>
+            <a href="#codeop">CodeOp 4.0 beta is open for playtesting</a>
+          </div>
+          <div class="news-set" aria-hidden="true">
+            <a href="/ports#genesis3d" tabindex="-1">Genesis3D now has a native Linux runtime — read the port and join in</a>
+            <a href="#workbench" tabindex="-1">Agent Workbench Native 4.17.0 is available</a>
+            <a href="#codeop" tabindex="-1">CodeOp 4.0 beta is open for playtesting</a>
+          </div>
+        </div>
+      </div>
+    </aside>
 
     <main class="wrap">
       <section class="intro">
@@ -49,7 +67,7 @@
         They are free to use while they are, and they will change: features,
         layout and behaviour can all move between releases, and a build can be
         pulled or replaced at any time. Treat them as software that is still
-        being made, because they are. <a href="#ports">Ports</a> are a separate
+        being made, because they are. <a href="/ports">Ports</a> are a separate
         matter, built by other people and carrying their own licences.
       </aside>
 
@@ -214,74 +232,6 @@
         </p>
       </section>
 
-      <!-- Other people's software, moved to platforms it never reached. Kept
-           separate from Kadaken's own products on purpose: the original authors
-           did the hard part and their licences still govern the code. -->
-      <section class="thing" id="ports">
-        <div class="head">
-          <h2>Ports</h2>
-          <span class="chip">Open to contributors</span>
-        </div>
-        <p>
-          Software other people built, brought to platforms it never reached.
-          These are not Kadaken products. The original authors did the hard part
-          and their licences still govern the code, so the work here is the
-          moving, not the making.
-        </p>
-        <p>
-          <strong>Help is wanted.</strong> These licences were written to
-          encourage exactly that. If you want to fix something, test on hardware
-          I do not have, or take a port further than I did, open an issue or a
-          pull request on its repository. Nothing here is a closed shop.
-        </p>
-      </section>
-
-      <section class="thing" id="genesis3d">
-        <div class="head">
-          <h2>Genesis3D Linux</h2>
-          <span class="chip">Source Available</span>
-        </div>
-        <p>
-          A 1999 game engine, running natively on Linux again. Eclipse Entertainment published the full Genesis3D source under its own licence, WildTangent bought the assets that October and shipped version 1.1 in November, then abandoned it in place. Nothing was ever released after 1.1. This port takes that last version and replaces the Windows window, render, input and timing layers with SDL2 and OpenGL, then proves the physics still hold once all four are swapped out underneath it.
-        </p>
-        <p class="meta">
-          Assisted by Gemini and Codex Sol.
-        </p>
-
-        <ul class="wins">
-          <li><strong>Native SDL2 input and rendering.</strong> X11/OpenGL for Linux.</li>
-          <li><strong>Full BSP collision.</strong> Swept-hull detection with gravity, jumping, slopes.</li>
-          <li><strong>Actor animation pipeline.</strong> Fixed 60 Hz simulation clock.</li>
-          <li><strong>60/120 FPS presentation.</strong> Configurable refresh rates.</li>
-          <li><strong>Full source published.</strong> Under the Genesis3D Public License.</li>
-        </ul>
-
-        <div class="actions">
-          <a class="button" href="https://github.com/Kadaken/Genesis3D-Linux" rel="noopener" target="_blank">
-            View on GitHub
-            <span class="sub">Source Available</span>
-          </a>
-          <a class="button quiet" href="/genesis3d">Read the story</a>
-          <a class="button quiet" href="https://github.com/Kadaken/Genesis3D-Linux/issues" rel="noopener" target="_blank">Contribute or report</a>
-        </div>
-        <p class="alt">
-          <strong>Where help is wanted:</strong> the
-          <a href="https://github.com/Kadaken/Genesis3D-Linux/blob/main/Reports/COMMUNITY_ENGINE_ROADMAP.md" rel="noopener" target="_blank">community roadmap</a>
-          lists six areas with concrete tasks, from CI and neutral test assets
-          through to Wayland, audio, gamepads and the Blender pipeline.
-        </p>
-        <!-- Required by the Genesis3D Public License: the logo must appear on
-             marketing materials. This is the engine's own embedded bitmap,
-             extracted from Engine/Logo/poweredby.c and WebUrl.c. -->
-        <p class="alt">
-          <img src="/assets/genesis3d-poweredby.png" alt="Powered by Genesis3D. www.genesis3d.com" width="273" height="100" style="max-width:190px;height:auto;opacity:.8" />
-        </p>
-        <p class="alt">
-          Genesis3D was written by Eclipse Entertainment, L.L.C. (1996 to 1999). This port is based on version 1.1, released 15 November 1999 by WildTangent, Inc., who acquired the assets and hold the copyright on the source as published. Linux port and modernization by Kadaken, 2026. Distributed under the Genesis3D Public License v1.01.
-        </p>
-      </section>
-
-
          <!-- Two doors off the front page. Apps are what people come for; games
            and the small tools each get their own room so neither pushes the
            other down as the lists grow. -->
@@ -293,6 +243,7 @@
           Games have their own page, and the small one-off tools have theirs.
         </p>
         <div class="actions">
+          <a class="button quiet" href="/ports">Ports</a>
           <a class="button quiet" href="/games">Games</a>
           <a class="button quiet" href="/drawer">App drawer</a>
         </div>
@@ -325,11 +276,6 @@
       <a class="sheet" href="#thumb-codeop" aria-label="Close"></a>
       <a class="shut" href="#thumb-codeop">Close</a>
       <img src="/assets/screenshot-codeop.jpg" alt="CodeOp: a friends list on the left and a chat thread with shared build files on the right." loading="lazy" />
-    </div>
-    <div class="lightbox" id="view-frontier" role="dialog" aria-label="Open Frontier title screen: a blue and white starfighter above a planet.">
-      <a class="sheet" href="#thumb-frontier" aria-label="Close"></a>
-      <a class="shut" href="#thumb-frontier">Close</a>
-      <img src="/assets/screenshot-open-frontier.jpg" alt="Open Frontier title screen: a blue and white starfighter above a planet." loading="lazy" />
     </div>
     <script src="/fill-versions.js" defer></script>
   </body>
