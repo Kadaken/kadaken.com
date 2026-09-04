@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Original Code is Genesis3D | Kadaken</title>
-    <meta name="description" content="A preserved 1999 game-engine lineage running through a new native Linux runtime: what was ported, what was tested, and how to contribute." />
+    <title>Genesis3D: The Engine That Almost Disappeared | Kadaken</title>
+    <meta name="description" content="The human story of Genesis3D: Eclipse Entertainment's ambitious 3D engine, the games it powered, how it faded, and why it now runs on Linux." />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/kadaken.55ffe7807e.css" />
   </head>
@@ -25,268 +25,123 @@
 
     <main class="wrap">
       <section class="intro">
-        <h1>The Original Code is Genesis3D</h1>
+        <h1>Genesis3D: the engine that almost disappeared</h1>
         <p>
-          That line sits at the top of most files in the engine, followed by a
-          date: released March 25, 1999. Version 1.1 followed that November, and
-          later source snapshots preserved changes through 2009. A new
-          native Linux runtime now builds on that preserved work. This is how it
-          happened.
+          In the late 1990s, making a 3D game usually meant having serious money,
+          specialist programmers, or both. A small company called Eclipse
+          Entertainment wanted to change that. Genesis3D was its attempt to put
+          a real 3D engine and game-making tools within reach of ordinary
+          developers.
         </p>
       </section>
 
       <section class="thing">
-        <h2>It started because I wanted to tweak an old game</h2>
+        <h2>A door into 3D</h2>
         <p>
-          Not a project. Not a plan. I was playing something old and I wanted to
-          change it, the way you do when a game is nearly right and you can see
-          the one thing you would move. That question turns into a different
-          question fast: what is this actually built on, and can I get at it.
+          Eclipse released the Genesis3D source and tools in 1999. The promise
+          was simple and exciting: people could build 3D worlds and animation
+          without first creating an engine of their own. At a time when 3D
+          technology was expensive and closely guarded, that made Genesis3D
+          feel like an open door.
         </p>
         <p>
-          Genesis3D is what I found: the published engine source, not a
-          decompilation or reconstruction, preserved with later inherited
-          revisions and the original developers' comments still visible. Its
-          Windows runtime could not run natively on the Linux machine in front
-          of me.
-        </p>
-        <p>
-          So the tweak became the port. I worked on it with assistance from
-          <strong>Gemini</strong> and <strong>Codex Sol</strong>, and the public
-          Git history records the resulting changes.
+          It never became the name that Unreal or Quake became. Its place in
+          gaming history is smaller and stranger. It gave independent studios,
+          hobbyists, students and developers with unusual ideas something they
+          could actually get their hands on. For many people, it was a first
+          look behind the curtain at how a 3D game worked.
         </p>
       </section>
 
       <section class="thing">
-        <h2>1999 is still in there, and it talks</h2>
+        <h2>The games people remember</h2>
         <p>
-          Published engine source was unusual. Eclipse Entertainment made the
-          Genesis3D source available, so what survives is not merely a summary
-          of how a late-1990s engine worked. It includes working notes from the
-          people building one, mid-thought.
+          Genesis3D powered commercial games as well as countless experiments.
+          <em>Extreme PaintBrawl 2</em> used it for paintball combat.
+          <em>Catechumen</em> and <em>Ominous Horizons</em> turned the first-person
+          shooter into a Christian fantasy adventure. Historical catalogues also
+          connect it with <em>Dragon's Lair 3D: Return to the Lair</em>.
         </p>
         <p>
-          In <code>Actor/body.c</code>, someone is trying to work out lighting
-          behaviour across the hardware of the day and gives up mid sentence:
-        </p>
-        <p class="alt">
-          <em>point light and directional light don't seem much different, but in
-          powervr they are... hhmmm...</em>
-        </p>
-        <p>
-          PowerVR: unmistakably the hardware landscape of the period. In
-          <code>World/Trace.c</code>, in the middle of the BSP traversal, someone
-          knows exactly what the better version looks like and writes down why
-          they are not doing it: the stack based approach could bail out early,
-          <em>but it's way too ugly</em>. Two lines up: <em>bsp ordering makes
-          the magic happen</em>. And in the OpenGL driver, at shutdown, a comment
-          explains a <code>glFinish</code> by saying they are closing up shop.
-        </p>
-        <p>
-          The first two comments remain in modules used by the native build. The
-          third survives in the historical OpenGL driver, which the Linux target
-          preserves in the repository but does not compile.
+          These were not all famous or well reviewed, but they were memorable.
+          They showed what happened when game technology reached people outside
+          the biggest studios: the results could be ambitious, awkward, sincere,
+          odd, or all four at once. That is a more interesting legacy than a list
+          of technical features.
         </p>
       </section>
 
       <section class="thing">
-        <h2>The logo waiting inside the code</h2>
+        <h2>Then the future changed</h2>
         <p>
-          I expected the oldest parts of the engine to be the hardest to read.
-          Instead, buried in a folder called <code>Engine/Logo</code>, I found a
-          tiny light show waiting to happen: a corona, a streak and an electric
-          arc. These were not notes describing the Genesis3D introduction. They
-          were the pieces that made it move before a game began.
+          In October 1999, WildTangent acquired Eclipse's technology and brought
+          the development team to its Redmond headquarters. The plan was to join
+          Genesis3D with WildTangent's Web Driver and make rich,
+          hardware-accelerated 3D experiences practical on the web. Genesis3D
+          1.1 followed that November.
         </p>
         <p>
-          The still artwork had been preserved in an even stranger way. There
-          was no ordinary image to open. The badge and web address had been
-          turned into long arrays of numbers and placed directly in the source.
-          I had to pull those bytes back out to see the picture they had been
-          carrying since the 1990s.
-        </p>
-        <p>
-          Then the reason became clear. The licence says that the original
-          animated Genesis3D logo must appear first in a distributed product,
-          demo or application, and that the logo must appear in marketing. What
-          first looked like a piece of code archaeology was also an instruction
-          from the people who released the engine: you may build on this, but do
-          not erase where it came from.
-        </p>
-        <p>
-          That is why the badge at the bottom of this page is not my remake. It
-          is the image I recovered from the source itself.
+          It was a hopeful idea, but the industry moved brutally fast. Graphics
+          hardware changed, Windows changed, competing engines grew more capable,
+          and WildTangent's attention moved toward its wider web and games
+          business. Genesis3D did not die on one clearly marked day. Games still
+          shipped with it, and later copies of the source preserved more work.
+          It simply stopped being the future and slowly became something people
+          remembered.
         </p>
       </section>
 
       <section class="thing">
-        <h2>Four renderers, and one file that ruined it</h2>
+        <h2>Why bring it back?</h2>
         <p>
-          Here is the part that decided whether any of this was possible.
-        </p>
-        <p>
-          The preserved <code>Engine/Drivers</code> tree holds four rendering backends:
-          Direct3D, Direct3D 7, a wireframe debug driver, and OpenGL. In 1999, on
-          Windows, the commercially sensible move was to pick Direct3D and commit
-          everything to it. Eclipse instead defined a driver interface, put every
-          renderer behind it, and shipped an OpenGL implementation alongside
-          the Windows-focused alternatives.
+          I found Genesis3D because I wanted to change an old game. I expected a
+          small side project; instead I found an engine stranded on the wrong
+          side of decades of Windows and hardware changes. The source was still
+          there, but on a modern Linux computer it was history you could read,
+          not software you could simply run.
         </p>
         <p>
-          The same instinct runs through the rest of it. The world is a BSP tree
-          with precomputed lightmaps. Characters are actors with skeletal
-          animation, held apart from world geometry. Collision is a swept hull
-          query against the BSP rather than anything bolted to how a frame gets
-          drawn. Simulation is kept separate from presentation. Every one of
-          those is a seam, and seams are what let a stranger work on one part
-          without detonating the rest. That is what publishing your source
-          actually demands of the architecture.
+          With help from Gemini and Codex, I built a native Linux port and got
+          the old engine running again. I did not create Genesis3D, and the port
+          is not a new game. It is a bridge back to something that was nearly
+          lost.
         </p>
         <p>
-          And then, inside the old OpenGL driver, next to the rendering code,
-          sits a file called <code>Win32.c</code>. The driver interface was
-          modular, but the shipped host integration was still Windows-specific.
-        </p>
-        <p>
-          The engine could change graphics backends. But the shipped host path
-          still ran through Windows: the window, message loop, input, timer, and
-          the surface it drew into. Genesis3D was portable in the layer everyone
-          worries about and tightly coupled in the layer people often forget.
-          The native port therefore had to replace the host window, input,
-          timing, and active rendering bridge while preserving the engine
-          interfaces and behaviors exercised by the native tests.
-        </p>
-      </section>
-
-      <section class="thing">
-        <h2>The handover you can count</h2>
-        <p>
-          The licence identifies Genesis3D original code released on 25 March
-          1999 and attributes it to Eclipse Entertainment. Contemporary reporting
-          records WildTangent's acquisition of Eclipse technology in October
-          1999, and the preserved repository identifies Genesis3D 1.1 as released
-          by WildTangent on 15 November 1999. The technology was combined with
-          WildTangent's Web Driver work.
-        </p>
-        <p>
-          The handover is visible in the source headers, but the current tree is
-          not a pristine 1999 time capsule. Its Git history labels the 1.1 import
-          and a sequence of later source snapshots through 2009. The current
-          branch also carries the 2026 Linux changes. That lineage matters:
-          Kadaken is publishing a port of inherited
-          code, not claiming authorship of the original engine.
-        </p>
-        <p>
-          The public source used here is distributed with the Genesis3D Public
-          License v1.01. The Reality Factory repository preserved later source
-          revisions, and this port retains that provenance rather than
-          presenting the code as newly authored from scratch.
-        </p>
-        <p class="alt">
-          Sources: the public
-          <a href="https://github.com/RealityFactory/Genesis3D" rel="noopener" target="_blank">Reality Factory Genesis3D history</a>,
-          the <a href="https://github.com/Kadaken/Genesis3D-Linux/blob/main/g3dlicense.txt" rel="noopener" target="_blank">Genesis3D Public License</a>,
-          and <a href="https://www.internetnews.com/developer/wildtangent-acquires-eclipse/" rel="noopener" target="_blank">contemporary acquisition reporting</a>.
-        </p>
-      </section>
-
-      <section class="thing">
-        <h2>Games that shipped with Genesis3D</h2>
-        <p>
-          Genesis3D was used beyond demos and hobby projects. Documented
-          commercial releases include the Windows shooters
-          <em>Extreme PaintBrawl 2</em> (1999), <em>Catechumen</em> (2000), and
-          <em>Ominous Horizons: A Paladin's Calling</em> (2001). Historical game
-          catalogues also identify the recognizable licensed game
-          <em>Dragon's Lair 3D: Return to the Lair</em> (2002) as a Genesis3D
-          title; it shipped on Windows and consoles.
-        </p>
-        <p class="alt">
-          These examples describe the engine's history; their games, names, and
-          assets are not included in or licensed by this port. See the
-          <a href="https://www.mobygames.com/group/7425/3d-engine-genesis3d/" rel="noopener" target="_blank">MobyGames Genesis3D catalogue</a>
-          and the individual historical records for
-          <a href="https://www.mobygames.com/game/3037/catechumen/" rel="noopener" target="_blank">Catechumen</a>.
-        </p>
-      </section>
-
-      <section class="thing">
-        <h2>What runs today</h2>
-        <p>
-          The old Windows-hosted driver implementations are excluded from the
-          native target. A new SDL2/OpenGL frontend loads the retained world and
-          actor structures and submits their BSP faces, textures, lightmaps, and
-          posed actor geometry to OpenGL.
-        </p>
-        <ul class="wins">
-          <li><strong>SDL2 owns the window and input.</strong> The Win32 message loop and its per driver platform glue are gone.</li>
-          <li><strong>Tested swept BSP collision.</strong> Automated real-map fixtures cover gravity, jumping, stairs, slopes, wall sliding, and ceiling rejection; final feel still needs wider hands-on testing.</li>
-          <li><strong>Simulation pinned to 60 Hz.</strong> Actor motion and light styles advance on a fixed clock, whether the frame is presented at 60 or 120 FPS.</li>
-          <li><strong>Lightmaps updated in place.</strong> Only dirty, visible tiles are re-uploaded. Geometry is never rebuilt.</li>
-          <li><strong>Checked shutdown paths.</strong> SIGINT and SIGTERM release engine-owned graphics, world, and file resources under the documented sanitizer tests.</li>
-        </ul>
-        <p>
-          A 3D engine is one of the few kinds of software that genuinely rots. It
-          sits on graphics APIs, operating systems and hardware assumptions that
-          all move without asking. When they move far enough the code stops being
-          software and becomes a document: readable, studied, not runnable.
-          This branch turns that preserved code into a working native Linux
-          runtime while keeping the original asset formats and core subsystems
-          available for further work.
-        </p>
-      </section>
-
-      <section class="thing">
-        <h2>Come break it</h2>
-        <p>
-          This is the part I actually care about. The licence Eclipse wrote was
-          designed to pull people in, and the whole point of getting the engine
-          running again is that other people can now get at it.
-        </p>
-        <p>
-          <strong>Build it. Test it. Change it.</strong> Run it on hardware I do
-          not have. Tell me what breaks on NVIDIA, Intel, Wayland, or a
-          distribution I have never installed. The repository contains source
-          but no legacy game assets, so runtime testing requires compatible
-          assets you are legally entitled to use.
-        </p>
-        <p>
-          If you want something concrete, the
-          <a href="https://github.com/Kadaken/Genesis3D-Linux/blob/main/Reports/COMMUNITY_ENGINE_ROADMAP.md" rel="noopener" target="_blank">community roadmap</a>
-          lays out six areas with real work in each: reproducible builds and CI,
-          renderer completeness, platform coverage, audio and gamepad support,
-          the asset and authoring pipeline, and parser fuzzing. It also says
-          plainly what is out of scope, because Genesis3D is an engine and
-          weapons, levels and game balance belong to whatever gets built on it.
-        </p>
-        <p>
-          Issues and pull requests are welcome and reviewed in public. Read the
-          licence and contribution guide first: contributions must be yours to
-          submit, and the Contributor Grant in the Genesis3D Public License
-          applies. Do not upload commercial game data or other third-party
-          assets.
+          This is a non-commercial community project. I do not plan to sell it.
+          The source is public so curious people can study it, test it, improve
+          it and perhaps make something unexpected with it—just as Eclipse
+          intended when it opened that door in 1999.
         </p>
         <div class="actions">
           <a class="button" href="https://github.com/Kadaken/Genesis3D-Linux" rel="noopener" target="_blank">
-            Genesis3D Linux on GitHub
+            Explore Genesis3D Linux
             <span class="sub">Source Available</span>
           </a>
-          <a class="button quiet" href="https://github.com/Kadaken/Genesis3D-Linux/issues" rel="noopener" target="_blank">Open an issue</a>
+          <a class="button quiet" href="https://github.com/Kadaken/Genesis3D-Linux/issues" rel="noopener" target="_blank">Join the conversation</a>
         </div>
-        <!-- Required by the Genesis3D Public License: the logo must appear on
-             marketing materials. These are the engine's own embedded bitmaps,
-             extracted from Engine/Logo/poweredby.c and WebUrl.c. -->
+      </section>
+
+      <section class="thing">
+        <h2>Sources and credit</h2>
+        <p class="alt">
+          This account is based on the
+          <a href="https://github.com/RealityFactory/Genesis3D" rel="noopener" target="_blank">preserved Genesis3D source and history</a>,
+          <a href="https://www.internetnews.com/developer/wildtangent-acquires-eclipse/" rel="noopener" target="_blank">contemporary reporting on WildTangent's 1999 acquisition</a>,
+          and the
+          <a href="https://www.mobygames.com/group/7425/3d-engine-genesis3d/" rel="noopener" target="_blank">MobyGames Genesis3D catalogue</a>.
+          The named games and their assets are not included in or licensed by
+          this port.
+        </p>
+        <!-- Required by the Genesis3D Public License for marketing materials. -->
         <p class="alt">
           <img src="/assets/genesis3d-poweredby.png" alt="Powered by Genesis3D. www.genesis3d.com" width="273" height="100" style="max-width:190px;height:auto;opacity:.8" />
         </p>
         <p class="alt">
-          Copyright in the original Genesis3D code and inherited modifications
-          remains with the respective Eclipse Entertainment, WildTangent, and
-          community contributors. Linux port
-          modifications by Kadaken, 2026, assisted by Gemini and Codex Sol.
-          Distributed under the Genesis3D Public License v1.01. No affiliation
-          with or endorsement by the original companies or the owners of games
-          made with Genesis3D is claimed.
+          Original engine code and inherited modifications remain copyright
+          their respective contributors. Linux port modifications by Kadaken,
+          2026, with assistance from Gemini and Codex. Distributed under the
+          Genesis3D Public License v1.01. No affiliation with or endorsement by
+          the original companies or game owners is claimed.
         </p>
       </section>
     </main>
