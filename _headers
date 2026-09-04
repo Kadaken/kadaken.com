@@ -11,6 +11,11 @@
 /kadaken.css
   Cache-Control: public, max-age=0, must-revalidate
 
+# Unhashed, and it is what keeps every version label on the site correct, so a
+# stale copy is worse than a re-request. Revalidate every time.
+/fill-versions.js
+  Cache-Control: public, max-age=0, must-revalidate
+
 # The download filenames are stable across releases, so the same URL has new
 # bytes behind it after every publish. Without this the edge keeps serving the
 # previous build under the current name — verified happening on 4.7.3. Short
@@ -29,4 +34,4 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
   X-Frame-Options: DENY
-  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
