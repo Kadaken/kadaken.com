@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ports | Kadaken</title>
+    <meta name="description" content="Source-available ports of third-party software maintained by Kadaken, including Genesis3D for native Linux." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/kadaken.55ffe7807e.css" />
+  </head>
+  <body class="kadaken">
+    <div class="sky"></div><div class="floor"></div><div class="veil"></div>
+    <header><div class="wrap">
+      <a class="name" href="/" aria-label="Kadaken"><span class="layer cold">KADAKEN</span><span class="layer hot" aria-hidden="true">KADAKEN</span><span class="seam" aria-hidden="true"></span></a>
+      <span class="tag">Ports</span>
+      <nav><a class="back" href="/">&#8592; Back</a></nav>
+    </div></header>
+    <main class="wrap">
+      <section class="intro">
+        <h1>Ports</h1>
+        <p>Software other people built, carried onto platforms it did not originally support.</p>
+      </section>
+      <aside class="notice">
+        <strong>Separate work, separate licences.</strong>
+        Ports are not Kadaken products and are not covered by Kadaken's app
+        terms. The original authors and community contributors did the
+        foundational work; every port remains governed by the licence supplied
+        with its source.
+      </aside>
+      <section class="thing" id="genesis3d">
+        <div class="head"><h2>Genesis3D Native Linux</h2><span class="chip">Source available</span></div>
+        <p>
+          A native 64-bit Linux runtime for the Genesis3D 1.x engine lineage.
+          It combines preserved Eclipse/WildTangent engine code and later
+          community maintenance with a Kadaken Linux frontend using SDL2 and OpenGL.
+        </p>
+        <ul class="wins">
+          <li><strong>SDL2 window and input.</strong> Tested through X11/XWayland on Fedora.</li>
+          <li><strong>BSP worlds.</strong> Textures, baked and runtime lightmaps, visibility, and swept-hull collision.</li>
+          <li><strong>Animated ACT actors.</strong> Native 64-bit parsing, posing, and fixed-step motion playback.</li>
+          <li><strong>Measured pacing.</strong> 60 and 120 FPS presentation verified on one AMD/Mesa system.</li>
+          <li><strong>Public source.</strong> Distributed under the Genesis3D Public License v1.01.</li>
+        </ul>
+        <div class="actions">
+          <a class="button" href="https://github.com/Kadaken/Genesis3D-Linux" rel="noopener" target="_blank">View source on GitHub</a>
+          <a class="button quiet" href="/genesis3d">Read the story</a>
+          <a class="button quiet" href="https://github.com/Kadaken/Genesis3D-Linux/issues" rel="noopener" target="_blank">Contribute or report</a>
+        </div>
+        <p class="alt">
+          This is presently a source-only engine runtime, not a game or a
+          ready-made SDK release. No legacy game assets or compiled binary are
+          distributed. Running it requires compatible assets you are legally
+          entitled to use.
+        </p>
+        <p class="alt">
+          Contributors should read the repository's licence and
+          <a href="https://github.com/Kadaken/Genesis3D-Linux/blob/main/CONTRIBUTING.md" rel="noopener" target="_blank">contribution terms</a>.
+          The <a href="https://github.com/Kadaken/Genesis3D-Linux/blob/main/Reports/COMMUNITY_ENGINE_ROADMAP.md" rel="noopener" target="_blank">engine roadmap</a>
+          identifies work suitable for testing and pull requests.
+        </p>
+        <p class="alt"><img src="/assets/genesis3d-poweredby.png" alt="Powered by Genesis3D. www.genesis3d.com" width="273" height="100" style="max-width:190px;height:auto;opacity:.8" /></p>
+        <p class="alt">
+          Copyright in the original Genesis3D code and inherited modifications
+          remains with the respective Eclipse Entertainment, WildTangent, and
+          community contributors. Kadaken's
+          modifications are identified in the public repository. Genesis3D is
+          distributed under the Genesis3D Public License v1.01. No affiliation
+          with or endorsement by the original companies is claimed.
+        </p>
+      </section>
+    </main>
+    <footer><div class="wrap">
+      <a href="/">Back to Kadaken</a> &middot; <a href="/terms">Terms</a> &middot; <a href="https://nakedpulse.ai" rel="noopener" target="_blank">Naked Pulse</a><br />
+      © 2026 Kadaken. All rights reserved.
+    </div></footer>
+  </body>
+</html>
