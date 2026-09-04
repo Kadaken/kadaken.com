@@ -90,30 +90,32 @@
       </section>
 
       <section class="thing">
-        <h2>The logo they made impossible to remove</h2>
+        <h2>The logo waiting inside the code</h2>
         <p>
-          Open <code>Engine/Logo</code> and the folder is its own time capsule:
-          <code>CORONA.c</code>, <code>streak.c</code>, <code>electric.c</code>,
-          <code>A_CORONA.c</code>, <code>A_STREAK.c</code>. Lens flares and
-          electric arcs, compiled into the engine, for the animated splash that
-          played before your game did.
+          I expected the oldest parts of the engine to be the hardest to read.
+          Instead, buried in a folder called <code>Engine/Logo</code>, I found a
+          tiny light show waiting to happen: a corona, a streak and an electric
+          arc. These were not notes describing the Genesis3D introduction. They
+          were the pieces that made it move before a game began.
         </p>
         <p>
-          Next to them sits <code>poweredby.c</code>. Its main payload is one
-          array: <code>unsigned char Poweredby_bmp[]</code>, a 256 by 256 bitmap
-          whose 65,656 bytes are written as comma-separated integers in C.
-          Beside it, <code>WebUrl.c</code> does the same thing again for the
-          words www.genesis3d.com.
+          The still artwork had been preserved in an even stranger way. There
+          was no ordinary image to open. The badge and web address had been
+          turned into long arrays of numbers and placed directly in the source.
+          I had to pull those bytes back out to see the picture they had been
+          carrying since the 1990s.
         </p>
         <p>
-          They were not being careless. The licence requires the original
-          animated logo to appear first in a distributed product, demo, or
-          application and requires the logo on marketing. Embedding the artwork
-          in source made the requirement difficult to overlook. Twenty-seven
-          years later, that decision is why
-          the badge at the bottom of this page is not a redrawing of the
-          Genesis3D logo. It is the original bytes, lifted straight back out of
-          the array.
+          Then the reason became clear. The licence says that the original
+          animated Genesis3D logo must appear first in a distributed product,
+          demo or application, and that the logo must appear in marketing. What
+          first looked like a piece of code archaeology was also an instruction
+          from the people who released the engine: you may build on this, but do
+          not erase where it came from.
+        </p>
+        <p>
+          That is why the badge at the bottom of this page is not my remake. It
+          is the image I recovered from the source itself.
         </p>
       </section>
 
