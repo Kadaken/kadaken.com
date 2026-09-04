@@ -1,27 +1,27 @@
 {
-  "version": "4.16.1",
+  "version": "4.17.0",
   "download_url": "https://kadaken.com/",
-  "notes": "An AWBN session now gets the MCP servers a terminal gets - one against nine before this. Work that outlives its turn shows on a row beside the viewer, named after the work, with how long it has run, what its log last said, and whether it made the file it promised. Many jobs collapse to one button. A turn is never ended for you unless it never started. The session cost was 4.8x too high and is now the turn's own spend. Every source file opens in the viewer. A project chat opens in its project. And AWBN says when an update is installed but not yet running.",
+  "notes": "Unmerge puts a merged queue back exactly as it was. AWBN says when something on this machine crashes, and when an update is installed but not yet running. Work that outlives its turn shows on a row named after the work, with how long it has run, what its log last said, and whether it made the file it promised; many jobs collapse to one button. A session gets the MCP servers a terminal gets - one against nine before this. A turn is never ended for you unless it never started. The session cost was 4.8x too high. Every source file opens in the viewer.",
   "published_at": "2026-09-03",
   "assets": {
     "appimage": {
       "url": "https://kadaken.com/download/Agent_Workbench_Native-x86_64.AppImage",
-      "sha256": "e219796bab2188847867997b1cfd1566e78273efb4ff653072cb45f4bfb67c2e",
-      "size": 15361216
+      "sha256": "9a7cddaafbed01f70409cb2b6defc39c995ab02216785c7cb374b5457e1e9eab",
+      "size": 15365312
     },
     "tarball": {
       "url": "https://kadaken.com/download/agent-workbench-native-linux-x64.tar.gz",
-      "sha256": "73f2e6a960476644a03561fc7735e09a2777e5dca8e07003adba6860412bba0c",
-      "size": 15124038
+      "sha256": "850e4b4c7b4efcbf120058debbde26a3ffb3101095aa5f00d6bd2211544955d7",
+      "size": 15127898
     },
     "deb": {
       "url": "https://kadaken.com/download/agent-workbench-native-amd64.deb",
-      "sha256": "2f7f2c39e361c06d9aa5e4b7c416939be3764782bb4e08713fa00370f0ae2011",
-      "size": 10923456
+      "sha256": "afccc9c2869bf218ef5d3fab90799bdac9f1439c0e3c236b66d434da02b96e41",
+      "size": 10924608
     },
     "checksums": {
       "url": "https://kadaken.com/download/SHA256SUMS",
-      "sha256": "29410db18172c4fc0372be6f2face8db169b1b713afb7e6c184ef57ba003f83d",
+      "sha256": "30475f8c7d2bd312f3625c117b7205d9c7223c45ff48f77b08c555ed8ce2fb02",
       "size": 310
     }
   }
