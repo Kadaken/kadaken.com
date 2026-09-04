@@ -82,15 +82,6 @@
         © 2026 Kadaken. All rights reserved.
       </div>
     </footer>
-    <script>
-// Same as the front page: the size beside each button is read from the file
-// that will actually be handed over, so a label cannot drift from its download.
-fetch("/versions").then(function (r) { return r.json(); }).then(function (v) {
-  document.querySelectorAll("[data-fill]").forEach(function (el) {
-    var text = v[el.getAttribute("data-fill")];
-    if (text) el.textContent = text;
-  });
-}).catch(function () {});
-    </script>
+    <script src="/fill-versions.js" defer></script>
   </body>
 </html>
