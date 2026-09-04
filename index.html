@@ -22,6 +22,7 @@
         <span class="tag">Premium quality, premium work</span>
         <nav>
           <a href="#workbench">Apps</a>
+          <a href="#ports">Ports</a>
           <a href="/games">Games</a>
           <a href="/drawer">App drawer</a>
           <span class="nav-divider" aria-hidden="true"></span>
@@ -196,6 +197,44 @@
         </p>
       </section>
 
+
+      <!-- Everything Kadaken makes lands here. Each one says plainly what state
+           it is in: nothing gets a download button until there is something to
+           download. -->
+      <section class="thing" id="wayfinder">
+        <div class="head">
+          <h2>Wayfinder</h2>
+          <span class="chip">Alpha</span>
+        </div>
+        <p>
+          A file manager for Linux that shows you the file, not just its name.
+          The preview sits docked beside the list, so you can see what something
+          is before you open it.
+        </p>
+      </section>
+
+      <!-- Other people's software, moved to platforms it never reached. Kept
+           separate from Kadaken's own products on purpose: the original authors
+           did the hard part and their licences still govern the code. -->
+      <section class="thing" id="ports">
+        <div class="head">
+          <h2>Ports</h2>
+          <span class="chip">Open to contributors</span>
+        </div>
+        <p>
+          Software other people built, brought to platforms it never reached.
+          These are not Kadaken products. The original authors did the hard part
+          and their licences still govern the code, so the work here is the
+          moving, not the making.
+        </p>
+        <p>
+          <strong>Help is wanted.</strong> These licences were written to
+          encourage exactly that. If you want to fix something, test on hardware
+          I do not have, or take a port further than I did, open an issue or a
+          pull request on its repository. Nothing here is a closed shop.
+        </p>
+      </section>
+
       <section class="thing" id="genesis3d">
         <div class="head">
           <h2>Genesis3D Linux</h2>
@@ -222,25 +261,22 @@
             <span class="sub">Source Available</span>
           </a>
           <a class="button quiet" href="/genesis3d">Read the story</a>
-          <a class="button quiet" href="mailto:support@kadaken.com?subject=Genesis3D%20Linux">Report a problem</a>
+          <a class="button quiet" href="https://github.com/Kadaken/Genesis3D-Linux/issues" rel="noopener" target="_blank">Contribute or report</a>
         </div>
         <p class="alt">
-          Genesis3D was written by Eclipse Entertainment, L.L.C. (1996 to 1999). This port is based on version 1.1, released 15 November 1999 by WildTangent, Inc., who acquired the assets and hold the copyright on the source as published. Linux port and modernization by Kadaken, 2026. Distributed under the Genesis3D Public License v1.01.
+          <strong>Where help is wanted:</strong> the
+          <a href="https://github.com/Kadaken/Genesis3D-Linux/blob/main/Reports/COMMUNITY_ENGINE_ROADMAP.md" rel="noopener" target="_blank">community roadmap</a>
+          lists six areas with concrete tasks, from CI and neutral test assets
+          through to Wayland, audio, gamepads and the Blender pipeline.
         </p>
-      </section>
-
-      <!-- Everything Kadaken makes lands here. Each one says plainly what state
-           it is in: nothing gets a download button until there is something to
-           download. -->
-      <section class="thing" id="wayfinder">
-        <div class="head">
-          <h2>Wayfinder</h2>
-          <span class="chip">Alpha</span>
-        </div>
-        <p>
-          A file manager for Linux that shows you the file, not just its name.
-          The preview sits docked beside the list, so you can see what something
-          is before you open it.
+        <!-- Required by the Genesis3D Public License: the logo must appear on
+             marketing materials. This is the engine's own embedded bitmap,
+             extracted from Engine/Logo/poweredby.c and WebUrl.c. -->
+        <p class="alt">
+          <img src="/assets/genesis3d-poweredby.png" alt="Powered by Genesis3D. www.genesis3d.com" width="273" height="100" style="max-width:190px;height:auto;opacity:.8" />
+        </p>
+        <p class="alt">
+          Genesis3D was written by Eclipse Entertainment, L.L.C. (1996 to 1999). This port is based on version 1.1, released 15 November 1999 by WildTangent, Inc., who acquired the assets and hold the copyright on the source as published. Linux port and modernization by Kadaken, 2026. Distributed under the Genesis3D Public License v1.01.
         </p>
       </section>
 
