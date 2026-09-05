@@ -34,21 +34,25 @@ const FILES = {
 // from the updater's own manifest at request time, so this page cannot fall
 // behind what the app itself installs.
 //
-// The invite in the URL is the same one baked into every installer: it proves
-// "this is CodeOp", not "this is you".
-const CODEOP_BASE = "https://codeop-update.kadaken-updates.workers.dev";
-const CODEOP_INVITE = "7bL1SWnM39YIji2AlIbSaw-qtP5T3Q0d";
-const CODEOP_MANIFEST = `${CODEOP_BASE}/codeop-manifest-4.json?invite=${CODEOP_INVITE}`;
 const CODEOP_PLATFORM = {
   "codeop-windows": "windows-x86_64",
   "codeop-linux": "linux-x86_64",
   "codeop-appimage": "linux-x86_64",
 };
 
-async function currentCodeopUrl(platform) {
+function codeopManifestUrl(env) {
+  if (!env.CODEOP_UPDATE_BASE || !env.CODEOP_INVITE) return "";
+  const url = new URL("/codeop-manifest-4.json", env.CODEOP_UPDATE_BASE);
+  url.searchParams.set("invite", env.CODEOP_INVITE);
+  return url.toString();
+}
+
+async function currentCodeopUrl(platform, env) {
   // Sixty seconds of edge cache: a publish is visible almost at once, and a
   // burst of downloads does not become a burst of manifest fetches.
-  const response = await fetch(CODEOP_MANIFEST, {
+  const manifestUrl = codeopManifestUrl(env);
+  if (!manifestUrl) return "";
+  const response = await fetch(manifestUrl, {
     cf: { cacheTtl: 60, cacheEverything: true },
   });
   if (!response.ok) return "";
@@ -64,12 +68,12 @@ async function currentCodeopUrl(platform) {
 // /get/appimage returned 404 while GET returned a correct 302.
 // Where a name points, without counting anything. Shared by GET and HEAD so
 // the two can never disagree about which file a link means.
-async function resolve(key, request) {
+async function resolve(key, request, env) {
   const platform = CODEOP_PLATFORM[key];
   const target = FILES[key];
   if (!platform && !target) return { status: 404 };
   if (platform) {
-    const url = await currentCodeopUrl(platform);
+    const url = await currentCodeopUrl(platform, env);
     if (!url) return { status: 503 };
     return { status: 302, to: url };
   }
@@ -85,16 +89,16 @@ async function resolve(key, request) {
 // It deliberately does NOT count. A HEAD is somebody checking the link exists,
 // not somebody taking the file, and a link checker sweeping the site would
 // otherwise invent downloads that never happened.
-export async function onRequestHead({ params, request }) {
+export async function onRequestHead({ params, env, request }) {
   const key = String(params.file || "").toLowerCase();
-  const { status, to } = await resolve(key, request);
+  const { status, to } = await resolve(key, request, env);
   const headers = to ? { Location: to } : {};
   return new Response(null, { status, headers });
 }
 
 export async function onRequestGet({ params, env, request, waitUntil }) {
   const key = String(params.file || "").toLowerCase();
-  const { status, to } = await resolve(key, request);
+  const { status, to } = await resolve(key, request, env);
   if (status === 404) {
     return new Response("Not found", { status: 404 });
   }
