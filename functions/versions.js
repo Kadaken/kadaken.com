@@ -19,6 +19,7 @@ const KIND = { portable: "Portable", zip: "Zip", deb: "Installer" };
 
 export async function onRequestGet({ request, env }) {
   const out = {};
+  let codeopVersion = "";
 
   try {
     const awbn = await (
@@ -40,10 +41,25 @@ export async function onRequestGet({ request, env }) {
     const packages = codeop.packages || {};
     const linux = packages["linux-x86_64"] || {};
     const windows = packages["windows-x86_64"] || {};
+    codeopVersion = codeop.version || "";
     out["codeop-linux"] = label(KIND[linux.kind] || "Download", linux.size, codeop.version);
     out["codeop-windows"] = label(KIND[windows.kind] || "Download", windows.size, codeop.version);
   } catch (_) {
     // Same again.
+  }
+
+  // The headline is configured in one small file. CodeOp release placeholders
+  // are filled from the same live manifest as its download buttons, so a new
+  // beta cannot leave the news bar advertising the previous one.
+  try {
+    const newsResponse = env.ASSETS
+      ? await env.ASSETS.fetch(new URL("/news.json", request.url))
+      : await fetch(new URL("/news.json", request.url));
+    const news = await newsResponse.json();
+    const rendered = renderNews(news, codeopVersion);
+    if (rendered) out.news = rendered;
+  } catch (_) {
+    // The accessible HTML fallback remains visible if either source is down.
   }
 
   // The two small tools are NOT listed here, deliberately.
@@ -66,6 +82,28 @@ export async function onRequestGet({ request, env }) {
       "Cache-Control": "max-age=60",
     },
   });
+}
+
+function renderNews(news, codeopVersion) {
+  if (!news || typeof news.text !== "string" || typeof news.href !== "string") {
+    return null;
+  }
+
+  const match = String(codeopVersion).match(/^(\d+)\.(\d+)(?:\.\d+)?-beta\+(\d+)$/i);
+  let text = news.text;
+  if (match) {
+    text = text
+      .replaceAll("{{codeop.major_minor}}", `${match[1]}.${match[2]}`)
+      .replaceAll("{{codeop.beta}}", match[3]);
+  }
+
+  // Never publish an unresolved template. Keep the hand-written HTML fallback.
+  if (/{{[^}]+}}/.test(text)) return null;
+
+  const href = news.href.startsWith("/") || news.href.startsWith("#")
+    ? news.href
+    : "/";
+  return { text, href };
 }
 
 function label(kind, size, version) {
