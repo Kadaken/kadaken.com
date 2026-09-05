@@ -15,4 +15,10 @@ fetch("/versions").then(function (r) { return r.json(); }).then(function (v) {
     var text = v[el.getAttribute("data-fill")];
     if (text) el.textContent = text;
   });
+  if (v.news && v.news.text) {
+    document.querySelectorAll("[data-news]").forEach(function (el) {
+      el.textContent = v.news.text;
+      if (v.news.href) el.setAttribute("href", v.news.href);
+    });
+  }
 }).catch(function () {});

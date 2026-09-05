@@ -28,3 +28,21 @@ This is plain static HTML/CSS/JS. Good low-cost options:
 
 - Replace remaining `href="#"` placeholders as beta links become available.
 - Replace or add project screenshots as new beta builds become available.
+
+## Headline news bar
+
+The scrolling bar deliberately shows exactly one current announcement. Its
+single source of truth is [`news.json`](news.json).
+
+For a CodeOp beta announcement, leave the two placeholders in that file. The
+site reads CodeOp's live release manifest and fills the version automatically,
+so publishing Beta 35 will change the bar from Beta 34 to Beta 35 without an
+edit to the homepage.
+
+To announce something else, ask Codex or Claude:
+
+> Update Kadaken headline news in `news.json`, keep exactly one item, deploy,
+> and verify the `/versions` response and live homepage.
+
+Use plain text and a same-site path or fragment for `href`. After any change,
+deploy the site; editing the repository alone does not update production.

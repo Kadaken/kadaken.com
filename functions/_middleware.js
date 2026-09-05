@@ -36,5 +36,13 @@ export async function onRequest(context) {
         if (text) el.setInnerContent(text);
       },
     })
+    .on("[data-news]", {
+      element(el) {
+        const news = labels.news;
+        if (!news || typeof news.text !== "string") return;
+        el.setInnerContent(news.text);
+        if (typeof news.href === "string") el.setAttribute("href", news.href);
+      },
+    })
     .transform(response);
 }
