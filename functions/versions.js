@@ -84,12 +84,10 @@ export async function onRequestGet({ request, env }) {
 }
 
 function codeopManifestUrl(env) {
-  if (!env.CODEOP_UPDATE_BASE || !env.CODEOP_INVITE) {
+  if (!env.CODEOP_UPDATE_BASE) {
     throw new Error("CodeOp release source is not configured");
   }
-  const url = new URL("/codeop-manifest-4.json", env.CODEOP_UPDATE_BASE);
-  url.searchParams.set("invite", env.CODEOP_INVITE);
-  return url.toString();
+  return new URL("/codeop-manifest-4.json", env.CODEOP_UPDATE_BASE).toString();
 }
 
 function renderNews(news, awbnVersion, codeopVersion) {
