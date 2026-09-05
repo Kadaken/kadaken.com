@@ -11,10 +11,6 @@
 // and CodeOp's from the updater's manifest, so the label and the file can only
 // ever agree.
 
-const CODEOP_MANIFEST =
-  "https://codeop-update.kadaken-updates.workers.dev/codeop-manifest-4.json" +
-  "?invite=7bL1SWnM39YIji2AlIbSaw-qtP5T3Q0d";
-
 const KIND = { portable: "Portable", zip: "Zip", deb: "Installer" };
 
 export async function onRequestGet({ request, env }) {
@@ -37,8 +33,9 @@ export async function onRequestGet({ request, env }) {
   }
 
   try {
+    const codeopManifest = codeopManifestUrl(env);
     const codeop = await (
-      await fetch(CODEOP_MANIFEST, { cf: { cacheTtl: 60, cacheEverything: true } })
+      await fetch(codeopManifest, { cf: { cacheTtl: 60, cacheEverything: true } })
     ).json();
     const packages = codeop.packages || {};
     const linux = packages["linux-x86_64"] || {};
@@ -84,6 +81,15 @@ export async function onRequestGet({ request, env }) {
       "Cache-Control": "max-age=60",
     },
   });
+}
+
+function codeopManifestUrl(env) {
+  if (!env.CODEOP_UPDATE_BASE || !env.CODEOP_INVITE) {
+    throw new Error("CodeOp release source is not configured");
+  }
+  const url = new URL("/codeop-manifest-4.json", env.CODEOP_UPDATE_BASE);
+  url.searchParams.set("invite", env.CODEOP_INVITE);
+  return url.toString();
 }
 
 function renderNews(news, awbnVersion, codeopVersion) {
