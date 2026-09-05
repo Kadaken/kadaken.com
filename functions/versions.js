@@ -19,6 +19,7 @@ const KIND = { portable: "Portable", zip: "Zip", deb: "Installer" };
 
 export async function onRequestGet({ request, env }) {
   const out = {};
+  let awbnVersion = "";
   let codeopVersion = "";
 
   try {
@@ -28,6 +29,7 @@ export async function onRequestGet({ request, env }) {
       })
     ).json();
     const deb = (awbn.assets || {}).deb || {};
+    awbnVersion = awbn.version || "";
     out.awbn = label("Installer", deb.size, awbn.version);
   } catch (_) {
     // A label that cannot be read is left out entirely: the page keeps the
@@ -56,7 +58,7 @@ export async function onRequestGet({ request, env }) {
       ? await env.ASSETS.fetch(new URL("/news.json", request.url))
       : await fetch(new URL("/news.json", request.url));
     const news = await newsResponse.json();
-    const rendered = renderNews(news, codeopVersion);
+    const rendered = renderNews(news, awbnVersion, codeopVersion);
     if (rendered) out.news = rendered;
   } catch (_) {
     // The accessible HTML fallback remains visible if either source is down.
@@ -84,26 +86,24 @@ export async function onRequestGet({ request, env }) {
   });
 }
 
-function renderNews(news, codeopVersion) {
-  if (!news || typeof news.text !== "string" || typeof news.href !== "string") {
-    return null;
-  }
-
+function renderNews(news, awbnVersion, codeopVersion) {
+  if (!news || !Array.isArray(news.items)) return null;
   const match = String(codeopVersion).match(/^(\d+)\.(\d+)(?:\.\d+)?-beta\+(\d+)$/i);
-  let text = news.text;
-  if (match) {
-    text = text
-      .replaceAll("{{codeop.major_minor}}", `${match[1]}.${match[2]}`)
-      .replaceAll("{{codeop.beta}}", match[3]);
-  }
-
-  // Never publish an unresolved template. Keep the hand-written HTML fallback.
-  if (/{{[^}]+}}/.test(text)) return null;
-
-  const href = news.href.startsWith("/") || news.href.startsWith("#")
-    ? news.href
-    : "/";
-  return { text, href };
+  const rendered = news.items.map((item) => {
+    if (!item || typeof item.text !== "string" || typeof item.href !== "string") return null;
+    let text = item.text.replaceAll("{{awbn.version}}", String(awbnVersion));
+    if (match) {
+      text = text
+        .replaceAll("{{codeop.major_minor}}", `${match[1]}.${match[2]}`)
+        .replaceAll("{{codeop.beta}}", match[3]);
+    }
+    if (/{{[^}]+}}/.test(text) || !text.trim()) return null;
+    const href = item.href.startsWith("/") || item.href.startsWith("#")
+      ? item.href
+      : "/";
+    return { text, href };
+  });
+  return rendered.every(Boolean) ? rendered : null;
 }
 
 function label(kind, size, version) {

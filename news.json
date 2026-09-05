@@ -1,4 +1,16 @@
 {
-  "text": "CodeOp {{codeop.major_minor}} Beta {{codeop.beta}} is now open for testing",
-  "href": "#codeop"
+  "items": [
+    {
+      "text": "Agent Workbench Native {{awbn.version}} is available",
+      "href": "#workbench"
+    },
+    {
+      "text": "Genesis3D now has a native Linux runtime — read the port and join in",
+      "href": "/ports#genesis3d"
+    },
+    {
+      "text": "CodeOp {{codeop.major_minor}} Beta {{codeop.beta}} is now open for testing",
+      "href": "#codeop"
+    }
+  ]
 }
