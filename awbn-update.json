@@ -1,28 +1,28 @@
 {
-  "version": "4.17.0",
+  "version": "4.18.2",
   "download_url": "https://kadaken.com/",
-  "notes": "Unmerge puts a merged queue back exactly as it was. AWBN says when something on this machine crashes, and when an update is installed but not yet running. Work that outlives its turn shows on a row named after the work, with how long it has run, what its log last said, and whether it made the file it promised; many jobs collapse to one button. A session gets the MCP servers a terminal gets - one against nine before this. A turn is never ended for you unless it never started. The session cost was 4.8x too high. Every source file opens in the viewer.",
-  "published_at": "2026-09-03",
+  "notes": "You see the answer, not the working: everything an agent writes before its reply folds away. A command that waits says how long it can wait and what it is waiting on. Unmerge puts a merged queue back exactly as it was. AWBN says when something on this machine crashes, and when an update is installed but not yet running. Work that outlives its turn shows on a row named after the work, with what its log last said and whether it made the file it promised. A turn is never ended for you unless it never started.",
+  "published_at": "2026-09-04",
   "assets": {
     "appimage": {
       "url": "https://kadaken.com/download/Agent_Workbench_Native-x86_64.AppImage",
-      "sha256": "9a7cddaafbed01f70409cb2b6defc39c995ab02216785c7cb374b5457e1e9eab",
-      "size": 15365312
+      "sha256": "64ce151f2f42adf3964c316f828216714504fb1ee79202f4b26df9c761836cfc",
+      "size": 15369408
     },
     "tarball": {
       "url": "https://kadaken.com/download/agent-workbench-native-linux-x64.tar.gz",
-      "sha256": "850e4b4c7b4efcbf120058debbde26a3ffb3101095aa5f00d6bd2211544955d7",
-      "size": 15127898
+      "sha256": "aa966f9fbff3060571757351e274a60ee1aed3862ad3c09e362e36e15bfdb72e",
+      "size": 15132057
     },
     "deb": {
       "url": "https://kadaken.com/download/agent-workbench-native-amd64.deb",
-      "sha256": "afccc9c2869bf218ef5d3fab90799bdac9f1439c0e3c236b66d434da02b96e41",
-      "size": 10924608
+      "sha256": "6c0261065b7e160fb9d21bc4947d775fea019569e5b17a115bf56f0c7093b778",
+      "size": 10923856
     },
     "checksums": {
       "url": "https://kadaken.com/download/SHA256SUMS",
-      "sha256": "30475f8c7d2bd312f3625c117b7205d9c7223c45ff48f77b08c555ed8ce2fb02",
-      "size": 310
+      "sha256": "379f9b28a30a1bc757634c789baf653785ea49ee510cae4ef0a3e3154db45df5",
+      "size": 516
     }
   }
 }
