@@ -38,7 +38,8 @@ export async function onRequest(context) {
     })
     .on("[data-news]", {
       element(el) {
-        const news = labels.news;
+        const index = Number(el.getAttribute("data-news"));
+        const news = Array.isArray(labels.news) ? labels.news[index] : null;
         if (!news || typeof news.text !== "string") return;
         el.setInnerContent(news.text);
         if (typeof news.href === "string") el.setAttribute("href", news.href);

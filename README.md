@@ -31,19 +31,21 @@ This is plain static HTML/CSS/JS. Good low-cost options:
 
 ## Headline news bar
 
-The scrolling bar deliberately shows exactly one current announcement. Its
-single source of truth is [`news.json`](news.json).
+The scrolling bar's current announcements have one source of truth:
+[`news.json`](news.json). Keep only timely news in its `items` list and order
+the entries as they should appear.
 
 For a CodeOp beta announcement, leave the two placeholders in that file. The
 site reads CodeOp's live release manifest and fills the version automatically,
 so publishing Beta 35 will change the bar from Beta 34 to Beta 35 without an
-edit to the homepage. The raw HTML intentionally uses a version-free fallback,
-so a temporary manifest outage cannot make the page advertise an old beta.
+edit to the homepage. Agent Workbench's version works the same way through its
+own update manifest. The raw HTML intentionally uses version-free fallbacks, so
+a temporary manifest outage cannot make the page advertise old versions.
 
 To announce something else, ask Codex or Claude:
 
-> Update Kadaken headline news in `news.json`, keep exactly one item, deploy,
-> and verify the `/versions` response and live homepage.
+> Update Kadaken headline news in `news.json`, remove stale items, deploy, and
+> verify the `/versions` response and live homepage.
 
 Use plain text and a same-site path or fragment for `href`. After any change,
 deploy the site; editing the repository alone does not update production.
