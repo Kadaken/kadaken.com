@@ -58,7 +58,14 @@ async function currentCodeopUrl(platform, env) {
   if (!response.ok) return "";
   const manifest = await response.json();
   const entry = (manifest.packages || {})[platform];
-  return entry && entry.url ? String(entry.url) : "";
+  if (!entry || !entry.url) return "";
+
+  // Release manifests created before the branded domain was introduced may
+  // contain the Worker's account-scoped hostname. Keep the signed path and
+  // query intact while presenting only the stable Kadaken domain publicly.
+  const source = new URL(String(entry.url));
+  if (!source.pathname.startsWith("/downloads/")) return "";
+  return new URL(`${source.pathname}${source.search}`, env.CODEOP_UPDATE_BASE).toString();
 }
 
 // A HEAD request used to 404 on every one of these, because only GET was
