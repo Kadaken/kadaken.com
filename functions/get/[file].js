@@ -41,10 +41,8 @@ const CODEOP_PLATFORM = {
 };
 
 function codeopManifestUrl(env) {
-  if (!env.CODEOP_UPDATE_BASE || !env.CODEOP_INVITE) return "";
-  const url = new URL("/codeop-manifest-4.json", env.CODEOP_UPDATE_BASE);
-  url.searchParams.set("invite", env.CODEOP_INVITE);
-  return url.toString();
+  if (!env.CODEOP_UPDATE_BASE) return "";
+  return new URL("/codeop-manifest-4.json", env.CODEOP_UPDATE_BASE).toString();
 }
 
 async function currentCodeopUrl(platform, env) {
