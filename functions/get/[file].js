@@ -61,11 +61,12 @@ async function currentCodeopUrl(platform, env) {
   if (!entry || !entry.url) return "";
 
   // Release manifests created before the branded domain was introduced may
-  // contain the Worker's account-scoped hostname. Keep the signed path and
-  // query intact while presenting only the stable Kadaken domain publicly.
+  // contain the Worker's account-scoped hostname or obsolete invite query.
+  // Publish only the stable Kadaken download path; never expose credentials in
+  // redirects, browser history, analytics, or intermediary logs.
   const source = new URL(String(entry.url));
   if (!source.pathname.startsWith("/downloads/")) return "";
-  return new URL(`${source.pathname}${source.search}`, env.CODEOP_UPDATE_BASE).toString();
+  return new URL(source.pathname, env.CODEOP_UPDATE_BASE).toString();
 }
 
 // A HEAD request used to 404 on every one of these, because only GET was
