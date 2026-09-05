@@ -131,9 +131,9 @@ export async function onRequestGet({ params, env, request, waitUntil }) {
 // Who this is, without ever storing who this is.
 //
 // Asked for: "make sure the download counter registered NEW downloads, from
-// NEW ip address or whatever you can, so I can see if someone other than
-// myself or you or test participant has downloaded something." A raw total cannot answer
-// that -- three people testing a link looks the same as three strangers.
+// NEW network address rather than another request from a previously counted
+// tester. A raw total cannot answer that: repeated checks can otherwise look
+// like distinct visitors.
 //
 // The address is hashed with a random salt that is generated once and never
 // leaves this worker, and only the first sixteen characters are kept. That is
