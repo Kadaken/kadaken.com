@@ -37,7 +37,8 @@ single source of truth is [`news.json`](news.json).
 For a CodeOp beta announcement, leave the two placeholders in that file. The
 site reads CodeOp's live release manifest and fills the version automatically,
 so publishing Beta 35 will change the bar from Beta 34 to Beta 35 without an
-edit to the homepage.
+edit to the homepage. The raw HTML intentionally uses a version-free fallback,
+so a temporary manifest outage cannot make the page advertise an old beta.
 
 To announce something else, ask Codex or Claude:
 
