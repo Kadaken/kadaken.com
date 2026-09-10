@@ -70,6 +70,42 @@
           with or endorsement by the original companies is claimed.
         </p>
       </section>
+
+      <section class="thing" id="realityfactory">
+        <div class="head"><h2>Reality Factory Native Linux</h2><span class="chip">Work in progress</span></div>
+        <p>
+          A native 64-bit Linux port of the Reality Factory runtime, upstream
+          0.76.1. Reality Factory is the game creation kit built on top of
+          Genesis3D, last released for Windows in 2009. It builds, links, opens
+          a window and renders. It does not yet run a game end to end, and the
+          gaps are published alongside the wins.
+        </p>
+        <ul class="wins">
+          <li><strong>SDL2 host.</strong> Window, input and joystick, replacing the Win32 message loop and legacy DirectInput.</li>
+          <li><strong>POSIX boundary.</strong> No Windows conditionals left in gameplay files.</li>
+          <li><strong>Subsystems passing.</strong> Virtual file system, menus, GIF decoding, entity schemas and actor loading.</li>
+          <li><strong>Sanitizer clean to stage four.</strong> One frame, queued quit, clean teardown, exit 0 under ASan and UBSan.</li>
+          <li><strong>Every claim measured.</strong> Dated evidence for all of it in the repository's Reports directory.</li>
+        </ul>
+        <div class="actions">
+          <a class="button" href="https://github.com/Kadaken/RealityFactory-Linux" rel="noopener" target="_blank">View source on GitHub</a>
+          <a class="button quiet" href="https://github.com/Kadaken/RealityFactory-Linux/discussions" rel="noopener" target="_blank">Join the community</a>
+        </div>
+        <p class="alt">
+          Known gaps, stated plainly: stage five stops on its first tick at a
+          missing previous-weapon guard, interactive launch has no mouse
+          capture, thread safety is unproven pending ThreadSanitizer, and no
+          visual equivalence testing against the original Windows renderer has
+          been done. Test suites sit at 39 of 41.
+        </p>
+        <p class="alt">
+          Source only. No game assets and no compiled binary are distributed.
+          Reality Factory is licensed under an MIT-form grant by Ralph Deane,
+          2002, which carries an added condition prohibiting its use for games
+          that intentionally propagate genocide against a real group. That
+          condition travels with this port unchanged.
+        </p>
+      </section>
     </main>
     <footer><div class="wrap">
       <a href="/">Back to Kadaken</a> &middot; <a href="/terms">Terms</a> &middot; <a href="https://nakedpulse.ai" rel="noopener" target="_blank">Naked Pulse</a><br />
