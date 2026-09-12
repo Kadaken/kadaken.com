@@ -131,29 +131,33 @@
           </ul>
         </div>
 
-        <!-- Straight at the file, hosted here. Nobody should have to land on a
-             releases page and work out which of four things to click. -->
+        <!-- Downloads paused 12 September 2026. Every released build leaves log
+             and cache files behind as you work and never clears them, so it
+             grows on the user's disk for as long as they use it. Handing that
+             to somebody new, knowing it does that, is not defensible. The
+             /get/ links still work for anyone who has one, because breaking a
+             link somebody already has is a separate harm; they are simply not
+             offered here until the fix ships. Put this block back when the
+             cleanup release is out. -->
         <div class="actions" id="download">
-          <a class="button" href="/get/deb">
-            Download for Linux
-            <!-- AWBN-VERSION --><span class="sub" data-fill="awbn">Installer · 10 MB · v4.17.0</span>
-          </a>
           <a class="button quiet" href="https://github.com/Kadaken/community/discussions" rel="noopener" target="_blank">Tell me how it went</a>
           <a class="button quiet" href="mailto:support@kadaken.com?subject=Agent%20Workbench%20Native">Report a problem</a>
         </div>
         <p class="alt">
-          Open it and it installs. Ubuntu, Debian, Mint, Pop!_OS.
+          <strong>Downloads are paused.</strong> Every version released so far
+          leaves log and cache files behind as you work and never clears them
+          up, so it slowly takes more of your disk the longer you use it. That
+          is being fixed now, and the next release will offer to clear up what
+          the old ones left. It seemed wrong to hand anybody else a copy in the
+          meantime.
         </p>
         <p class="alt">
-          Something else?
-          <a href="/get/appimage">portable file</a> ·
-          <a href="/get/tarball">.tar.gz</a> ·
-          <a href="/download/SHA256SUMS">checksums</a>
-        </p>
-        <p class="alt">
-          The portable file installs nothing, but your browser saves it without
-          permission to run. Right-click it → Properties → allow it to run as a
-          program, then open it. The installer above needs none of that.
+          <strong>Already running it?</strong> Nothing is at risk and nothing
+          needs doing. What it keeps lives under
+          <code>~/.config/agent-workbench</code>, and some of that is your own
+          conversation history and settings, so do not delete that folder. The
+          next release will show you exactly what can safely go and let you
+          decide.
         </p>
       </section>
 
