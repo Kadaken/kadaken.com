@@ -120,12 +120,86 @@ export async function onRequestGet({ params, env, request, waitUntil }) {
 
   // The count must never be able to stop a download, so it runs after the
   // response is already on its way and any failure is swallowed.
-  if (env.KADAKEN_STATS) {
+  //
+  // ?test=1 serves the file and counts nothing. Added 2026-09-12 because the
+  // owner's own link sweeps were inflating the figures: on 11 September five
+  // different files were fetched inside the same minute from one address,
+  // which reads as five downloads and was one person checking the links.
+  const counting = new URL(request.url).searchParams.get("test") !== "1";
+  if (env.KADAKEN_STATS && counting) {
     waitUntil(bump(env.KADAKEN_STATS, key, request).catch(() => {}));
   }
 
   return Response.redirect(to, 302);
 }
+
+// What kind of thing asked for the file.
+//
+// Nothing here identifies a person. It answers one question the raw total
+// cannot: is this a human on a home connection, a script, or a crawler? Before
+// this existed, a security scanner sweeping the site and a developer in Berlin
+// counted the same, and the site had no honest way to say how many downloads
+// were people.
+//
+// Three buckets, deliberately coarse:
+//   browser  a real browser user agent
+//   tool     curl, wget, a package manager, a script. Often a real developer
+//   bot      something that says it is a crawler, or gives no user agent
+const BOT_MARKS = [
+  "bot", "crawler", "spider", "slurp", "scraper", "archiver", "monitor",
+  "checker", "validator", "preview", "fetcher", "headless", "phantom",
+  "scrapy", "httrack", "wappalyzer", "semrush", "ahrefs", "petal", "bytespider",
+];
+const TOOL_MARKS = [
+  "curl", "wget", "python", "go-http", "java/", "libwww", "okhttp", "axios",
+  "node-fetch", "powershell", "aria2", "httpie", "apt", "dnf", "rpm",
+];
+const BROWSER_MARKS = ["mozilla", "chrome", "safari", "firefox", "edg/", "opera"];
+
+function agentKind(userAgent) {
+  const ua = String(userAgent || "").toLowerCase();
+  if (!ua) return "bot";
+  for (const mark of BOT_MARKS) if (ua.includes(mark)) return "bot";
+  for (const mark of TOOL_MARKS) if (ua.includes(mark)) return "tool";
+  for (const mark of BROWSER_MARKS) if (ua.includes(mark)) return "browser";
+  return "bot";
+}
+
+// Whose network this came from.
+//
+// Cloudflare hands the worker the name of the operator that owns the address,
+// free, on every request. A download from a home broadband provider and one
+// from a rented server are not the same event, and until now they counted the
+// same. Datacentre traffic is very rarely a person taking the file to use it.
+const HOSTING_MARKS = [
+  "amazon", "aws", "google", "microsoft", "azure", "oracle", "alibaba",
+  "tencent", "huawei", "hetzner", "digitalocean", "linode", "vultr", "ovh",
+  "scaleway", "contabo", "leaseweb", "choopa", "colocrossing", "m247",
+  "datacamp", "cogent", "hostinger", "godaddy", "namecheap", "cloudflare",
+  "fastly", "akamai", "digital ocean", "server", "hosting", "datacenter",
+  "data center", "colo", "cloud",
+];
+const VPN_MARKS = [
+  "mullvad", "nordvpn", "expressvpn", "protonvpn", "private internet",
+  "surfshark", "cyberghost", "ipvanish", "windscribe", "tunnelbear", "tor ",
+];
+
+function networkKind(organisation) {
+  const org = String(organisation || "").toLowerCase();
+  if (!org) return "unknown";
+  for (const mark of VPN_MARKS) if (org.includes(mark)) return "vpn";
+  for (const mark of HOSTING_MARKS) if (org.includes(mark)) return "hosting";
+  return "home";
+}
+
+// Which product the file belongs to, so one pile of numbers becomes three.
+// "527 downloads" was never one thing: it mixed Agent Workbench, CodeOp and two
+// small Python tools, and the headline figure was wrong for every one of them.
+const PRODUCT = {
+  appimage: "awbn", deb: "awbn", tarball: "awbn",
+  "codeop-windows": "codeop", "codeop-linux": "codeop", "codeop-appimage": "codeop",
+  "subagent-viewer": "tools", "auto-clicker": "tools",
+};
 
 // Who this is, without ever storing who this is.
 //
@@ -159,13 +233,27 @@ async function bump(kv, key, request) {
   // fine; a wrong number is better than a broken download.
   const day = new Date().toISOString().slice(0, 10);
   const country = request.headers.get("cf-ipcountry") || "??";
+  const agent = agentKind(request.headers.get("user-agent"));
+  const network = networkKind((request.cf || {}).asOrganization);
+  const product = PRODUCT[key] || "other";
+
+  // The conservative reading: a real browser, on a real home connection.
+  // Everything else still counts in the totals, it is simply not claimed as a
+  // person. This is the only figure safe to quote to somebody who will ask how
+  // it was measured.
+  const human = agent === "browser" && network !== "hosting";
 
   // Is this somebody the site has never served before?
   const who = await visitorId(kv, request);
   const firstTime = who ? (await kv.get(`who:${who}`)) === null : false;
 
-  const keys = [`file:${key}`, "total", `day:${day}`, `country:${country}`];
+  const keys = [
+    `file:${key}`, "total", `day:${day}`, `country:${country}`,
+    `agent:${agent}`, `network:${network}`, `product:${product}`,
+  ];
+  if (human) keys.push("human", `product-human:${product}`);
   if (firstTime) keys.push("people", `newpeople:${day}`);
+  if (firstTime && human) keys.push("humanpeople");
   for (const k of keys) {
     const now = parseInt((await kv.get(k)) || "0", 10) + 1;
     await kv.put(k, String(now));
@@ -179,6 +267,9 @@ async function bump(kv, key, request) {
   const stamp = new Date().toISOString();
   await kv.put("last", stamp);
   const recent = JSON.parse((await kv.get("recent")) || "[]");
-  recent.unshift({ at: stamp, file: key, country, first: firstTime });
+  recent.unshift({
+    at: stamp, file: key, country, first: firstTime,
+    agent, network, product, human,
+  });
   await kv.put("recent", JSON.stringify(recent.slice(0, 50)));
 }
