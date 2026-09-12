@@ -449,6 +449,34 @@ a.button.quiet {
 }
 a.button.quiet:hover { border-color: var(--accent); box-shadow: none; }
 
+/* Temporarily unavailable. Same shape and place as the live button so the page
+   does not reflow, but flat, grey and inert. Written as a span rather than a
+   link so there is nothing to click and nothing for a crawler to follow. */
+span.button.off {
+  display: inline-block;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: 9px;
+  letter-spacing: 0.01em;
+  box-shadow: none;
+  cursor: default;
+  opacity: 0.55;
+}
+span.button.off .sub {
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  opacity: 0.72;
+  margin-top: 2px;
+}
+.alt .off { color: var(--muted); opacity: 0.55; }
+
 
 /* Nav tip link. Same warm amber as the button below, but plain text weight so
    the Download call to action stays the loudest thing in the bar. */

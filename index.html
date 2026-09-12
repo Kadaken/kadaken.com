@@ -9,7 +9,7 @@
       content="Kadaken builds desktop tools and games. Premium quality, premium work."
     />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/kadaken.55ffe7807e.css" />
+    <link rel="stylesheet" href="/kadaken.5d56f845e2.css" />
   </head>
   <body class="kadaken">
     <div class="sky"></div>
@@ -134,10 +134,10 @@
         <!-- Straight at the file, hosted here. Nobody should have to land on a
              releases page and work out which of four things to click. -->
         <div class="actions" id="download">
-          <a class="button" href="/get/deb">
+          <span class="button off" aria-disabled="true">
             Download for Linux
             <!-- AWBN-VERSION --><span class="sub" data-fill="awbn">Installer · 10 MB · v4.17.0</span>
-          </a>
+          </span>
           <a class="button quiet" href="https://github.com/Kadaken/community/discussions" rel="noopener" target="_blank">Tell me how it went</a>
           <a class="button quiet" href="mailto:support@kadaken.com?subject=Agent%20Workbench%20Native">Report a problem</a>
         </div>
@@ -146,9 +146,9 @@
         </p>
         <p class="alt">
           Something else?
-          <a href="/get/appimage">portable file</a> ·
-          <a href="/get/tarball">.tar.gz</a> ·
-          <a href="/download/SHA256SUMS">checksums</a>
+          <span class="off">portable file</span> ·
+          <span class="off">.tar.gz</span> ·
+          <span class="off">checksums</span>
         </p>
         <p class="alt">
           The portable file installs nothing, but your browser saves it without
