@@ -33,6 +33,21 @@ export async function onRequestGet({ env }) {
     newPeople[entry.name.slice(10)] = await read(entry.name);
   }
 
+  // Added 2026-09-12. The single total was never one thing: it mixed Agent
+  // Workbench, CodeOp and two small Python tools, and it counted crawlers and
+  // the owner's own link checks alongside people. These break it apart.
+  const collect = async (prefix) => {
+    const out = {};
+    for (const entry of (await kv.list({ prefix })).keys) {
+      out[entry.name.slice(prefix.length)] = await read(entry.name);
+    }
+    return out;
+  };
+  const [products, productHuman, agents, networks] = await Promise.all([
+    collect("product:"), collect("product-human:"),
+    collect("agent:"), collect("network:"),
+  ]);
+
   return json({
     ok: true,
     total: await read("total"),
@@ -40,6 +55,15 @@ export async function onRequestGet({ env }) {
     // a link and three strangers finding it produce the same total; only this
     // tells them apart.
     people: await read("people"),
+    // The conservative figure: a real browser on a connection that is not a
+    // rented server. Safe to quote to somebody who will ask how it was
+    // measured. Only counts downloads recorded after 12 September 2026.
+    human: await read("human"),
+    humanPeople: await read("humanpeople"),
+    products,
+    productHuman,
+    agents,
+    networks,
     newPeopleByDay: newPeople,
     last: await kv.get("last"),
     files,
