@@ -124,6 +124,53 @@
       </section>
 
       <section class="thing">
+        <h2>What is different now</h2>
+        <p>
+          The port is not a remaster. The rendering and texture algorithms are
+          the ones Eclipse wrote. What changed is everything underneath them,
+          because a 1999 32-bit Windows program does not survive contact with a
+          modern machine on its own.
+        </p>
+        <ul class="wins">
+          <li><strong>1920 x 1080 by default.</strong> The original shipped for
+            the display modes of 1999. This one opens at 1080p and uses desktop
+            fullscreen, so it takes the resolution your screen already runs at.</li>
+          <li><strong>Steady 60 or 120 frames per second.</strong> Monotonic
+            pacing with bounded catch-up, rather than running as fast as the
+            loop happens to turn.</li>
+          <li><strong>Native Linux, x86-64.</strong> SDL2, X11 or XWayland, and
+            OpenGL. No Wine, no compatibility layer.</li>
+          <li><strong>Actually 64-bit.</strong> The old code wrote
+            eight-byte pointers where the file format expected four. Model and
+            animation records are read and written at fixed widths now, so files
+            survive a round trip.</li>
+          <li><strong>Windows and MSVC dependencies removed.</strong> Win32
+            calls replaced with standard C and POSIX, hand-written MSVC assembly
+            replaced with portable C and explicit-width types.</li>
+          <li><strong>Old maps load correctly.</strong> Legacy BSP texture
+            layouts and colour-key transparency are detected by bounds-checked
+            inspection instead of the inherited guess that could eat the first
+            pixel as metadata.</li>
+          <li><strong>Export to GLB.</strong> Smooth skinning conversion means
+            actors can leave the engine and open in a modern 3D tool.</li>
+          <li><strong>Full player physics.</strong> Swept-hull collision against
+            the BSP, stairs, slopes, gravity, floor snapping, jumping, wall
+            sliding and ceiling rejection.</li>
+          <li><strong>A library, not just a program.</strong> A versioned C API
+            and a shared library, plus a headless mode so worlds, entities and
+            collision can be tested without opening a window.</li>
+          <li><strong>Checked with sanitizers.</strong> Address, undefined
+            behaviour and leak detection, clean under software rendering. That
+            is not the same as hardware verification, and the reports say so.</li>
+        </ul>
+        <p class="alt">
+          Every change required by the licence is recorded in
+          <a href="https://github.com/Kadaken/Genesis3D-Linux/blob/main/MODIFICATIONS.md" rel="noopener" target="_blank">MODIFICATIONS.md</a>,
+          with the files each one touched.
+        </p>
+      </section>
+
+      <section class="thing">
         <h2>Why bring it back?</h2>
         <p>
           I found Genesis3D because I wanted to change an old game. I expected a
