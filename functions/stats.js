@@ -4,6 +4,14 @@
 // If it should ever be truly private, the fix is a token check here, not
 // hiding the address.
 
+// Cached at the edge for five minutes.
+//
+// Both of these sweep KV with kv.list() and then read every key they find. On
+// 13 September 2026 Cloudflare warned that the account had hit 90% of its daily
+// KV operation limit. Nothing here changes minute to minute, so five minutes of
+// cache turns a burst of requests into one set of KV operations.
+const CACHE_TTL = 300;
+
 export async function onRequestGet({ env }) {
   const kv = env.KADAKEN_STATS;
   if (!kv) {
@@ -120,7 +128,10 @@ ${body}
 </html>`, {
     headers: {
       "content-type": "text/html; charset=utf-8",
-      "cache-control": "no-store",
+      // Was no-store. This page sweeps KV with kv.list() and reads every key it
+      // finds, and on 13 September 2026 the account hit 90% of its daily KV
+      // operation limit. Five minutes stale is fine for a counter.
+      "cache-control": `public, max-age=${CACHE_TTL}`,
       "x-robots-tag": "noindex",
     },
   });
