@@ -9,6 +9,14 @@
 // No secret guards it. It is a count of public downloads, and hiding it behind
 // a token would mean putting that token in whatever does the watching.
 
+// Cached at the edge for five minutes.
+//
+// Both of these sweep KV with kv.list() and then read every key they find. On
+// 13 September 2026 Cloudflare warned that the account had hit 90% of its daily
+// KV operation limit. Nothing here changes minute to minute, so five minutes of
+// cache turns a burst of requests into one set of KV operations.
+const CACHE_TTL = 300;
+
 export async function onRequestGet({ env }) {
   const kv = env.KADAKEN_STATS;
   const empty = { ok: false, error: "counter not connected" };
@@ -78,8 +86,10 @@ function json(body, status = 200) {
     status,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      // Always fresh: the whole point is noticing a change.
-      "Cache-Control": "no-store",
+      // Was no-store. Every call sweeps KV with five kv.list() passes and then
+      // reads each key found, and on 13 September 2026 the account hit 90% of
+      // its daily KV operation limit. Five minutes stale is fine for a counter.
+      "Cache-Control": `public, max-age=${CACHE_TTL}`,
       "Access-Control-Allow-Origin": "*",
     },
   });

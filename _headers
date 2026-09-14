@@ -29,6 +29,17 @@
   Access-Control-Allow-Origin: *
   X-Content-Type-Options: nosniff
 
+# Both of these sweep KV with kv.list() and then read every key they find. On
+# 13 September 2026 Cloudflare warned the account had hit 90% of its daily KV
+# operation limit. Nothing on either page changes minute to minute, so five
+# minutes of edge cache turns a burst of requests into one set of KV reads.
+/downloads
+  Cache-Control: public, max-age=300
+  Access-Control-Allow-Origin: *
+
+/stats
+  Cache-Control: public, max-age=300
+
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

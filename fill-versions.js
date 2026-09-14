@@ -25,20 +25,12 @@ fetch("/versions").then(function (r) { return r.json(); }).then(function (v) {
   }
 }).catch(function () {});
 
-// The download count, beside the app it belongs to.
+
+// The download counter is deliberately NOT fetched here any more.
 //
-// Deliberately the sum of the three Agent Workbench files rather than the
-// site-wide total: that total also carries CodeOp and two small Python tools,
-// and quoting it as "Agent Workbench downloads" would be wrong by about a
-// hundred. Added 2026-09-12 for the same reason the counter now separates
-// browsers from crawlers - a number on a public page has to be one somebody
-// can check.
-fetch("/downloads").then(function (r) { return r.json(); }).then(function (d) {
-  if (!d || !d.ok || !d.files) return;
-  var n = (d.files.appimage || 0) + (d.files.deb || 0) + (d.files.tarball || 0);
-  if (!n) return;
-  var el = document.getElementById("awbn-downloads");
-  if (!el) return;
-  el.textContent = n.toLocaleString() + " downloads";
-  el.hidden = false;
-}).catch(function () {});
+// Added 12 September 2026, removed 14 September. Every visit to the front page
+// called /downloads, and that endpoint does five kv.list() sweeps plus a read
+// per key returned. Cloudflare started sending "KV daily operation limit 90%
+// reached" alerts the next day. The counter was never worth a KV budget: the
+// owner's own rule is that download numbers are marketing and do not belong on
+// a public page.
