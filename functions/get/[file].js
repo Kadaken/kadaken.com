@@ -78,6 +78,9 @@ async function resolve(key, request, env) {
   const platform = CODEOP_PLATFORM[key];
   const target = FILES[key];
   if (!platform && !target) return { status: 404 };
+  // CodeOp is invite-only (19 Sep 2026): new people email for it. Existing
+  // installs update straight from updates.kadaken.com, not through here.
+  if (platform) return { status: 403 };
   if (platform) {
     const url = await currentCodeopUrl(platform, env);
     if (!url) return { status: 503 };
@@ -107,6 +110,12 @@ export async function onRequestGet({ params, env, request, waitUntil }) {
   const { status, to } = await resolve(key, request, env);
   if (status === 404) {
     return new Response("Not found", { status: 404 });
+  }
+  if (status === 403) {
+    return new Response(
+      "CodeOp is invite-only right now. Email support@kadaken.com to get it.",
+      { status: 403, headers: { "Cache-Control": "no-store" } },
+    );
   }
   if (status === 503) {
     // Deliberately NOT a fallback to a known older build. Handing someone a
