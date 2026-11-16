@@ -13,7 +13,7 @@
    Not styles.css - that one is the retired Kadaken sheet and nine pages
    under /projects still load it.
 
-   The backdrop is Agent Workbench's own _ConversationGridPainter ported to
+   The backdrop is Crews' own _ConversationGridPainter ported to
    CSS: the same base, the same three-stop diagonal wash, the same 96px cyan
    grid, the same fade to black. The horizon plane underneath is the part the
    app can't draw. */

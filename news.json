@@ -1,8 +1,8 @@
 {
   "items": [
     {
-      "text": "Agent Workbench Native {{awbn.version}} is available",
-      "href": "#workbench"
+      "text": "Crews {{crews.version}} is available",
+      "href": "#crews"
     },
     {
       "text": "Genesis3D now has a native Linux runtime. Read the port and join in",
@@ -11,6 +11,14 @@
     {
       "text": "CodeOp {{codeop.major_minor}} Beta {{codeop.beta}} is open to invited testers",
       "href": "#codeop"
+    },
+    {
+      "text": "Crews Lite is out: three AI agents on one job, free",
+      "href": "#crews-lite"
+    },
+    {
+      "text": "Wayfinder beta is out: a file manager for Linux, free",
+      "href": "#wayfinder"
     }
   ]
 }

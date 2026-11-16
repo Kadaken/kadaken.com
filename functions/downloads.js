@@ -4,7 +4,7 @@
 // page around them, so a program can ask "has anything happened since I last
 // looked?" and say so. Asked for: "some kind of system in place that alerts me
 // when someone has downloaded from the website, and a counter to how many
-// downloads, not just for AWBN but for anything."
+// downloads, not just for Crews but for anything."
 //
 // No secret guards it. It is a count of public downloads, and hiding it behind
 // a token would mean putting that token in whatever does the watching.
@@ -42,7 +42,7 @@ export async function onRequestGet({ env }) {
   }
 
   // Added 2026-09-12. The single total was never one thing: it mixed Agent
-  // Workbench, CodeOp and two small Python tools, and it counted crawlers and
+  // Crews, CodeOp and two small Python tools, and it counted crawlers and
   // the owner's own link checks alongside people. These break it apart.
   const collect = async (prefix) => {
     const out = {};

@@ -1,0 +1,28 @@
+{
+  "version": "4.18.2",
+  "download_url": "https://kadaken.com/",
+  "notes": "You see the answer, not the working: everything an agent writes before its reply folds away. A command that waits says how long it can wait and what it is waiting on. Unmerge puts a merged queue back exactly as it was. Crews says when something on this machine crashes, and when an update is installed but not yet running. Work that outlives its turn shows on a row named after the work, with what its log last said and whether it made the file it promised. A turn is never ended for you unless it never started.",
+  "published_at": "2026-09-04",
+  "assets": {
+    "appimage": {
+      "url": "https://kadaken.com/download/Crews-x86_64.AppImage",
+      "sha256": "64ce151f2f42adf3964c316f828216714504fb1ee79202f4b26df9c761836cfc",
+      "size": 15369408
+    },
+    "tarball": {
+      "url": "https://kadaken.com/download/crews-linux-x64.tar.gz",
+      "sha256": "aa966f9fbff3060571757351e274a60ee1aed3862ad3c09e362e36e15bfdb72e",
+      "size": 15132057
+    },
+    "deb": {
+      "url": "https://kadaken.com/download/crews-amd64.deb",
+      "sha256": "6c0261065b7e160fb9d21bc4947d775fea019569e5b17a115bf56f0c7093b778",
+      "size": 10923856
+    },
+    "checksums": {
+      "url": "https://kadaken.com/download/SHA256SUMS",
+      "sha256": "aa7298c1439eb316704db135c91b867eca195cd92094974967df4a39498c5800",
+      "size": 555
+    }
+  }
+}
