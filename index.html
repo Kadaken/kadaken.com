@@ -21,7 +21,7 @@
         <a class="name" href="/" aria-label="Kadaken"><span class="layer cold">KADAKEN</span><span class="layer hot" aria-hidden="true">KADAKEN</span><span class="seam" aria-hidden="true"></span></a>
         <span class="tag">Premium quality, premium work</span>
         <nav>
-          <a href="#workbench">Apps</a>
+          <a href="#crews">Apps</a>
           <a href="/ports">Ports</a>
           <a href="/games">Games</a>
           <a href="/drawer">App drawer</a>
@@ -42,14 +42,18 @@
       <div class="news-window">
         <div class="news-track">
           <div class="news-set">
-            <a href="#workbench" data-news="0">Agent Workbench Native 4.18.2 is available</a>
+            <a href="#wayfinder" data-news="4">Wayfinder beta is out: a file manager for Linux, free</a>
+            <a href="#crews" data-news="0">Crews 4.18.2 is available</a>
             <a href="/ports#genesis3d" data-news="1">Genesis3D now has a native Linux runtime. Read the port and join in</a>
-            <a href="#codeop" data-news="2">CodeOp 4.0 Beta 39 is open to invited testers</a>
+            <a href="#codeop" data-news="2">CodeOp 4.0 Beta 40 is open to invited testers</a>
+            <a href="#crews-lite" data-news="3">Crews Lite is out: three AI agents on one job, free</a>
           </div>
           <div class="news-set" aria-hidden="true">
-            <a href="#workbench" data-news="0" tabindex="-1">Agent Workbench Native 4.18.2 is available</a>
+            <a href="#wayfinder" data-news="4" tabindex="-1">Wayfinder beta is out: a file manager for Linux, free</a>
+            <a href="#crews" data-news="0" tabindex="-1">Crews 4.18.2 is available</a>
             <a href="/ports#genesis3d" data-news="1" tabindex="-1">Genesis3D now has a native Linux runtime. Read the port and join in</a>
-            <a href="#codeop" data-news="2" tabindex="-1">CodeOp 4.0 Beta 39 is open to invited testers</a>
+            <a href="#codeop" data-news="2" tabindex="-1">CodeOp 4.0 Beta 40 is open to invited testers</a>
+            <a href="#crews-lite" data-news="3" tabindex="-1">Crews Lite is out: three AI agents on one job, free</a>
           </div>
         </div>
       </div>
@@ -72,13 +76,13 @@
         matter, built by other people and carrying their own licences.
       </aside>
 
-      <section class="thing" id="workbench">
+      <section class="thing" id="crews">
         <div class="head">
-          <h2>Agent Workbench Native</h2>
+          <h2>Crews</h2>
           <span class="chip live">Beta &middot; Linux</span>
         </div>
         <p>
-          <strong>Open it and get to work.</strong> Agent Workbench Native is a
+          <strong>Open it and get to work.</strong> Crews is a
           desktop app for AI coding agents. It handles the setup, the juggling
           and the plumbing. You say what you want done.
         </p>
@@ -112,15 +116,15 @@
 
         <div class="shots">
           <figure class="shot">
-            <a class="zoom" href="#view-awbn-art" id="thumb-awbn-art" aria-label="Enlarge this picture"><img src="/assets/screenshot-awbn-art.jpg" alt="Agent Workbench Native with a project open: file tree on the left, concept art in the viewer, the agent's chat on the right." loading="lazy" /></a>
+            <a class="zoom" href="#view-crews-art" id="thumb-crews-art" aria-label="Enlarge this picture"><img src="/assets/screenshot-crews-art.jpg" alt="Crews with a project open: file tree on the left, concept art in the viewer, the agent's chat on the right." loading="lazy" /></a>
             <figcaption>Art, code and docs in the viewer the agent works in.</figcaption>
           </figure>
           <figure class="shot">
-            <a class="zoom" href="#view-awbn-code" id="thumb-awbn-code" aria-label="Enlarge this picture"><img src="/assets/screenshot-awbn-code.jpg" alt="Agent Workbench Native showing a Python file open in the code viewer." loading="lazy" /></a>
+            <a class="zoom" href="#view-crews-code" id="thumb-crews-code" aria-label="Enlarge this picture"><img src="/assets/screenshot-crews-code.jpg" alt="Crews showing a Python file open in the code viewer." loading="lazy" /></a>
             <figcaption>Every file it touches opens where you can read it.</figcaption>
           </figure>
           <figure class="shot">
-            <a class="zoom" href="#view-awbn-clients" id="thumb-awbn-clients" aria-label="Enlarge this picture"><img src="/assets/screenshot-awbn-clients.jpg" alt="The Connections screen listing installed AI coding clients and their models." loading="lazy" /></a>
+            <a class="zoom" href="#view-crews-clients" id="thumb-crews-clients" aria-label="Enlarge this picture"><img src="/assets/screenshot-crews-clients.jpg" alt="The Connections screen listing installed AI coding clients and their models." loading="lazy" /></a>
             <figcaption>Finds the clients you already have.</figcaption>
           </figure>
         </div>
@@ -131,6 +135,7 @@
             <li>Linux x86-64 only. No Windows, macOS or ARM build.</li>
             <li>Still in beta. Keep your projects in Git and keep backups.</li>
             <li>Tools other than the four built in need their command entering by hand, in Options, Agents, Custom clients.</li>
+            <li>A Windows version is built but has never been run on Windows, so nothing about it is proven.</li>
           </ul>
         </div>
 
@@ -139,10 +144,10 @@
         <div class="actions" id="download">
           <span class="button off" aria-disabled="true">
             Download for Linux
-            <!-- AWBN-VERSION --><span class="sub" data-fill="awbn">Installer · 10 MB · v4.18.2</span>
+            <!-- CREWS-VERSION --><span class="sub" data-fill="crews">Installer · 10 MB · v4.18.2</span>
           </span>
           <a class="button quiet" href="https://github.com/Kadaken/community/discussions" rel="noopener" target="_blank">Tell me how it went</a>
-          <a class="button quiet" href="mailto:support@kadaken.com?subject=Agent%20Workbench%20Native">Report a problem</a>
+          <a class="button quiet" href="mailto:support@kadaken.com?subject=Crews">Report a problem</a>
         </div>
         <p class="alt">
           Open it and it installs. Ubuntu, Debian, Mint, Pop!_OS.
@@ -157,6 +162,72 @@
           The portable file installs nothing, but your browser saves it without
           permission to run. Right-click it → Properties → allow it to run as a
           program, then open it. The installer above needs none of that.
+        </p>
+      </section>
+
+      <!-- Crews Lite is the crew harness on its own: the same three-agent
+           arrangement Crews runs, in plain Python, with no desktop app. It is
+           free and the download is not gated, because the point of it is that
+           people can read every line before they run it. -->
+      <section class="thing" id="crews-lite">
+        <div class="head">
+          <h2>Crews Lite</h2>
+          <span class="chip live">Free &middot; Linux</span>
+        </div>
+        <p>
+          <strong>Three AI agents on one job, in one window.</strong> Crews Lite
+          is the crew part of Crews on its own, in plain Python. No desktop app,
+          no account, no server. It opens three Claude Code chats side by side
+          and lets them work the job between them.
+        </p>
+        <p>
+          A <strong>Coordinator</strong> plans the work and talks to you. An
+          <strong>Architect</strong> reads the code and writes one job at a
+          time. A <strong>Builder</strong> does the job and reports back. The
+          two workers hand off to each other by writing a file; a small relay
+          sees the file and types one line into the other chat. Nothing long is
+          ever typed into a pane, because a long message is re-read on every
+          later turn, and that is where the money goes.
+        </p>
+
+        <ul class="wins">
+          <li><strong>You are not the messenger.</strong> The agents hand work to each other while you watch.</li>
+          <li><strong>Built to be cheap.</strong> Work lives in files; what crosses between agents is one line.</li>
+          <li><strong>It survives a full chat.</strong> When one runs out of room it writes a handoff, and the next one picks the job up.</li>
+          <li><strong>Readable.</strong> Seven small scripts and seven Markdown rule pages. No build step.</li>
+          <li><strong>Yours to change.</strong> The rules the agents follow are plain Markdown. Edit them and the next message obeys.</li>
+          <li><strong>Nothing phones home.</strong> No telemetry, no account, no server of mine anywhere in it.</li>
+          <li><strong>You test what it built.</strong> The crew writes a numbered checklist; <code>checkrun</code> shows it one step at a time and you click <em>Worked</em>, <em>Broken</em> or <em>Skipped</em>. Your answers go straight back to the crew.</li>
+        </ul>
+
+        <div class="limits">
+          <strong>What it does not do yet</strong>
+          <ul>
+            <li>Linux with KDE's Konsole. The panes are Konsole profiles and the relay types into them over D-Bus.</li>
+            <li>You bring your own agents. It runs <code>claude</code>, and optionally <code>codex</code>, signed in with your own accounts.</li>
+            <li>Three agents talking is three agents billed. Watch your own usage for the first few rounds.</li>
+            <li>No installer and no updates. Download it again for a newer one.</li>
+            <li>The <code>checkrun</code> test window needs PyQt6. Everything else is plain Python.</li>
+          </ul>
+        </div>
+
+        <div class="actions" id="crews-lite-download">
+          <a class="button" href="/get/crews-lite">
+            Download for Linux
+            <span class="sub">Archive &middot; 92 KB &middot; free</span>
+          </a>
+          <a class="button quiet" href="https://github.com/Kadaken/community/discussions" rel="noopener" target="_blank">Tell me how it went</a>
+          <a class="button quiet" href="mailto:support@kadaken.com?subject=Crews%20Lite">Report a problem</a>
+        </div>
+        <p class="alt">
+          Unpack it and run <code>./install.sh</code>. It copies the scripts to
+          <code>~/bin</code> and the rule pages to <code>~/agent-docs</code>,
+          needs no root, and writes nothing outside your home folder. Then:
+          <code>pqpw new myapp "My App"</code> and <code>crews</code>.
+        </p>
+        <p class="alt">
+          Checksums are in
+          <a href="/download/SHA256SUMS">SHA256SUMS</a>.
         </p>
       </section>
 
@@ -179,17 +250,21 @@
           <ul>
             <li>Brand-new Windows build. Use headphones on calls for now.</li>
             <li>Screen sharing works on Linux. It is not switched on for Windows in this build yet.</li>
+            <li>The screen sharing fix has not yet been proven between two machines.</li>
+            <li>Quiet microphones: still finding the cause rather than papering over it.</li>
+            <li>Not code-signed, so Windows warns about it.</li>
+            <li>No Mac version.</li>
           </ul>
         </div>
 
         <div class="actions" id="codeop-download">
           <span class="button off" aria-disabled="true">
             Download for Windows
-            <!-- CODEOP-VERSION --><span class="sub" data-fill="codeop-windows">Zip · 27 MB · v4.0.0-beta+39</span>
+            <!-- CODEOP-VERSION --><span class="sub" data-fill="codeop-windows">Zip · 27 MB · v4.0.0-beta+40</span>
           </span>
           <span class="button off" aria-disabled="true">
             Download for Linux
-            <!-- CODEOP-VERSION-LINUX --><span class="sub" data-fill="codeop-linux">Portable · 22 MB · v4.0.0-beta+39</span>
+            <!-- CODEOP-VERSION-LINUX --><span class="sub" data-fill="codeop-linux">Portable · 22 MB · v4.0.0-beta+40</span>
           </span>
           <a class="button quiet" href="https://github.com/Kadaken/community/discussions" rel="noopener" target="_blank">Tell me how it went</a>
           <a class="button quiet" href="mailto:support@kadaken.com?subject=CodeOp">Report a problem</a>
@@ -238,7 +313,7 @@
       <section class="thing" id="wayfinder">
         <div class="head">
           <h2>Wayfinder</h2>
-          <span class="chip">Alpha</span>
+          <span class="chip">Beta</span>
         </div>
         <p>
           A file manager for Linux that shows you the file, not just its name.
@@ -249,10 +324,29 @@
           Nowhere near finished, and open about it. If you want to shape a file
           manager while it is still small enough to change, now is the moment.
         </p>
-        <div class="actions">
+        <div class="limits">
+          <strong>What it does not do yet</strong>
+          <ul>
+            <li>Linux only. No Windows or Mac version.</li>
+            <li>Rebuilt from scratch to be properly native, and still catching up with the older version it replaced.</li>
+            <li>Dragging files has only been tested in code, never with a real mouse.</li>
+            <li>Batch rename, Open with and Properties still open as separate windows and can land in the wrong place.</li>
+            <li>Using it as the file picker in other apps is on hold until Linux gives it a way in.</li>
+          </ul>
+        </div>
+
+        <div class="actions" id="wayfinder-download">
+          <a class="button" href="/get/wayfinder">
+            Download for Linux
+            <span class="sub">Archive &middot; 4 MB &middot; v0.9.23 &middot; free</span>
+          </a>
           <a class="button quiet" href="https://github.com/Kadaken/wayfinder" rel="noopener" target="_blank">Source on GitHub</a>
           <a class="button quiet" href="https://github.com/Kadaken/wayfinder/discussions" rel="noopener" target="_blank">Help build it</a>
         </div>
+        <p class="alt">
+          I built it on Fedora 44. It needs GTK 4.22 and libadwaita 1.9.
+          Unpack it and run <code>./packaging/install.sh</code>, no root needed.
+        </p>
 </section>
 
          <!-- Two doors off the front page. Apps are what people come for; games
@@ -308,20 +402,20 @@
         © 2026 Kadaken. All rights reserved.
       </div>
     </footer>
-    <div class="lightbox" id="view-awbn-art" role="dialog" aria-label="Agent Workbench Native with a project open: file tree on the left, concept art in the viewer, the agent's chat on the right.">
-      <a class="sheet" href="#thumb-awbn-art" aria-label="Close"></a>
-      <a class="shut" href="#thumb-awbn-art">Close</a>
-      <img src="/assets/screenshot-awbn-art.jpg" alt="Agent Workbench Native with a project open: file tree on the left, concept art in the viewer, the agent's chat on the right." loading="lazy" />
+    <div class="lightbox" id="view-crews-art" role="dialog" aria-label="Crews with a project open: file tree on the left, concept art in the viewer, the agent's chat on the right.">
+      <a class="sheet" href="#thumb-crews-art" aria-label="Close"></a>
+      <a class="shut" href="#thumb-crews-art">Close</a>
+      <img src="/assets/screenshot-crews-art.jpg" alt="Crews with a project open: file tree on the left, concept art in the viewer, the agent's chat on the right." loading="lazy" />
     </div>
-    <div class="lightbox" id="view-awbn-code" role="dialog" aria-label="Agent Workbench Native showing a Python file open in the code viewer.">
-      <a class="sheet" href="#thumb-awbn-code" aria-label="Close"></a>
-      <a class="shut" href="#thumb-awbn-code">Close</a>
-      <img src="/assets/screenshot-awbn-code.jpg" alt="Agent Workbench Native showing a Python file open in the code viewer." loading="lazy" />
+    <div class="lightbox" id="view-crews-code" role="dialog" aria-label="Crews showing a Python file open in the code viewer.">
+      <a class="sheet" href="#thumb-crews-code" aria-label="Close"></a>
+      <a class="shut" href="#thumb-crews-code">Close</a>
+      <img src="/assets/screenshot-crews-code.jpg" alt="Crews showing a Python file open in the code viewer." loading="lazy" />
     </div>
-    <div class="lightbox" id="view-awbn-clients" role="dialog" aria-label="The Connections screen listing installed AI coding clients and their models.">
-      <a class="sheet" href="#thumb-awbn-clients" aria-label="Close"></a>
-      <a class="shut" href="#thumb-awbn-clients">Close</a>
-      <img src="/assets/screenshot-awbn-clients.jpg" alt="The Connections screen listing installed AI coding clients and their models." loading="lazy" />
+    <div class="lightbox" id="view-crews-clients" role="dialog" aria-label="The Connections screen listing installed AI coding clients and their models.">
+      <a class="sheet" href="#thumb-crews-clients" aria-label="Close"></a>
+      <a class="shut" href="#thumb-crews-clients">Close</a>
+      <img src="/assets/screenshot-crews-clients.jpg" alt="The Connections screen listing installed AI coding clients and their models." loading="lazy" />
     </div>
     <div class="lightbox" id="view-codeop" role="dialog" aria-label="CodeOp: a friends list on the left and a chat thread with shared build files on the right.">
       <a class="sheet" href="#thumb-codeop" aria-label="Close"></a>

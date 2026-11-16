@@ -49,9 +49,9 @@ export async function onRequestGet({ env }) {
         <div class="head"><h2>Downloads</h2><span class="chip live">${total} total</span></div>
         <table class="tally">
           <tr><td><b>Different people</b></td><td><b>${people}</b></td></tr>
-          <tr><td>Agent Workbench &middot; AppImage</td><td>${appimage}</td></tr>
-          <tr><td>Agent Workbench &middot; .deb</td><td>${deb}</td></tr>
-          <tr><td>Agent Workbench &middot; .tar.gz</td><td>${tarball}</td></tr>
+          <tr><td>Crews &middot; AppImage</td><td>${appimage}</td></tr>
+          <tr><td>Crews &middot; .deb</td><td>${deb}</td></tr>
+          <tr><td>Crews &middot; .tar.gz</td><td>${tarball}</td></tr>
           <tr><td>CodeOp</td><td>${codeop}</td></tr>
         </table>
         <p class="alt">Last one: ${last ? esc(last.replace("T", " ").slice(0, 16)) + " UTC" : "none yet"}</p>

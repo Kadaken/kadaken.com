@@ -38,7 +38,7 @@ the entries as they should appear.
 For a CodeOp beta announcement, leave the two placeholders in that file. The
 site reads CodeOp's live release manifest and fills the version automatically,
 so publishing Beta 35 will change the bar from Beta 34 to Beta 35 without an
-edit to the homepage. Agent Workbench's version works the same way through its
+edit to the homepage. Crews' version works the same way through its
 own update manifest. The raw HTML intentionally uses version-free fallbacks, so
 a temporary manifest outage cannot make the page advertise old versions.
 

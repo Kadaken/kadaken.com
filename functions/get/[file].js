@@ -9,13 +9,18 @@
 // static files and costs nothing.
 
 const FILES = {
-  appimage: "Agent_Workbench_Native-x86_64.AppImage",
-  deb: "agent-workbench-native-amd64.deb",
-  tarball: "agent-workbench-native-linux-x64.tar.gz",
+  appimage: "Crews-x86_64.AppImage",
+  deb: "crews-amd64.deb",
+  tarball: "crews-linux-x64.tar.gz",
   // Small Python tools. No build step and no dependencies beyond what Fedora
   // already ships, so they are plain archives rather than packages.
   "subagent-viewer": "claude-code-subagent-viewer-linux.tar.gz",
+  // Crews Lite: the crew harness on its own, no desktop app. Plain Python,
+  // so it is an archive rather than a package.
+  "crews-lite": "crews-lite-linux.tar.gz",
   "auto-clicker": "fedora-auto-clicker-linux.tar.gz",
+  // Wayfinder: one binary plus its icons and an install script.
+  wayfinder: "wayfinder-linux-x64.tar.gz",
 };
 
 // CodeOp's app packages are NOT hosted here. Cloudflare Pages refuses any file
@@ -202,12 +207,12 @@ function networkKind(organisation) {
 }
 
 // Which product the file belongs to, so one pile of numbers becomes three.
-// "527 downloads" was never one thing: it mixed Agent Workbench, CodeOp and two
+// "527 downloads" was never one thing: it mixed Crews, CodeOp and two
 // small Python tools, and the headline figure was wrong for every one of them.
 const PRODUCT = {
-  appimage: "awbn", deb: "awbn", tarball: "awbn",
+  appimage: "crews", deb: "crews", tarball: "crews",
   "codeop-windows": "codeop", "codeop-linux": "codeop", "codeop-appimage": "codeop",
-  "subagent-viewer": "tools", "auto-clicker": "tools",
+  "subagent-viewer": "tools", "auto-clicker": "tools", "crews-lite": "crews",
 };
 
 // Who this is, without ever storing who this is.

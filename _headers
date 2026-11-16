@@ -24,6 +24,14 @@
   Cache-Control: public, max-age=60, must-revalidate
 
 # The update file must not be served stale — apps ask for it at most hourly.
+# Two paths, one file: copies installed before the rename still ask for the old
+# name, and both point at the same renamed downloads, so no installed app is
+# stranded by this rename (2026-09-24).
+/crews-update.json
+  Cache-Control: public, max-age=300
+  Access-Control-Allow-Origin: *
+  X-Content-Type-Options: nosniff
+
 /awbn-update.json
   Cache-Control: public, max-age=300
   Access-Control-Allow-Origin: *

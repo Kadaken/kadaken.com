@@ -7,7 +7,7 @@
 // manifest, but the words next to them were not, so they could still drift
 // apart from what the button hands over.
 //
-// Nothing here is written out. AWBN's figures come from its own update file
+// Nothing here is written out. Crews' figures come from its own update file
 // and CodeOp's from the updater's manifest, so the label and the file can only
 // ever agree.
 
@@ -15,18 +15,18 @@ const KIND = { portable: "Portable", zip: "Zip", deb: "Installer" };
 
 export async function onRequestGet({ request, env }) {
   const out = {};
-  let awbnVersion = "";
+  let crewsVersion = "";
   let codeopVersion = "";
 
   try {
-    const awbn = await (
-      await fetch(new URL("/awbn-update.json", request.url), {
+    const crews = await (
+      await fetch(new URL("/crews-update.json", request.url), {
         cf: { cacheTtl: 60, cacheEverything: true },
       })
     ).json();
-    const deb = (awbn.assets || {}).deb || {};
-    awbnVersion = awbn.version || "";
-    out.awbn = label("Installer", deb.size, awbn.version);
+    const deb = (crews.assets || {}).deb || {};
+    crewsVersion = crews.version || "";
+    out.crews = label("Installer", deb.size, crews.version);
   } catch (_) {
     // A label that cannot be read is left out entirely: the page keeps the
     // words already in the HTML rather than showing a blank or a guess.
@@ -55,7 +55,7 @@ export async function onRequestGet({ request, env }) {
       ? await env.ASSETS.fetch(new URL("/news.json", request.url))
       : await fetch(new URL("/news.json", request.url));
     const news = await newsResponse.json();
-    const rendered = renderNews(news, awbnVersion, codeopVersion);
+    const rendered = renderNews(news, crewsVersion, codeopVersion);
     if (rendered) out.news = rendered;
   } catch (_) {
     // The accessible HTML fallback remains visible if either source is down.
@@ -90,12 +90,12 @@ function codeopManifestUrl(env) {
   return new URL("/codeop-manifest-4.json", env.CODEOP_UPDATE_BASE).toString();
 }
 
-function renderNews(news, awbnVersion, codeopVersion) {
+function renderNews(news, crewsVersion, codeopVersion) {
   if (!news || !Array.isArray(news.items)) return null;
   const match = String(codeopVersion).match(/^(\d+)\.(\d+)(?:\.\d+)?-beta\+(\d+)$/i);
   const rendered = news.items.map((item) => {
     if (!item || typeof item.text !== "string" || typeof item.href !== "string") return null;
-    let text = item.text.replaceAll("{{awbn.version}}", String(awbnVersion));
+    let text = item.text.replaceAll("{{crews.version}}", String(crewsVersion));
     if (match) {
       text = text
         .replaceAll("{{codeop.major_minor}}", `${match[1]}.${match[2]}`)
