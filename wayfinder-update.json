@@ -1,8 +1,8 @@
 {
-  "version": "0.9.25",
+  "version": "0.9.26",
   "date": "2026-11-16",
   "url": "https://kadaken.com/get/wayfinder",
-  "sha256": "8448e5afcb77a48165acd8501f3bc15fa88d8c0002e40f0bc86460c6cc64e82b",
-  "size": 3106966,
-  "notes": "Sidebar icons are crisp again, and the rows no longer stretch."
+  "sha256": "d1c24d19affa6ee4a05724e2ff832d6b1ced8907c74fd6022380d5ab3bdf54d3",
+  "size": 3109036,
+  "notes": "The sidebar icons are the right drawings again, crisp at every size."
 }
