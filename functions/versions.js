@@ -32,6 +32,26 @@ export async function onRequestGet({ request, env }) {
     // words already in the HTML rather than showing a blank or a guess.
   }
 
+  // Wayfinder reads the same file its own in-app update check reads, written
+  // by scripts/make-update-manifest.sh off the release tarball. Before this,
+  // Wayfinder was the one app whose label was still typed by hand, and it said
+  // "2 MB" beside a 3.7 MB download of a version twelve releases newer than
+  // the one the words described.
+  try {
+    const wayfinder = await (
+      await fetch(new URL("/wayfinder-update.json", request.url), {
+        cf: { cacheTtl: 60, cacheEverything: true },
+      })
+    ).json();
+    // "free" is part of the claim, not part of the file, so it is appended
+    // rather than read.
+    out.wayfinder = [label("Archive", wayfinder.size, wayfinder.version), "free"]
+      .filter(Boolean)
+      .join(" \u00b7 ");
+  } catch (_) {
+    // Same again: the HTML's own words stay.
+  }
+
   try {
     const codeopManifest = codeopManifestUrl(env);
     const codeop = await (
