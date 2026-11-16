@@ -1,8 +1,8 @@
 {
-  "version": "0.9.24",
+  "version": "0.9.25",
   "date": "2026-11-16",
   "url": "https://kadaken.com/get/wayfinder",
-  "sha256": "30f3b6ba590c469493964f676764d88de2aebae81384725e578e55a771097179",
-  "size": 3718335,
-  "notes": "Sound files now play right in the preview pane, in 46 formats."
+  "sha256": "8448e5afcb77a48165acd8501f3bc15fa88d8c0002e40f0bc86460c6cc64e82b",
+  "size": 3106966,
+  "notes": "Sidebar icons are crisp again, and the rows no longer stretch."
 }
