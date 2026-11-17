@@ -2,7 +2,7 @@
   "version": "0.9.28",
   "date": "2026-11-17",
   "url": "https://kadaken.com/get/wayfinder",
-  "sha256": "3ea2fa0848cb3a27d52b31d1097e7e025408be4313ede61707f9e28718501e0d",
-  "size": 3106466,
+  "sha256": "80ca50820bc0d4291e746e0ee70177948b6bfc945ac6d599a75f1b320184f67d",
+  "size": 3106357,
   "notes": "The window no longer freezes while the sidebar reads a network drive."
 }
