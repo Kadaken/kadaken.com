@@ -1,8 +1,8 @@
 {
-  "version": "0.9.27",
-  "date": "2026-11-16",
+  "version": "0.9.28",
+  "date": "2026-11-17",
   "url": "https://kadaken.com/get/wayfinder",
-  "sha256": "6d06ebc0dfcff81c3ac23eda25a466f112655b3a4f011ef95693dd020cde1d91",
-  "size": 3108480,
-  "notes": "Update checks are no longer answered from a stale copy."
+  "sha256": "4b9d8cc0525994ca3a16bbaaf929c4b91acd0d6f1dd2edc68c25936113ede709",
+  "size": 3105966,
+  "notes": "The sidebar can no longer freeze the window on a slow network drive."
 }
