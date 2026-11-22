@@ -11,8 +11,8 @@
     },
     "tarball": {
       "url": "https://kadaken.com/download/crews-linux-x64.tar.gz",
-      "sha256": "aa966f9fbff3060571757351e274a60ee1aed3862ad3c09e362e36e15bfdb72e",
-      "size": 15132057
+      "sha256": "4c95d0933a88ac54fb0e688b154a839044461924f9cafa56e7cfcecd7b812090",
+      "size": 15040097
     },
     "deb": {
       "url": "https://kadaken.com/download/crews-amd64.deb",
