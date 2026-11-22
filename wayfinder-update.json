@@ -1,8 +1,8 @@
 {
-  "version": "0.9.28",
-  "date": "2026-11-17",
+  "version": "0.9.29",
+  "date": "2026-11-21",
   "url": "https://kadaken.com/get/wayfinder",
-  "sha256": "80ca50820bc0d4291e746e0ee70177948b6bfc945ac6d599a75f1b320184f67d",
-  "size": 3106357,
-  "notes": "The window no longer freezes while the sidebar reads a network drive."
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "size": 3561047,
+  "notes": "The file dialog no longer closes on you while you look around, and a video preview waits until you stop on the file."
 }

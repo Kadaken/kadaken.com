@@ -17,6 +17,7 @@ export async function onRequestGet({ request, env }) {
   const out = {};
   let crewsVersion = "";
   let codeopVersion = "";
+  let wayfinderVersion = "";
 
   try {
     const crews = await (
@@ -43,6 +44,7 @@ export async function onRequestGet({ request, env }) {
         cf: { cacheTtl: 60, cacheEverything: true },
       })
     ).json();
+    wayfinderVersion = wayfinder.version || "";
     // "free" is part of the claim, not part of the file, so it is appended
     // rather than read.
     out.wayfinder = [label("Archive", wayfinder.size, wayfinder.version), "free"]
@@ -75,7 +77,7 @@ export async function onRequestGet({ request, env }) {
       ? await env.ASSETS.fetch(new URL("/news.json", request.url))
       : await fetch(new URL("/news.json", request.url));
     const news = await newsResponse.json();
-    const rendered = renderNews(news, crewsVersion, codeopVersion);
+    const rendered = renderNews(news, crewsVersion, codeopVersion, wayfinderVersion);
     if (rendered) out.news = rendered;
   } catch (_) {
     // The accessible HTML fallback remains visible if either source is down.
@@ -110,12 +112,14 @@ function codeopManifestUrl(env) {
   return new URL("/codeop-manifest-4.json", env.CODEOP_UPDATE_BASE).toString();
 }
 
-function renderNews(news, crewsVersion, codeopVersion) {
+function renderNews(news, crewsVersion, codeopVersion, wayfinderVersion) {
   if (!news || !Array.isArray(news.items)) return null;
   const match = String(codeopVersion).match(/^(\d+)\.(\d+)(?:\.\d+)?-beta\+(\d+)$/i);
   const rendered = news.items.map((item) => {
     if (!item || typeof item.text !== "string" || typeof item.href !== "string") return null;
-    let text = item.text.replaceAll("{{crews.version}}", String(crewsVersion));
+    let text = item.text
+      .replaceAll("{{crews.version}}", String(crewsVersion))
+      .replaceAll("{{wayfinder.version}}", String(wayfinderVersion));
     if (match) {
       text = text
         .replaceAll("{{codeop.major_minor}}", `${match[1]}.${match[2]}`)
