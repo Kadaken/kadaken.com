@@ -2,3 +2,5 @@
 /download/Agent_Workbench_Native-x86_64.AppImage  /download/Crews-x86_64.AppImage  301
 /download/agent-workbench-native-amd64.deb  /download/crews-amd64.deb  301
 /download/agent-workbench-native-linux-x64.tar.gz  /download/crews-linux-x64.tar.gz  301
+
+/assets/preview-pig*  /  302

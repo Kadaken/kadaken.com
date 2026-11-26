@@ -17,7 +17,7 @@
       "href": "#crews-lite"
     },
     {
-      "text": "Wayfinder beta is out: a file manager for Linux, free",
+      "text": "Wayfinder {{wayfinder.version}} is out: a file manager for Linux, free",
       "href": "#wayfinder"
     }
   ]

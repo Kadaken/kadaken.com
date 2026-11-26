@@ -1,8 +1,8 @@
 {
-  "version": "0.9.28",
-  "date": "2026-11-17",
+  "version": "0.9.37",
+  "date": "2026-11-25",
   "url": "https://kadaken.com/get/wayfinder",
-  "sha256": "80ca50820bc0d4291e746e0ee70177948b6bfc945ac6d599a75f1b320184f67d",
-  "size": 3106357,
-  "notes": "The window no longer freezes while the sidebar reads a network drive."
+  "sha256": "3af2a3897dbed687b92ab615960d0b5adffe1745bd2ef59774d5bc3146b1e56c",
+  "size": 3734404,
+  "notes": "Saving or opening a file from another app no longer freezes after you press Replace or Save, even when a slow network drive such as a Google Drive folder has stopped answering."
 }
