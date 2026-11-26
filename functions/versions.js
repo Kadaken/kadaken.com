@@ -126,7 +126,8 @@ function renderNews(news, crewsVersion, codeopVersion, wayfinderVersion) {
         .replaceAll("{{codeop.beta}}", match[3]);
     }
     if (/{{[^}]+}}/.test(text) || !text.trim()) return null;
-    const href = item.href.startsWith("/") || item.href.startsWith("#")
+    // "//host" and "/\\host" leave the site, so a single leading slash only.
+    const href = /^\/(?![\/\\])/.test(item.href) || item.href.startsWith("#")
       ? item.href
       : "/";
     return { text, href };

@@ -54,7 +54,7 @@ export async function onRequestGet({ env }) {
           <tr><td>Crews &middot; .tar.gz</td><td>${tarball}</td></tr>
           <tr><td>CodeOp</td><td>${codeop}</td></tr>
         </table>
-        <p class="alt">Last one: ${last ? esc(last.replace("T", " ").slice(0, 16)) + " UTC" : "none yet"}</p>
+        <p class="alt">Last one: ${last ? esc(last.slice(0, 10)) : "none yet"}</p>
       </section>
 
       <section class="thing">
@@ -62,8 +62,11 @@ export async function onRequestGet({ env }) {
         <table class="tally">${
           feed.length
             ? feed.slice(0, 15).map((e) =>
-                `<tr><td>${esc(String(e.at || "").replace("T", " ").slice(0, 16))}` +
-                ` &middot; ${esc(e.file || "?")} &middot; ${esc(e.country || "??")}</td>` +
+                // Day only and no country per row (25 Nov 2026): at this
+                // volume a minute and a country together can point at one
+                // person. Countries stay in the totals below.
+                `<tr><td>${esc(String(e.at || "").slice(0, 10))}` +
+                ` &middot; ${esc(e.file || "?")}</td>` +
                 `<td>${e.first ? "<b>new person</b>" : "seen before"}</td></tr>`
               ).join("")
             : '<tr><td colspan="2">Nothing yet.</td></tr>'

@@ -273,7 +273,9 @@ async function bump(kv, key, request) {
     await kv.put(k, String(now));
   }
   if (who) {
-    await kv.put(`who:${who}`, day);
+    // Forgotten 400 days after the last download from that address, as the
+    // privacy page says. Added 25 Nov 2026.
+    await kv.put(`who:${who}`, day, { expirationTtl: 400 * 86400 });
   }
 
   // The newest download, and a short log of them, so a person can be told what

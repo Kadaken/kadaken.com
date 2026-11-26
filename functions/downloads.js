@@ -73,11 +73,16 @@ export async function onRequestGet({ env }) {
     agents,
     networks,
     newPeopleByDay: newPeople,
-    last: await kv.get("last"),
+    // Day only (25 Nov 2026). A minute and a country together can point at one
+    // person at this volume, so the public feed drops both.
+    last: ((await kv.get("last")) || "").slice(0, 10) || null,
     files,
     days,
     countries,
-    recent: JSON.parse((await kv.get("recent")) || "[]"),
+    recent: JSON.parse((await kv.get("recent")) || "[]").map((e) => ({
+      day: String(e.at || "").slice(0, 10),
+      file: e.file, first: e.first, product: e.product, human: e.human,
+    })),
   });
 }
 

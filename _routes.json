@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [
+    "/assets/*",
+    "/fonts/*",
+    "/download/*",
+    "/.well-known/*",
+    "/kadaken.css",
+    "/kadaken.5b85188c8c.css",
+    "/fill-versions.js",
+    "/favicon.svg",
+    "/crews-update.json",
+    "/wayfinder-update.json",
+    "/news.json"
+  ]
+}
